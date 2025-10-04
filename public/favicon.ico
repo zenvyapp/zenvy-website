@@ -1,4 +1,8 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="32" height="32" rx="8" ry="8" fill="#0EA5E9"/>
-  <text x="16" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="white">Z</text>
+  <defs>
+    <clipPath id="rounded-corners">
+      <rect width="32" height="32" rx="8" ry="8"/>
+    </clipPath>
+  </defs>
+  <image href="/zenvy-logo.png" width="32" height="32" clip-path="url(#rounded-corners)"/>
 </svg>
