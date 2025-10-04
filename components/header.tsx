@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Apple, Menu, X } from "lucide-react"
+import { Apple, Smartphone, Menu, X } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
