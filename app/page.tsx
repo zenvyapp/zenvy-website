@@ -5,6 +5,7 @@ import type React from "react"
 import { Button } from "@/components/ui/button"
 import {
   Apple,
+  Smartphone,
   Sparkles,
   Trophy,
   Coins,
@@ -122,13 +123,7 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Image
-                      src="/android-icon.png"
-                      alt="Android"
-                      width={20}
-                      height={20}
-                      className="h-5 w-5 brightness-0 invert group-hover:invert-0"
-                    />
+                    <Smartphone className="h-5 w-5" />
                     Download for Android
                   </a>
                 </Button>
@@ -693,13 +688,7 @@ export default function HomePage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Image
-                      src="/android-icon.png"
-                      alt="Android"
-                      width={20}
-                      height={20}
-                      className="h-5 w-5 brightness-0 invert"
-                    />
+                    <Smartphone className="h-5 w-5" />
                     Download for Android
                   </a>
                 </Button>

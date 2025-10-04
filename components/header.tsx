@@ -107,7 +107,7 @@ export function Header() {
                 onClick={() => setShowDownloadOptions(false)}
                 className="flex items-center gap-3 px-4 py-3 hover:bg-muted transition-colors"
               >
-                <Image src="/android-icon.png" alt="Android" width={20} height={20} className="h-5 w-5 brightness-0" />
+                <Smartphone className="h-5 w-5" />
                 <span className="font-medium whitespace-nowrap">Download for Android</span>
               </a>
             </div>
@@ -177,13 +177,7 @@ export function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Image
-                    src="/android-icon.png"
-                    alt="Android"
-                    width={20}
-                    height={20}
-                    className="h-5 w-5 brightness-0"
-                  />
+                  <Smartphone className="h-5 w-5" />
                   Download for Android
                 </a>
               </Button>
