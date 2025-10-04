@@ -61,7 +61,7 @@ export function Footer() {
           </div>
 
           {/* Right section with 3 columns - Product, Resources, Company */}
-          <div className="flex-1 flex flex-col md:flex-row justify-end gap-8 md:gap-16">
+          <div className="flex-1 flex flex-col md:flex-row justify-end gap-8 md:gap-24">
             <div>
               <h4 className="font-semibold mb-4">Product</h4>
               <div className="space-y-2">
