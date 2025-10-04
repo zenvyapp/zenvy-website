@@ -11,6 +11,11 @@ export const metadata: Metadata = {
   description:
     "Zenvy helps families build healthy digital habits through rewards, challenges, and learning. Make screen time meaningful for your family.",
   generator: "v0.app",
+  icons: {
+    icon: "/zenvy-logo.png",
+    shortcut: "/zenvy-logo.png",
+    apple: "/zenvy-logo.png",
+  },
 }
 
 export default function RootLayout({
