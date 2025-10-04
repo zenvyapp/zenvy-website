@@ -13,7 +13,7 @@ export default function BlogPage() {
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto text-center max-w-4xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
-            Zenvy <span className="text-primary">Blog</span>
+            Zenvy <span className="text-primary">Blogggg</span>
           </h1>
           <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
             Tips, insights, and stories about building healthy digital habits
