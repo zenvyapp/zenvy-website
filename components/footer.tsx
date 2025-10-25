@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 
 export function Footer() {
@@ -12,13 +13,13 @@ export function Footer() {
     return localeMatch ? localeMatch[1] : 'en'
   }
   return (
-    <footer className="py-12 px-4 border-t border-border">
+    <footer className="py-12 px-4 border-t border-border" role="contentinfo" aria-label="Site footer">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row gap-8 mb-8">
           {/* Left section with logo and social icons - stays left aligned */}
           <div className="md:w-64 flex-shrink-0">
             <div className="flex items-center gap-2 mb-4">
-              <img src="/zenvy-logo.png" alt="Zenvy" className="h-8 w-8 rounded-lg" />
+              <Image src="/zenvy-logo.png" alt="Zenvy logo" width={32} height={32} className="h-8 w-8 rounded-lg" />
               <span className="text-xl font-bold">Zenvy</span>
             </div>
             <p className="text-sm text-muted-foreground mb-4">{getCurrentLocale() === 'nl' ? 'Schermtijd betekenisvol maken voor gezinnen wereldwijd.' : getCurrentLocale() === 'es' ? 'Haciendo que el tiempo de pantalla sea significativo para las familias de todo el mundo.' : getCurrentLocale() === 'fr' ? 'Rendre le temps d\'écran significatif pour les familles du monde entier.' : getCurrentLocale() === 'de' ? 'Bildschirmzeit für Familien weltweit bedeutsam machen.' : 'Making screen time meaningful for families worldwide.'}</p>

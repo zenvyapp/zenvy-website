@@ -3,9 +3,11 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { LoadingCard } from "@/components/ui/loading-spinner"
 import { Clock, Calendar, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { Suspense } from "react"
 
 export default function BlogPage() {
   const pathname = usePathname()
@@ -22,7 +24,9 @@ export default function BlogPage() {
   const isGerman = getCurrentLocale() === 'de'
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Suspense fallback={<LoadingCard />}>
+        <Header />
+      </Suspense>
 
       {/* Hero Section */}
       <section className="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4">

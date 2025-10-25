@@ -65,9 +65,9 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-      <nav className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <Link href={`/${getCurrentLocale()}`} className="flex items-center gap-2">
-          <img src="/zenvy-logo.png" alt="Zenvy" className="h-10 w-10 rounded-lg" />
+      <nav className="container mx-auto px-4 h-20 flex items-center justify-between" role="navigation" aria-label="Main navigation">
+        <Link href={`/${getCurrentLocale()}`} className="flex items-center gap-2" aria-label="Zenvy - Go to homepage">
+          <Image src="/zenvy-logo.png" alt="Zenvy logo" width={40} height={40} className="h-10 w-10 rounded-lg" priority />
           <span className="text-2xl font-bold text-foreground">Zenvy</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
@@ -114,12 +114,15 @@ export function Header() {
               onClick={() => setShowLanguageOptions(!showLanguageOptions)}
               variant="ghost"
               className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors hover:scale-105 transition-transform gap-2"
+              aria-label="Select language"
+              aria-expanded={showLanguageOptions}
+              aria-haspopup="menu"
             >
               <Globe className="h-4 w-4" />
               {getCurrentLocale().toUpperCase()}
             </Button>
             {showLanguageOptions && (
-              <div className="absolute top-full right-0 mt-2 w-40 bg-card border border-border rounded-xl shadow-lg overflow-hidden">
+              <div className="absolute top-full right-0 mt-2 w-40 bg-card border border-border rounded-xl shadow-lg overflow-hidden" role="menu" aria-label="Language selection">
                 <button
                   onClick={() => switchLanguage('en')}
                   className={`w-full text-left px-4 py-3 hover:bg-muted transition-colors ${
@@ -182,11 +185,14 @@ export function Header() {
             <Button
             onClick={() => setShowDownloadOptions(!showDownloadOptions)}
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all duration-300 hover:scale-105 text-base px-6 py-5"
+            aria-label="Download Zenvy app"
+            aria-expanded={showDownloadOptions}
+            aria-haspopup="menu"
           >
             {getCurrentLocale() === 'nl' ? 'Aan de slag' : getCurrentLocale() === 'es' ? 'Comenzar' : getCurrentLocale() === 'fr' ? 'Commencer' : getCurrentLocale() === 'de' ? 'Loslegen' : 'Get Started'}
           </Button>
           {showDownloadOptions && (
-            <div className="absolute top-full right-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-lg overflow-hidden">
+            <div className="absolute top-full right-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-lg overflow-hidden" role="menu" aria-label="Download options">
               <a
                 href="https://apps.apple.com/us/app/zenvy/id6744935437"
                 target="_blank"
@@ -214,12 +220,15 @@ export function Header() {
         <button
           className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="mobile-menu"
         >
           {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </nav>
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
+        <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md" id="mobile-menu" role="menu" aria-label="Mobile navigation">
           <div className="container mx-auto px-4 py-4 space-y-3">
             <Link
               href={`/${getCurrentLocale()}/features`}
