@@ -3,7 +3,9 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Shield, FileText, Scale, ExternalLink } from "lucide-react"
 
-export default function LegalPage() {
+export default async function LegalPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const isDutch = locale === 'nl'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -15,10 +17,21 @@ export default function LegalPage() {
             <Scale className="w-10 h-10 text-primary" />
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
-            Legal <span className="text-primary">Information</span>
+            {isDutch ? (
+              <>
+                Juridische <span className="text-primary">Informatie</span>
+              </>
+            ) : (
+              <>
+                Legal <span className="text-primary">Information</span>
+              </>
+            )}
           </h1>
           <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
-            Transparency and trust at the heart of everything we do
+            {isDutch 
+              ? 'Transparantie en vertrouwen staan centraal in alles wat we doen'
+              : 'Transparency and trust at the heart of everything we do'
+            }
           </p>
         </div>
       </section>
@@ -28,26 +41,39 @@ export default function LegalPage() {
         <div className="container mx-auto max-w-4xl">
           <div className="bg-card border-2 border-primary/20 rounded-3xl p-8 md:p-12 mb-12">
             <p className="text-lg leading-relaxed mb-6 text-foreground">
-              At Zenvy, transparency and trust are at the heart of everything we do. On this page, you'll find all the
-              important legal documents that govern your use of our app and services.
+              {isDutch 
+                ? 'Bij Zenvy staan transparantie en vertrouwen centraal in alles wat we doen. Op deze pagina vind je alle belangrijke juridische documenten die je gebruik van onze app en diensten regelen.'
+                : 'At Zenvy, transparency and trust are at the heart of everything we do. On this page, you\'ll find all the important legal documents that govern your use of our app and services.'
+              }
             </p>
             <p className="text-lg leading-relaxed mb-6 text-foreground">
-              We've written them to be as clear and understandable as possible — no unnecessary legal jargon.
+              {isDutch 
+                ? 'We hebben ze geschreven om zo duidelijk en begrijpelijk mogelijk te zijn — geen onnodig juridisch jargon.'
+                : 'We\'ve written them to be as clear and understandable as possible — no unnecessary legal jargon.'
+              }
             </p>
             <p className="text-lg leading-relaxed mb-6 text-foreground">
-              By using Zenvy, you agree to these policies. If you have any questions, reach out to us anytime at{" "}
+              {isDutch 
+                ? 'Door Zenvy te gebruiken, ga je akkoord met deze beleidsregels. Als je vragen hebt, neem dan gerust contact met ons op via '
+                : 'By using Zenvy, you agree to these policies. If you have any questions, reach out to us anytime at '
+              }
               <a href="mailto:support@zenvy.io" className="text-primary hover:text-secondary transition-colors">
                 support@zenvy.io
               </a>
-              . We're here to help.
+              {isDutch ? '. We zijn er om te helpen.' : '. We\'re here to help.'}
             </p>
             <p className="text-xl font-semibold text-primary">
-              We're Here. Built for families, designed with privacy in mind.
+              {isDutch 
+                ? 'We zijn er. Gebouwd voor gezinnen, ontworpen met privacy in gedachten.'
+                : 'We\'re Here. Built for families, designed with privacy in mind.'
+              }
             </p>
           </div>
 
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Please take a moment to review:</h2>
+            <h2 className="text-3xl font-bold mb-4">
+              {isDutch ? 'Neem even de tijd om te bekijken:' : 'Please take a moment to review:'}
+            </h2>
           </div>
 
           {/* Legal Documents Cards */}
@@ -58,9 +84,14 @@ export default function LegalPage() {
                 <div className="mx-auto mb-4 w-20 h-20 rounded-full bg-secondary/20 flex items-center justify-center">
                   <Shield className="w-10 h-10 text-secondary" />
                 </div>
-                <CardTitle className="text-3xl mb-3">Privacy Policy</CardTitle>
+                <CardTitle className="text-3xl mb-3">
+                  {isDutch ? 'Privacybeleid' : 'Privacy Policy'}
+                </CardTitle>
                 <CardDescription className="text-base leading-relaxed">
-                  Learn how we collect, use, and protect your family's data. Your privacy is our top priority.
+                  {isDutch 
+                    ? 'Leer hoe we de gegevens van je gezin verzamelen, gebruiken en beschermen. Jouw privacy is onze hoogste prioriteit.'
+                    : 'Learn how we collect, use, and protect your family\'s data. Your privacy is our top priority.'
+                  }
                 </CardDescription>
               </CardHeader>
               <CardContent className="text-center">
@@ -70,7 +101,7 @@ export default function LegalPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-lg font-semibold text-secondary hover:text-primary transition-colors group-hover:gap-3"
                 >
-                  Read Privacy Policy <ExternalLink className="w-5 h-5" />
+                  {isDutch ? 'Lees Privacybeleid' : 'Read Privacy Policy'} <ExternalLink className="w-5 h-5" />
                 </a>
               </CardContent>
             </Card>
@@ -81,9 +112,14 @@ export default function LegalPage() {
                 <div className="mx-auto mb-4 w-20 h-20 rounded-full bg-secondary/20 flex items-center justify-center">
                   <FileText className="w-10 h-10 text-secondary" />
                 </div>
-                <CardTitle className="text-3xl mb-3">Terms of Use</CardTitle>
+                <CardTitle className="text-3xl mb-3">
+                  {isDutch ? 'Gebruiksvoorwaarden' : 'Terms of Use'}
+                </CardTitle>
                 <CardDescription className="text-base leading-relaxed">
-                  Understand the terms and conditions for using Zenvy. Clear guidelines for a safe experience.
+                  {isDutch 
+                    ? 'Begrijp de voorwaarden voor het gebruik van Zenvy. Duidelijke richtlijnen voor een veilige ervaring.'
+                    : 'Understand the terms and conditions for using Zenvy. Clear guidelines for a safe experience.'
+                  }
                 </CardDescription>
               </CardHeader>
               <CardContent className="text-center">
@@ -93,7 +129,7 @@ export default function LegalPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-lg font-semibold text-secondary hover:text-primary transition-colors group-hover:gap-3"
                 >
-                  Read Terms of Use <ExternalLink className="w-5 h-5" />
+                  {isDutch ? 'Lees Gebruiksvoorwaarden' : 'Read Terms of Use'} <ExternalLink className="w-5 h-5" />
                 </a>
               </CardContent>
             </Card>
@@ -101,15 +137,20 @@ export default function LegalPage() {
 
           {/* Contact Section */}
           <div className="mt-16 text-center bg-secondary/10 border-2 border-secondary/30 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-4">Questions About Our Legal Policies?</h3>
+            <h3 className="text-2xl font-bold mb-4">
+              {isDutch ? 'Vragen Over Ons Juridisch Beleid?' : 'Questions About Our Legal Policies?'}
+            </h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
-              We're happy to clarify anything you need. Don't hesitate to reach out.
+              {isDutch 
+                ? 'We helpen graag bij het verduidelijken van alles wat je nodig hebt. Aarzel niet om contact op te nemen.'
+                : 'We\'re happy to clarify anything you need. Don\'t hesitate to reach out.'
+              }
             </p>
             <a
               href="mailto:support@zenvy.io?subject=Legal%20Question"
               className="inline-flex items-center gap-2 text-lg font-semibold text-secondary hover:text-primary transition-colors"
             >
-              Contact Us <ExternalLink className="w-5 h-5" />
+              {isDutch ? 'Neem Contact Op' : 'Contact Us'} <ExternalLink className="w-5 h-5" />
             </a>
           </div>
         </div>

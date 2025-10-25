@@ -3,7 +3,9 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const isDutch = locale === 'nl'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -15,10 +17,21 @@ export default function AboutPage() {
             <Heart className="w-10 h-10 text-primary" />
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
-            About <span className="text-primary">Zenvy</span>
+            {isDutch ? (
+              <>
+                Over <span className="text-primary">Zenvy</span>
+              </>
+            ) : (
+              <>
+                About <span className="text-primary">Zenvy</span>
+              </>
+            )}
           </h1>
           <p className="text-xl text-muted-foreground text-pretty leading-relaxed mb-4">
-            We're on a mission to help families build healthier relationships with technology
+            {isDutch 
+              ? 'We zijn op een missie om gezinnen te helpen gezondere relaties met technologie op te bouwen'
+              : 'We\'re on a mission to help families build healthier relationships with technology'
+            }
           </p>
         </div>
       </section>
@@ -27,11 +40,14 @@ export default function AboutPage() {
       <section className="pt-6 pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">Our Mission</h2>
+            <h2 className="text-4xl font-bold mb-6">
+              {isDutch ? 'Onze Missie' : 'Our Mission'}
+            </h2>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Zenvy was created to transform the way families approach screen time. Instead of constant battles and
-              restrictions, we believe in positive reinforcement, education, and empowerment. Our goal is to help
-              families build healthy digital habits that last a lifetime.
+              {isDutch 
+                ? 'Zenvy werd gecreëerd om de manier waarop gezinnen schermtijd benaderen te transformeren. In plaats van constante gevechten en beperkingen, geloven we in positieve versterking, educatie en empowerment. Ons doel is om gezinnen te helpen gezonde digitale gewoonten op te bouwen die een leven lang meegaan.'
+                : 'Zenvy was created to transform the way families approach screen time. Instead of constant battles and restrictions, we believe in positive reinforcement, education, and empowerment. Our goal is to help families build healthy digital habits that last a lifetime.'
+              }
             </p>
           </div>
 
@@ -41,9 +57,14 @@ export default function AboutPage() {
                 <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto">
                   <Heart className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold">Family First</h3>
+                <h3 className="text-xl font-semibold">
+                  {isDutch ? 'Gezin Eerst' : 'Family First'}
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We prioritize family connection and healthy relationships above all else.
+                  {isDutch 
+                    ? 'We geven prioriteit aan gezinsverbinding en gezonde relaties boven alles.'
+                    : 'We prioritize family connection and healthy relationships above all else.'
+                  }
                 </p>
               </CardContent>
             </Card>
@@ -53,9 +74,14 @@ export default function AboutPage() {
                 <div className="h-16 w-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto">
                   <Users className="h-8 w-8 text-secondary" />
                 </div>
-                <h3 className="text-xl font-semibold">Positive Approach</h3>
+                <h3 className="text-xl font-semibold">
+                  {isDutch ? 'Positieve Aanpak' : 'Positive Approach'}
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We believe in rewards and encouragement rather than punishment and restrictions.
+                  {isDutch 
+                    ? 'We geloven in beloningen en aanmoediging in plaats van straf en beperkingen.'
+                    : 'We believe in rewards and encouragement rather than punishment and restrictions.'
+                  }
                 </p>
               </CardContent>
             </Card>
@@ -65,9 +91,14 @@ export default function AboutPage() {
                 <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto">
                   <Target className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold">Growth Mindset</h3>
+                <h3 className="text-xl font-semibold">
+                  {isDutch ? 'Groei Mindset' : 'Growth Mindset'}
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We focus on learning, development, and building skills for the future.
+                  {isDutch 
+                    ? 'We focussen op leren, ontwikkeling en het opbouwen van vaardigheden voor de toekomst.'
+                    : 'We focus on learning, development, and building skills for the future.'
+                  }
                 </p>
               </CardContent>
             </Card>
@@ -80,12 +111,21 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-6">
-              Built with <span className="text-secondary">Love</span>
+              {isDutch ? (
+                <>
+                  Gebouwd met <span className="text-secondary">Liefde</span>
+                </>
+              ) : (
+                <>
+                  Built with <span className="text-secondary">Love</span>
+                </>
+              )}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Zenvy is a startup in its early stages, built by passionate founders who believe technology should bring
-              families together, not drive them apart. We're developing this app with the help of donations from people
-              who share our vision.
+              {isDutch 
+                ? 'Zenvy is een startup in de vroege stadia, gebouwd door gepassioneerde oprichters die geloven dat technologie gezinnen bij elkaar moet brengen, niet uit elkaar drijven. We ontwikkelen deze app met de hulp van donaties van mensen die onze visie delen.'
+                : 'Zenvy is a startup in its early stages, built by passionate founders who believe technology should bring families together, not drive them apart. We\'re developing this app with the help of donations from people who share our vision.'
+              }
             </p>
           </div>
 
@@ -95,10 +135,14 @@ export default function AboutPage() {
                 <div className="h-14 w-14 rounded-xl bg-secondary/10 flex items-center justify-center">
                   <Sparkles className="h-7 w-7 text-secondary" />
                 </div>
-                <h3 className="text-xl font-semibold">Startup Spirit</h3>
+                <h3 className="text-xl font-semibold">
+                  {isDutch ? 'Startup Geest' : 'Startup Spirit'}
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We're a small team with big dreams, working tirelessly to create something meaningful for families
-                  worldwide. Every feature is crafted with care and purpose.
+                  {isDutch 
+                    ? 'We zijn een klein team met grote dromen, werken onvermoeibaar om iets betekenisvols te creëren voor gezinnen wereldwijd. Elke functie wordt met zorg en doel gemaakt.'
+                    : 'We\'re a small team with big dreams, working tirelessly to create something meaningful for families worldwide. Every feature is crafted with care and purpose.'
+                  }
                 </p>
               </CardContent>
             </Card>
@@ -108,10 +152,14 @@ export default function AboutPage() {
                 <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Code className="h-7 w-7 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold">Community Powered</h3>
+                <h3 className="text-xl font-semibold">
+                  {isDutch ? 'Gemeenschap Aangedreven' : 'Community Powered'}
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Thanks to generous donations, we can keep Zenvy free for families. Your support helps us continue
-                  developing features that make a real difference.
+                  {isDutch 
+                    ? 'Dankzij genereuze donaties kunnen we Zenvy gratis houden voor gezinnen. Jouw steun helpt ons om door te gaan met het ontwikkelen van functies die echt een verschil maken.'
+                    : 'Thanks to generous donations, we can keep Zenvy free for families. Your support helps us continue developing features that make a real difference.'
+                  }
                 </p>
               </CardContent>
             </Card>
@@ -121,10 +169,14 @@ export default function AboutPage() {
             <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-6">
               <Globe className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="text-2xl font-bold mb-4">Made in the Netherlands, For the World</h3>
+            <h3 className="text-2xl font-bold mb-4">
+              {isDutch ? 'Gemaakt in Nederland, Voor de Wereld' : 'Made in the Netherlands, For the World'}
+            </h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Zenvy was created in the Netherlands, but our mission extends to families everywhere. No matter where
-              you're from, we're here to support your family's digital wellness journey.
+              {isDutch 
+                ? 'Zenvy werd gecreëerd in Nederland, maar onze missie strekt zich uit tot gezinnen overal. Waar je ook vandaan komt, we zijn hier om je gezin\'s digitale wellness reis te ondersteunen.'
+                : 'Zenvy was created in the Netherlands, but our mission extends to families everywhere. No matter where you\'re from, we\'re here to support your family\'s digital wellness journey.'
+              }
             </p>
           </div>
         </div>
@@ -134,7 +186,9 @@ export default function AboutPage() {
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">What We Stand For</h2>
+            <h2 className="text-4xl font-bold mb-6">
+              {isDutch ? 'Waar We Voor Staan' : 'What We Stand For'}
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -143,10 +197,14 @@ export default function AboutPage() {
                 <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center">
                   <Shield className="h-7 w-7 text-primary" />
                 </div>
-                <h3 className="text-2xl font-semibold">Privacy First</h3>
+                <h3 className="text-2xl font-semibold">
+                  {isDutch ? 'Privacy Eerst' : 'Privacy First'}
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Your family's data is absolutely safe with us. We never sell your information, and we're committed to
-                  the highest standards of data protection. Your trust is our most valuable asset.
+                  {isDutch 
+                    ? 'De gegevens van je gezin zijn absoluut veilig bij ons. We verkopen nooit je informatie en we zijn toegewijd aan de hoogste standaarden van gegevensbescherming. Jouw vertrouwen is ons meest waardevolle bezit.'
+                    : 'Your family\'s data is absolutely safe with us. We never sell your information, and we\'re committed to the highest standards of data protection. Your trust is our most valuable asset.'
+                  }
                 </p>
               </CardContent>
             </Card>
@@ -156,10 +214,14 @@ export default function AboutPage() {
                 <div className="h-14 w-14 rounded-xl bg-secondary/10 flex items-center justify-center">
                   <Heart className="h-7 w-7 text-secondary" />
                 </div>
-                <h3 className="text-2xl font-semibold">Free for Families</h3>
+                <h3 className="text-2xl font-semibold">
+                  {isDutch ? 'Gratis voor Gezinnen' : 'Free for Families'}
+                </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  We're committed to keeping Zenvy free for as long as possible. Every family deserves access to tools
-                  that help them thrive, regardless of their financial situation.
+                  {isDutch 
+                    ? 'We zijn toegewijd aan het gratis houden van Zenvy zo lang mogelijk. Elk gezin verdient toegang tot tools die hen helpen gedijen, ongeacht hun financiële situatie.'
+                    : 'We\'re committed to keeping Zenvy free for as long as possible. Every family deserves access to tools that help them thrive, regardless of their financial situation.'
+                  }
                 </p>
               </CardContent>
             </Card>

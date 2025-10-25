@@ -15,6 +15,8 @@ export default function BlogPage() {
     const localeMatch = path.match(/^\/([a-z]{2})/)
     return localeMatch ? localeMatch[1] : 'en'
   }
+  
+  const isDutch = getCurrentLocale() === 'nl'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -26,7 +28,10 @@ export default function BlogPage() {
             Zenvy <span className="text-primary">Blog</span>
           </h1>
           <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
-            Tips, insights, and stories about building healthy digital habits
+            {isDutch 
+              ? 'Tips, inzichten en verhalen over het opbouwen van gezonde digitale gewoonten'
+              : 'Tips, insights, and stories about building healthy digital habits'
+            }
           </p>
         </div>
       </section>
@@ -44,19 +49,24 @@ export default function BlogPage() {
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    <span>March 15, 2025</span>
+                    <span>{isDutch ? '15 maart 2025' : 'March 15, 2025'}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
-                    <span>5 min read</span>
+                    <span>{isDutch ? '5 min lezen' : '5 min read'}</span>
                   </div>
                 </div>
                 <CardTitle className="text-2xl mb-3 group-hover:text-primary transition-colors">
-                  5 Signs Your Family Needs Better Screen Time Balance
+                  {isDutch 
+                    ? '5 Tekenen Dat Je Gezin Betere Schermtijd Balans Nodig Heeft'
+                    : '5 Signs Your Family Needs Better Screen Time Balance'
+                  }
                 </CardTitle>
                 <CardDescription className="text-base leading-relaxed">
-                  Discover the key indicators that it's time to reassess your family's digital habits and create
-                  healthier boundaries around technology use.
+                  {isDutch 
+                    ? 'Ontdek de belangrijkste indicatoren dat het tijd is om de digitale gewoonten van je gezin opnieuw te evalueren en gezondere grenzen rond technologiegebruik te creëren.'
+                    : 'Discover the key indicators that it\'s time to reassess your family\'s digital habits and create healthier boundaries around technology use.'
+                  }
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -64,7 +74,7 @@ export default function BlogPage() {
                   href={`/${getCurrentLocale()}/blog/screen-time-balance`}
                   className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                 >
-                  Read More <ArrowRight className="w-4 h-4" />
+                  {isDutch ? 'Lees Meer' : 'Read More'} <ArrowRight className="w-4 h-4" />
                 </Link>
               </CardContent>
             </Card>
@@ -78,19 +88,24 @@ export default function BlogPage() {
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    <span>March 10, 2025</span>
+                    <span>{isDutch ? '10 maart 2025' : 'March 10, 2025'}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
-                    <span>7 min read</span>
+                    <span>{isDutch ? '7 min lezen' : '7 min read'}</span>
                   </div>
                 </div>
                 <CardTitle className="text-2xl mb-3 group-hover:text-primary transition-colors">
-                  How to Talk to Your Kids About Screen Time Without the Drama
+                  {isDutch 
+                    ? 'Hoe Je Met Je Kinderen Over Schermtijd Praat Zonder Drama'
+                    : 'How to Talk to Your Kids About Screen Time Without the Drama'
+                  }
                 </CardTitle>
                 <CardDescription className="text-base leading-relaxed">
-                  Learn effective communication strategies to discuss digital boundaries with your children in a way
-                  that builds trust and understanding.
+                  {isDutch 
+                    ? 'Leer effectieve communicatiestrategieën om digitale grenzen met je kinderen te bespreken op een manier die vertrouwen en begrip opbouwt.'
+                    : 'Learn effective communication strategies to discuss digital boundaries with your children in a way that builds trust and understanding.'
+                  }
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -98,7 +113,7 @@ export default function BlogPage() {
                   href={`/${getCurrentLocale()}/blog/talking-to-kids`}
                   className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                 >
-                  Read More <ArrowRight className="w-4 h-4" />
+                  {isDutch ? 'Lees Meer' : 'Read More'} <ArrowRight className="w-4 h-4" />
                 </Link>
               </CardContent>
             </Card>
@@ -112,19 +127,24 @@ export default function BlogPage() {
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    <span>March 5, 2025</span>
+                    <span>{isDutch ? '5 maart 2025' : 'March 5, 2025'}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
-                    <span>6 min read</span>
+                    <span>{isDutch ? '6 min lezen' : '6 min read'}</span>
                   </div>
                 </div>
                 <CardTitle className="text-2xl mb-3 group-hover:text-primary transition-colors">
-                  The Science Behind Digital Wellness: Why Balance Matters
+                  {isDutch 
+                    ? 'De Wetenschap Achter Digitale Wellness: Waarom Balans Belangrijk Is'
+                    : 'The Science Behind Digital Wellness: Why Balance Matters'
+                  }
                 </CardTitle>
                 <CardDescription className="text-base leading-relaxed">
-                  Explore the research on how screen time affects children's development and why finding the right
-                  balance is crucial for their wellbeing.
+                  {isDutch 
+                    ? 'Verken het onderzoek naar hoe schermtijd de ontwikkeling van kinderen beïnvloedt en waarom het vinden van de juiste balans cruciaal is voor hun welzijn.'
+                    : 'Explore the research on how screen time affects children\'s development and why finding the right balance is crucial for their wellbeing.'
+                  }
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -132,7 +152,7 @@ export default function BlogPage() {
                   href={`/${getCurrentLocale()}/blog/digital-wellness`}
                   className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                 >
-                  Read More <ArrowRight className="w-4 h-4" />
+                  {isDutch ? 'Lees Meer' : 'Read More'} <ArrowRight className="w-4 h-4" />
                 </Link>
               </CardContent>
             </Card>

@@ -2,8 +2,9 @@ import { Users, Target, Coins, Brain, Trophy, Sparkles, Shield, BarChart, Clock,
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
-export default function FeaturesPage({ params }: { params: { locale: string } }) {
-  const isDutch = params.locale === 'nl'
+export default async function FeaturesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const isDutch = locale === 'nl'
   return (
     <div className="min-h-screen bg-background">
       <Header />
