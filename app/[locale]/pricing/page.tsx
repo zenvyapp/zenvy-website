@@ -5,6 +5,7 @@ import { Footer } from "@/components/footer"
 export default async function PricingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
   const isDutch = locale === 'nl'
+  const isSpanish = locale === 'es'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -20,6 +21,10 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                   <>
                     Gebouwd met <span className="text-secondary">Liefde</span>
                   </>
+                ) : isSpanish ? (
+                  <>
+                    Construido con <span className="text-secondary">Amor</span>
+                  </>
                 ) : (
                   <>
                     Built with <span className="text-secondary">Love</span>
@@ -31,6 +36,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
             <p className="text-2xl text-muted-foreground text-pretty leading-relaxed">
               {isDutch 
                 ? 'Een passieproject voor gezinnen overal ter wereld'
+                : isSpanish
+                ? 'Un proyecto de pasión para familias en todas partes del mundo'
                 : 'A passion project for families everywhere'
               }
             </p>
@@ -41,18 +48,24 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
               <p className="text-lg leading-relaxed mb-6 text-foreground">
                 {isDutch 
                   ? "Zenvy is geboren uit een eenvoudige droom: gezinnen helpen balans te vinden in onze digitale wereld. We zijn een klein team van gepassioneerde oprichters die geloven dat technologie gezinnen dichter bij elkaar moet brengen, niet uit elkaar drijven."
+                  : isSpanish
+                  ? "Zenvy nació de un sueño simple: ayudar a las familias a encontrar equilibrio en nuestro mundo digital. Somos un pequeño equipo de fundadores apasionados que creemos que la tecnología debe acercar a las familias, no separarlas."
                   : "Zenvy was born from a simple dream: to help families find balance in our digital world. We're a small team of passionate founders who believe that technology should bring families closer together, not pull them apart."
                 }
               </p>
               <p className="text-lg leading-relaxed mb-6 text-foreground">
                 {isDutch 
                   ? "Als startup in de vroege stadia bouwen we Zenvy met liefde, toewijding en de genereuze steun van gezinnen zoals die van jou. Elke donatie helpt ons om door te gaan met het ontwikkelen van functies, het verbeteren van de app en het toegankelijk houden voor iedereen."
+                  : isSpanish
+                  ? "Como startup en sus primeras etapas, estamos construyendo Zenvy con amor, dedicación y el generoso apoyo de familias como la tuya. Cada donación nos ayuda a continuar desarrollando funciones, mejorando la aplicación y manteniéndola accesible para todos."
                   : "As a startup in its early stages, we're building Zenvy with love, dedication, and the generous support of families like yours. Every donation helps us continue developing features, improving the app, and keeping it accessible to everyone."
                 }
               </p>
               <p className="text-xl leading-relaxed font-semibold text-primary">
                 {isDutch 
                   ? "Onze missie is om Zenvy zo lang mogelijk gratis te houden, omdat we geloven dat elk gezin toegang verdient tot tools die gezonde digitale gewoonten bevorderen."
+                  : isSpanish
+                  ? "Nuestra misión es mantener Zenvy gratuito durante el mayor tiempo posible, porque creemos que cada familia merece acceso a herramientas que promuevan hábitos digitales saludables."
                   : "Our mission is to keep Zenvy free for as long as possible, because we believe every family deserves access to tools that promote healthy digital habits."
                 }
               </p>
@@ -65,11 +78,13 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 <Gift className="h-10 w-10 text-secondary" />
               </div>
               <h3 className="text-xl font-bold mb-3">
-                {isDutch ? 'Donatie-Gedreven' : 'Donation-Powered'}
+                {isDutch ? 'Donatie-Gedreven' : isSpanish ? 'Impulsado por Donaciones' : 'Donation-Powered'}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 {isDutch 
                   ? 'Gebouwd met de steun van genereuze gezinnen die in onze missie geloven'
+                  : isSpanish
+                  ? 'Construido con el apoyo de familias generosas que creen en nuestra misión'
                   : 'Built with the support of generous families who believe in our mission'
                 }
               </p>
@@ -80,11 +95,13 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 <Shield className="h-10 w-10 text-primary" />
               </div>
               <h3 className="text-xl font-bold mb-3">
-                {isDutch ? 'Jouw Gegevens zijn Heilig' : 'Your Data is Sacred'}
+                {isDutch ? 'Jouw Gegevens zijn Heilig' : isSpanish ? 'Tus Datos son Sagrados' : 'Your Data is Sacred'}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 {isDutch 
                   ? 'We verkopen nooit je gegevens. De privacy van je gezin is absoluut beschermd'
+                  : isSpanish
+                  ? 'Nunca vendemos tus datos. La privacidad de tu familia está absolutamente protegida'
                   : 'We never sell your data. Your family\'s privacy is absolutely protected'
                 }
               </p>
@@ -95,11 +112,13 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 <Sparkles className="h-10 w-10 text-secondary" />
               </div>
               <h3 className="text-xl font-bold mb-3">
-                {isDutch ? 'Gratis Voor Altijd Doel' : 'Free Forever Goal'}
+                {isDutch ? 'Gratis Voor Altijd Doel' : isSpanish ? 'Objetivo Gratis Para Siempre' : 'Free Forever Goal'}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 {isDutch 
                   ? 'We zijn toegewijd aan het toegankelijk houden van Zenvy voor alle gezinnen'
+                  : isSpanish
+                  ? 'Estamos comprometidos a mantener Zenvy accesible para todas las familias'
                   : 'We\'re committed to keeping Zenvy accessible to all families'
                 }
               </p>
@@ -110,12 +129,16 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
             <p className="text-xl font-semibold text-foreground mb-4">
               {isDutch 
                 ? 'Wil je onze missie ondersteunen en helpen Zenvy gratis te houden voor iedereen?'
+                : isSpanish
+                ? '¿Quieres apoyar nuestra misión y ayudar a mantener Zenvy gratuito para todos?'
                 : 'Want to support our mission and help keep Zenvy free for everyone?'
               }
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {isDutch 
                 ? 'Binnenkort introduceren we een optionele donatiefunctie direct in de app. Je vrijwillige bijdrage helpt ons om door te gaan met het ontwikkelen van Zenvy en het gratis te houden voor alle gezinnen over de hele wereld.'
+                : isSpanish
+                ? 'Pronto introduciremos una función de donación opcional directamente en la aplicación. Tu contribución voluntaria nos ayudará a continuar desarrollando Zenvy y mantenerlo gratuito para todas las familias del mundo.'
                 : 'Soon, we\'ll be introducing an optional donation feature directly in the app. Your voluntary contribution will help us continue developing Zenvy and keep it free for all families around the world.'
               }
             </p>

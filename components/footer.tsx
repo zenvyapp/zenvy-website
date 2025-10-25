@@ -21,7 +21,7 @@ export function Footer() {
               <img src="/zenvy-logo.png" alt="Zenvy" className="h-8 w-8 rounded-lg" />
               <span className="text-xl font-bold">Zenvy</span>
             </div>
-            <p className="text-sm text-muted-foreground mb-4">{getCurrentLocale() === 'nl' ? 'Schermtijd betekenisvol maken voor gezinnen wereldwijd.' : 'Making screen time meaningful for families worldwide.'}</p>
+            <p className="text-sm text-muted-foreground mb-4">{getCurrentLocale() === 'nl' ? 'Schermtijd betekenisvol maken voor gezinnen wereldwijd.' : getCurrentLocale() === 'es' ? 'Haciendo que el tiempo de pantalla sea significativo para las familias de todo el mundo.' : getCurrentLocale() === 'fr' ? 'Rendre le temps d\'écran significatif pour les familles du monde entier.' : getCurrentLocale() === 'de' ? 'Bildschirmzeit für Familien weltweit bedeutsam machen.' : 'Making screen time meaningful for families worldwide.'}</p>
             <div className="flex items-center gap-3">
               <a
                 href="https://www.youtube.com/@Get_Zenvy"
@@ -73,55 +73,55 @@ export function Footer() {
           {/* Right section with 3 columns - Product, Resources, Company */}
           <div className="flex-1 flex flex-col md:flex-row justify-end gap-8 md:gap-24">
             <div>
-              <h4 className="font-semibold mb-4">{getCurrentLocale() === 'nl' ? 'Product' : 'Product'}</h4>
+              <h4 className="font-semibold mb-4">{getCurrentLocale() === 'nl' ? 'Product' : getCurrentLocale() === 'es' ? 'Producto' : getCurrentLocale() === 'fr' ? 'Produit' : getCurrentLocale() === 'de' ? 'Produkt' : 'Product'}</h4>
               <div className="space-y-2">
                 <Link
                   href={`/${getCurrentLocale()}/features`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {getCurrentLocale() === 'nl' ? 'Functies' : 'Features'}
+                  {getCurrentLocale() === 'nl' ? 'Functies' : getCurrentLocale() === 'es' ? 'Características' : getCurrentLocale() === 'fr' ? 'Fonctionnalités' : getCurrentLocale() === 'de' ? 'Funktionen' : 'Features'}
                 </Link>
                 <Link
                   href={`/${getCurrentLocale()}/pricing`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {getCurrentLocale() === 'nl' ? 'Prijzen' : 'Pricing'}
+                  {getCurrentLocale() === 'nl' ? 'Prijzen' : getCurrentLocale() === 'es' ? 'Precios' : getCurrentLocale() === 'fr' ? 'Tarifs' : getCurrentLocale() === 'de' ? 'Preise' : 'Pricing'}
                 </Link>
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">{getCurrentLocale() === 'nl' ? 'Bronnen' : 'Resources'}</h4>
+              <h4 className="font-semibold mb-4">{getCurrentLocale() === 'nl' ? 'Bronnen' : getCurrentLocale() === 'es' ? 'Recursos' : getCurrentLocale() === 'fr' ? 'Ressources' : getCurrentLocale() === 'de' ? 'Ressourcen' : 'Resources'}</h4>
               <div className="space-y-2">
                 <Link
                   href={`/${getCurrentLocale()}/blog`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Blog
+                  {getCurrentLocale() === 'es' ? 'Blog' : 'Blog'}
                 </Link>
                 <Link
                   href={`/${getCurrentLocale()}/support`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {getCurrentLocale() === 'nl' ? 'Ondersteuning' : 'Support'}
+                  {getCurrentLocale() === 'nl' ? 'Ondersteuning' : getCurrentLocale() === 'es' ? 'Soporte' : getCurrentLocale() === 'fr' ? 'Support' : getCurrentLocale() === 'de' ? 'Support' : 'Support'}
                 </Link>
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">{getCurrentLocale() === 'nl' ? 'Bedrijf' : 'Company'}</h4>
+              <h4 className="font-semibold mb-4">{getCurrentLocale() === 'nl' ? 'Bedrijf' : getCurrentLocale() === 'es' ? 'Empresa' : getCurrentLocale() === 'fr' ? 'Entreprise' : getCurrentLocale() === 'de' ? 'Unternehmen' : 'Company'}</h4>
               <div className="space-y-2">
                 <Link
                   href={`/${getCurrentLocale()}/about`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {getCurrentLocale() === 'nl' ? 'Over ons' : 'About Us'}
+                  {getCurrentLocale() === 'nl' ? 'Over ons' : getCurrentLocale() === 'es' ? 'Acerca de' : getCurrentLocale() === 'fr' ? 'À propos' : getCurrentLocale() === 'de' ? 'Über uns' : 'About Us'}
                 </Link>
                 <Link
                   href={`/${getCurrentLocale()}/legal`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  {getCurrentLocale() === 'nl' ? 'Juridisch' : 'Legal'}
+                  {getCurrentLocale() === 'nl' ? 'Juridisch' : getCurrentLocale() === 'es' ? 'Legal' : getCurrentLocale() === 'fr' ? 'Légal' : getCurrentLocale() === 'de' ? 'Rechtliches' : 'Legal'}
                 </Link>
               </div>
             </div>
