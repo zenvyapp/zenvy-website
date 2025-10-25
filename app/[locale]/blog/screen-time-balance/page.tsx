@@ -23,7 +23,7 @@ export default function ScreenTimeBalancePage() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <article className="pt-32 pb-20 px-4">
+      <article className="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4">
         <div className="container mx-auto max-w-3xl">
           {/* Back Button */}
           <Link
