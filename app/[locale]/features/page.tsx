@@ -13,7 +13,7 @@ export default async function FeaturesPage({ params }: { params: Promise<{ local
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
+      <section className="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4">
         <div className="container mx-auto text-center max-w-4xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
             <Sparkles className="h-4 w-4" />
@@ -21,7 +21,7 @@ export default async function FeaturesPage({ params }: { params: Promise<{ local
               {isDutch ? 'Ontdek Alle Functies' : isSpanish ? 'Descubre Todas las Características' : isFrench ? 'Découvrez Toutes les Fonctionnalités' : isGerman ? 'Entdecken Sie Alle Funktionen' : 'Discover All Features'}
             </span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance break-words">
             {isDutch ? (
               <>
                 Krachtige Functies voor <span className="text-primary">Gezonde Gewoonten</span>
@@ -284,7 +284,7 @@ export default async function FeaturesPage({ params }: { params: Promise<{ local
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-4xl font-bold text-balance">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-balance break-words">
                 {isDutch ? (
                   <>
                     Gebouwd voor <span className="text-primary">Echte Gezinnen</span>

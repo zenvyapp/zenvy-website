@@ -18,7 +18,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 mb-6">
               <Heart className="h-10 w-10 text-secondary fill-secondary animate-pulse" />
-              <h1 className="text-5xl md:text-6xl font-bold">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold break-words">
                 {isDutch ? (
                   <>
                     Gebouwd met <span className="text-secondary">Liefde</span>

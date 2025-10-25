@@ -14,12 +14,12 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-b from-primary/5 to-background">
+      <section className="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto text-center max-w-4xl">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/20 rounded-full mb-6">
             <Heart className="w-10 h-10 text-primary" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance break-words">
             {isDutch ? (
               <>
                 Over <span className="text-primary">Zenvy</span>
@@ -61,7 +61,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <section className="pt-6 pb-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 break-words">
               {isDutch ? 'Onze Missie' : isSpanish ? 'Nuestra Misión' : isFrench ? 'Notre Mission' : isGerman ? 'Unsere Mission' : 'Our Mission'}
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto">
@@ -155,7 +155,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <section className="py-20 px-4 bg-gradient-to-b from-background to-secondary/5">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 break-words">
               {isDutch ? (
                 <>
                   Gebouwd met <span className="text-secondary">Liefde</span>
@@ -267,7 +267,7 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 break-words">
               {isDutch ? 'Waar We Voor Staan' : isSpanish ? 'Por Lo Que Luchamos' : isFrench ? 'Ce Pour Quoi Nous Nous Battons' : isGerman ? 'Wofür Wir Stehen' : 'What We Stand For'}
             </h2>
           </div>

@@ -85,7 +85,7 @@ export default function HomePageEN() {
       <Header />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="pt-32 pb-20 px-4 overflow-hidden">
+      <section ref={heroRef} className="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 overflow-hidden">
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div
@@ -97,7 +97,7 @@ export default function HomePageEN() {
                 <Sparkles className="h-4 w-4 text-secondary" />
                 Transform Screen Time Into Growth Time
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-balance leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-balance leading-tight break-words">
                 Make Screen Time <span className="text-primary">Meaningful</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground text-pretty leading-relaxed">

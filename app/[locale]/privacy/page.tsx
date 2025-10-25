@@ -23,7 +23,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/20 rounded-full mb-6">
             <Shield className="w-10 h-10 text-primary" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance break-words">
             {isDutch ? (
               <>
                 <span className="text-primary">Privacy</span> Beleid
