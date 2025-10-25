@@ -18,6 +18,7 @@ export default function DigitalWellnessPage() {
   const isDutch = getCurrentLocale() === 'nl'
   const isSpanish = getCurrentLocale() === 'es'
   const isFrench = getCurrentLocale() === 'fr'
+  const isGerman = getCurrentLocale() === 'de'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -30,7 +31,7 @@ export default function DigitalWellnessPage() {
             className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
-            {isDutch ? 'Terug naar Blog' : isSpanish ? 'Volver al Blog' : isFrench ? 'Retour au Blog' : 'Back to Blog'}
+            {isDutch ? 'Terug naar Blog' : isSpanish ? 'Volver al Blog' : isFrench ? 'Retour au Blog' : isGerman ? 'Zurück zum Blog' : 'Back to Blog'}
           </Link>
 
           {/* Hero Image */}
@@ -42,11 +43,11 @@ export default function DigitalWellnessPage() {
           <div className="flex items-center gap-6 text-sm text-muted-foreground mb-6">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
-              <span>{isDutch ? '5 maart 2025' : isSpanish ? '5 de marzo de 2025' : isFrench ? '5 mars 2025' : 'March 5, 2025'}</span>
+              <span>{isDutch ? '5 maart 2025' : isSpanish ? '5 de marzo de 2025' : isFrench ? '5 mars 2025' : isGerman ? '5. März 2025' : 'March 5, 2025'}</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4" />
-              <span>{isDutch ? '6 min lezen' : isSpanish ? '6 min de lectura' : isFrench ? '6 min de lecture' : '6 min read'}</span>
+              <span>{isDutch ? '6 min lezen' : isSpanish ? '6 min de lectura' : isFrench ? '6 min de lecture' : isGerman ? '6 Min. Lesezeit' : '6 min read'}</span>
             </div>
           </div>
 
@@ -58,6 +59,8 @@ export default function DigitalWellnessPage() {
               ? 'La Ciencia Detrás del Bienestar Digital: Por Qué el Equilibrio Importa'
               : isFrench
               ? 'La Science derrière le Bien-être Numérique : Pourquoi l\'Équilibre Compte'
+              : isGerman
+              ? 'Die Wissenschaft Hinter Digitalem Wohlbefinden: Warum Balance Wichtig Ist'
               : 'The Science Behind Digital Wellness: Why Balance Matters'
             }
           </h1>
@@ -71,12 +74,14 @@ export default function DigitalWellnessPage() {
                 ? 'Entender la investigación detrás del tiempo de pantalla y el desarrollo infantil puede ayudar a los padres a tomar decisiones informadas sobre los hábitos digitales de su familia.'
                 : isFrench
                 ? 'Comprendre la recherche derrière le temps d\'écran et le développement de l\'enfant peut aider les parents à prendre des décisions éclairées concernant les habitudes numériques de leur famille.'
+                : isGerman
+                ? 'Das Verständnis der Forschung hinter Bildschirmzeit und kindlicher Entwicklung kann Eltern helfen, fundierte Entscheidungen über die digitalen Gewohnheiten ihrer Familie zu treffen.'
                 : 'Understanding the research behind screen time and child development can help parents make informed decisions about their family\'s digital habits.'
               }
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'De Impact op Hersenontwikkeling' : isSpanish ? 'El Impacto en el Desarrollo Cerebral' : isFrench ? 'L\'Impact sur le Développement Cérébral' : 'The Impact on Brain Development'}
+              {isDutch ? 'De Impact op Hersenontwikkeling' : isSpanish ? 'El Impacto en el Desarrollo Cerebral' : isFrench ? 'L\'Impact sur le Développement Cérébral' : isGerman ? 'Die Auswirkungen Auf Die Gehirnentwicklung' : 'The Impact on Brain Development'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -90,7 +95,7 @@ export default function DigitalWellnessPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Slaap en Circadiaanse Ritmes' : isSpanish ? 'Sueño y Ritmos Circadianos' : isFrench ? 'Sommeil et Rythmes Circadiens' : 'Sleep and Circadian Rhythms'}
+              {isDutch ? 'Slaap en Circadiaanse Ritmes' : isSpanish ? 'Sueño y Ritmos Circadianos' : isFrench ? 'Sommeil et Rythmes Circadiens' : isGerman ? 'Schlaf Und Zirkadiane Rhythmen' : 'Sleep and Circadian Rhythms'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -104,7 +109,7 @@ export default function DigitalWellnessPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Sociale en Emotionele Ontwikkeling' : isSpanish ? 'Desarrollo Social y Emocional' : isFrench ? 'Développement Social et Émotionnel' : 'Social and Emotional Development'}
+              {isDutch ? 'Sociale en Emotionele Ontwikkeling' : isSpanish ? 'Desarrollo Social y Emocional' : isFrench ? 'Développement Social et Émotionnel' : isGerman ? 'Soziale Und Emotionale Entwicklung' : 'Social and Emotional Development'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -118,7 +123,7 @@ export default function DigitalWellnessPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Lichamelijke Gezondheidsoverwegingen' : isSpanish ? 'Consideraciones de Salud Física' : isFrench ? 'Considérations de Santé Physique' : 'Physical Health Considerations'}
+              {isDutch ? 'Lichamelijke Gezondheidsoverwegingen' : isSpanish ? 'Consideraciones de Salud Física' : isFrench ? 'Considérations de Santé Physique' : isGerman ? 'Körperliche Gesundheitsüberlegungen' : 'Physical Health Considerations'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -132,7 +137,7 @@ export default function DigitalWellnessPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Aandacht en Focus' : isSpanish ? 'Atención y Concentración' : isFrench ? 'Attention et Concentration' : 'Attention and Focus'}
+              {isDutch ? 'Aandacht en Focus' : isSpanish ? 'Atención y Concentración' : isFrench ? 'Attention et Concentration' : isGerman ? 'Aufmerksamkeit Und Fokus' : 'Attention and Focus'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -146,7 +151,7 @@ export default function DigitalWellnessPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'De Positieve Kant van Technologie' : isSpanish ? 'El Lado Positivo de la Tecnología' : isFrench ? 'Le Côté Positif de la Technologie' : 'The Positive Side of Technology'}
+              {isDutch ? 'De Positieve Kant van Technologie' : isSpanish ? 'El Lado Positivo de la Tecnología' : isFrench ? 'Le Côté Positif de la Technologie' : isGerman ? 'Die Positive Seite Der Technologie' : 'The Positive Side of Technology'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -160,7 +165,7 @@ export default function DigitalWellnessPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'De Juiste Balans Vinden' : isSpanish ? 'Encontrar el Equilibrio Correcto' : isFrench ? 'Trouver le Bon Équilibre' : 'Finding the Right Balance'}
+              {isDutch ? 'De Juiste Balans Vinden' : isSpanish ? 'Encontrar el Equilibrio Correcto' : isFrench ? 'Trouver le Bon Équilibre' : isGerman ? 'Die Richtige Balance Finden' : 'Finding the Right Balance'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -173,15 +178,15 @@ export default function DigitalWellnessPage() {
               }
             </p>
             <ul className="list-disc pl-6 mb-6 text-muted-foreground space-y-2">
-              <li>{isDutch ? 'Leeftijdsgeschikte schermtijd limieten' : isSpanish ? 'Límites de tiempo de pantalla apropiados para la edad' : isFrench ? 'Limites de temps d\'écran appropriées à l\'âge' : 'Age-appropriate screen time limits'}</li>
-              <li>{isDutch ? 'Regelmatige lichamelijke activiteit en buitenspelen' : isSpanish ? 'Actividad física regular y juego al aire libre' : isFrench ? 'Activité physique régulière et jeux en plein air' : 'Regular physical activity and outdoor play'}</li>
-              <li>{isDutch ? 'Face-to-face gezinstijd zonder apparaten' : isSpanish ? 'Tiempo familiar cara a cara sin dispositivos' : isFrench ? 'Temps en famille en face à face sans appareils' : 'Face-to-face family time without devices'}</li>
-              <li>{isDutch ? 'Kwaliteit educatieve inhoud wanneer schermen worden gebruikt' : isSpanish ? 'Contenido educativo de calidad cuando se usan pantallas' : isFrench ? 'Contenu éducatif de qualité lors de l\'utilisation d\'écrans' : 'Quality educational content when screens are used'}</li>
-              <li>{isDutch ? 'Schermvrije zones en tijden (zoals slaapkamers en maaltijden)' : isSpanish ? 'Zonas y tiempos libres de pantalla (como habitaciones y comidas)' : isFrench ? 'Zones et moments sans écran (comme les chambres et les repas)' : 'Screen-free zones and times (like bedrooms and mealtimes)'}</li>
+              <li>{isDutch ? 'Leeftijdsgeschikte schermtijd limieten' : isSpanish ? 'Límites de tiempo de pantalla apropiados para la edad' : isFrench ? 'Limites de temps d\'écran appropriées à l\'âge' : isGerman ? 'Altersgerechte Bildschirmzeit-Limits' : 'Age-appropriate screen time limits'}</li>
+              <li>{isDutch ? 'Regelmatige lichamelijke activiteit en buitenspelen' : isSpanish ? 'Actividad física regular y juego al aire libre' : isFrench ? 'Activité physique régulière et jeux en plein air' : isGerman ? 'Regelmäßige körperliche Aktivität und Spielen im Freien' : 'Regular physical activity and outdoor play'}</li>
+              <li>{isDutch ? 'Face-to-face gezinstijd zonder apparaten' : isSpanish ? 'Tiempo familiar cara a cara sin dispositivos' : isFrench ? 'Temps en famille en face à face sans appareils' : isGerman ? 'Face-to-Face Familienzeit ohne Geräte' : 'Face-to-face family time without devices'}</li>
+              <li>{isDutch ? 'Kwaliteit educatieve inhoud wanneer schermen worden gebruikt' : isSpanish ? 'Contenido educativo de calidad cuando se usan pantallas' : isFrench ? 'Contenu éducatif de qualité lors de l\'utilisation d\'écrans' : isGerman ? 'Qualitativ hochwertige Bildungsinhalte bei der Nutzung von Bildschirmen' : 'Quality educational content when screens are used'}</li>
+              <li>{isDutch ? 'Schermvrije zones en tijden (zoals slaapkamers en maaltijden)' : isSpanish ? 'Zonas y tiempos libres de pantalla (como habitaciones y comidas)' : isFrench ? 'Zones et moments sans écran (comme les chambres et les repas)' : isGerman ? 'Bildschirmfreie Zonen und Zeiten (wie Schlafzimmer und Mahlzeiten)' : 'Screen-free zones and times (like bedrooms and mealtimes)'}</li>
             </ul>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Onderzoeksgebaseerde Aanbevelingen' : isSpanish ? 'Recomendaciones Basadas en Evidencia' : isFrench ? 'Recommandations Basées sur des Preuves' : 'Evidence-Based Recommendations'}
+              {isDutch ? 'Onderzoeksgebaseerde Aanbevelingen' : isSpanish ? 'Recomendaciones Basadas en Evidencia' : isFrench ? 'Recommandations Basées sur des Preuves' : isGerman ? 'Evidenzbasierte Empfehlungen' : 'Evidence-Based Recommendations'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -194,15 +199,15 @@ export default function DigitalWellnessPage() {
               }
             </p>
             <ul className="list-disc pl-6 mb-6 text-muted-foreground space-y-2">
-              <li>{isDutch ? 'Kinderen onder 18 maanden: Vermijd schermtijd behalve videobellen' : isSpanish ? 'Niños menores de 18 meses: Evitar tiempo de pantalla excepto videollamadas' : isFrench ? 'Enfants de moins de 18 mois : Éviter le temps d\'écran sauf les appels vidéo' : 'Children under 18 months: Avoid screen time except video chatting'}</li>
-              <li>{isDutch ? 'Leeftijd 2-5: Beperk tot één uur per dag van hoogwaardige programmering' : isSpanish ? 'Edades 2-5: Limitar a una hora por día de programación de alta calidad' : isFrench ? 'Ages 2-5 : Limiter à une heure par jour de programmation de haute qualité' : 'Ages 2-5: Limit to one hour per day of high-quality programming'}</li>
-              <li>{isDutch ? 'Leeftijd 6 en ouder: Consistente limieten op tijd en soorten media' : isSpanish ? 'Edades 6 y mayores: Límites consistentes en tiempo y tipos de medios' : isFrench ? 'Ages 6 et plus : Limites cohérentes sur le temps et les types de médias' : 'Ages 6 and older: Consistent limits on time and types of media'}</li>
-              <li>{isDutch ? 'Alle leeftijden: Geen schermen tijdens maaltijden of één uur voor het slapengaan' : isSpanish ? 'Todas las edades: Sin pantallas durante las comidas o una hora antes de acostarse' : isFrench ? 'Tous les âges : Pas d\'écrans pendant les repas ou une heure avant le coucher' : 'All ages: No screens during meals or one hour before bedtime'}</li>
+              <li>{isDutch ? 'Kinderen onder 18 maanden: Vermijd schermtijd behalve videobellen' : isSpanish ? 'Niños menores de 18 meses: Evitar tiempo de pantalla excepto videollamadas' : isFrench ? 'Enfants de moins de 18 mois : Éviter le temps d\'écran sauf les appels vidéo' : isGerman ? 'Kinder unter 18 Monaten: Bildschirmzeit vermeiden außer Videoanrufen' : 'Children under 18 months: Avoid screen time except video chatting'}</li>
+              <li>{isDutch ? 'Leeftijd 2-5: Beperk tot één uur per dag van hoogwaardige programmering' : isSpanish ? 'Edades 2-5: Limitar a una hora por día de programación de alta calidad' : isFrench ? 'Ages 2-5 : Limiter à une heure par jour de programmation de haute qualité' : isGerman ? 'Alter 2-5: Auf eine Stunde pro Tag hochwertiger Programmierung beschränken' : 'Ages 2-5: Limit to one hour per day of high-quality programming'}</li>
+              <li>{isDutch ? 'Leeftijd 6 en ouder: Consistente limieten op tijd en soorten media' : isSpanish ? 'Edades 6 y mayores: Límites consistentes en tiempo y tipos de medios' : isFrench ? 'Ages 6 et plus : Limites cohérentes sur le temps et les types de médias' : isGerman ? 'Alter 6 und älter: Konsistente Limits für Zeit und Arten von Medien' : 'Ages 6 and older: Consistent limits on time and types of media'}</li>
+              <li>{isDutch ? 'Alle leeftijden: Geen schermen tijdens maaltijden of één uur voor het slapengaan' : isSpanish ? 'Todas las edades: Sin pantallas durante las comidas o una hora antes de acostarse' : isFrench ? 'Tous les âges : Pas d\'écrans pendant les repas ou une heure avant le coucher' : isGerman ? 'Alle Altersgruppen: Keine Bildschirme während der Mahlzeiten oder eine Stunde vor dem Schlafengehen' : 'All ages: No screens during meals or one hour before bedtime'}</li>
             </ul>
 
             <div className="bg-secondary/10 border-2 border-secondary/30 rounded-2xl p-8 mt-12">
               <h3 className="text-2xl font-bold mb-4">
-                {isDutch ? 'Onderzoeksgebaseerde Digitale Wellness' : isSpanish ? 'Bienestar Digital Basado en Ciencia' : isFrench ? 'Bien-être Numérique Basé sur des Preuves' : 'Science-Backed Digital Wellness'}
+                {isDutch ? 'Onderzoeksgebaseerde Digitale Wellness' : isSpanish ? 'Bienestar Digital Basado en Ciencia' : isFrench ? 'Bien-être Numérique Basé sur des Preuves' : isGerman ? 'Wissenschaftlich Untermauerte Digitale Wellness' : 'Science-Backed Digital Wellness'}
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 {isDutch 
@@ -218,7 +223,7 @@ export default function DigitalWellnessPage() {
                 href={`/${getCurrentLocale()}`}
                 className="inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors"
               >
-                {isDutch ? 'Begin Je Digitale Wellness Reis' : isSpanish ? 'Comienza Tu Viaje de Bienestar Digital' : isFrench ? 'Commencez Votre Parcours de Bien-être Numérique' : 'Start Your Digital Wellness Journey'}
+                {isDutch ? 'Begin Je Digitale Wellness Reis' : isSpanish ? 'Comienza Tu Viaje de Bienestar Digital' : isFrench ? 'Commencez Votre Parcours de Bien-être Numérique' : isGerman ? 'Beginnen Sie Ihre Digitale Wellness Reise' : 'Start Your Digital Wellness Journey'}
               </Link>
             </div>
           </div>

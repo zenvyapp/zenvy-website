@@ -7,6 +7,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
   const isDutch = locale === 'nl'
   const isSpanish = locale === 'es'
   const isFrench = locale === 'fr'
+  const isGerman = locale === 'de'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -30,6 +31,10 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                   <>
                     Construit avec <span className="text-secondary">Amour</span>
                   </>
+                ) : isGerman ? (
+                  <>
+                    Gebaut mit <span className="text-secondary">Liebe</span>
+                  </>
                 ) : (
                   <>
                     Built with <span className="text-secondary">Love</span>
@@ -45,6 +50,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 ? 'Un proyecto de pasión para familias en todas partes del mundo'
                 : isFrench
                 ? 'Un projet passion pour les familles partout dans le monde'
+                : isGerman
+                ? 'Ein Leidenschaftsprojekt für Familien auf der ganzen Welt'
                 : 'A passion project for families everywhere'
               }
             </p>
@@ -59,6 +66,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                   ? "Zenvy nació de un sueño simple: ayudar a las familias a encontrar equilibrio en nuestro mundo digital. Somos un pequeño equipo de fundadores apasionados que creemos que la tecnología debe acercar a las familias, no separarlas."
                   : isFrench
                   ? "Zenvy est né d'un simple rêve : aider les familles à trouver l'équilibre dans notre monde numérique. Nous sommes une petite équipe de fondateurs passionnés qui croient que la technologie doit rapprocher les familles, pas les éloigner."
+                  : isGerman
+                  ? "Zenvy wurde aus einem einfachen Traum geboren: Familien dabei zu helfen, Balance in unserer digitalen Welt zu finden. Wir sind ein kleines Team leidenschaftlicher Gründer, die glauben, dass Technologie Familien näher zusammenbringen sollte, nicht auseinanderreißen."
                   : "Zenvy was born from a simple dream: to help families find balance in our digital world. We're a small team of passionate founders who believe that technology should bring families closer together, not pull them apart."
                 }
               </p>
@@ -69,6 +78,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                   ? "Como startup en sus primeras etapas, estamos construyendo Zenvy con amor, dedicación y el generoso apoyo de familias como la tuya. Cada donación nos ayuda a continuar desarrollando funciones, mejorando la aplicación y manteniéndola accesible para todos."
                   : isFrench
                   ? "En tant que startup à ses débuts, nous construisons Zenvy avec amour, dévouement et le soutien généreux de familles comme la vôtre. Chaque don nous aide à continuer à développer des fonctionnalités, améliorer l'application et la garder accessible à tous."
+                  : isGerman
+                  ? "Als Startup in den frühen Stadien bauen wir Zenvy mit Liebe, Hingabe und der großzügigen Unterstützung von Familien wie Ihrer. Jede Spende hilft uns dabei, weiterhin Funktionen zu entwickeln, die App zu verbessern und sie für alle zugänglich zu halten."
                   : "As a startup in its early stages, we're building Zenvy with love, dedication, and the generous support of families like yours. Every donation helps us continue developing features, improving the app, and keeping it accessible to everyone."
                 }
               </p>
@@ -79,6 +90,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                   ? "Nuestra misión es mantener Zenvy gratuito durante el mayor tiempo posible, porque creemos que cada familia merece acceso a herramientas que promuevan hábitos digitales saludables."
                   : isFrench
                   ? "Notre mission est de garder Zenvy gratuit aussi longtemps que possible, car nous croyons que chaque famille mérite d'avoir accès à des outils qui promeuvent des habitudes numériques saines."
+                  : isGerman
+                  ? "Unsere Mission ist es, Zenvy so lange wie möglich kostenlos zu halten, weil wir glauben, dass jede Familie Zugang zu Tools verdient, die gesunde digitale Gewohnheiten fördern."
                   : "Our mission is to keep Zenvy free for as long as possible, because we believe every family deserves access to tools that promote healthy digital habits."
                 }
               </p>
@@ -91,7 +104,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 <Gift className="h-10 w-10 text-secondary" />
               </div>
               <h3 className="text-xl font-bold mb-3">
-                {isDutch ? 'Donatie-Gedreven' : isSpanish ? 'Impulsado por Donaciones' : isFrench ? 'Alimenté par les Dons' : 'Donation-Powered'}
+                {isDutch ? 'Donatie-Gedreven' : isSpanish ? 'Impulsado por Donaciones' : isFrench ? 'Alimenté par les Dons' : isGerman ? 'Spenden-getrieben' : 'Donation-Powered'}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 {isDutch 
@@ -100,6 +113,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                   ? 'Construido con el apoyo de familias generosas que creen en nuestra misión'
                   : isFrench
                   ? 'Construit avec le soutien de familles généreuses qui croient en notre mission'
+                  : isGerman
+                  ? 'Gebaut mit der Unterstützung großzügiger Familien, die an unsere Mission glauben'
                   : 'Built with the support of generous families who believe in our mission'
                 }
               </p>
@@ -110,7 +125,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 <Shield className="h-10 w-10 text-primary" />
               </div>
               <h3 className="text-xl font-bold mb-3">
-                {isDutch ? 'Jouw Gegevens zijn Heilig' : isSpanish ? 'Tus Datos son Sagrados' : isFrench ? 'Vos Données sont Sacrées' : 'Your Data is Sacred'}
+                {isDutch ? 'Jouw Gegevens zijn Heilig' : isSpanish ? 'Tus Datos son Sagrados' : isFrench ? 'Vos Données sont Sacrées' : isGerman ? 'Ihre Daten sind Heilig' : 'Your Data is Sacred'}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 {isDutch 
@@ -119,6 +134,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                   ? 'Nunca vendemos tus datos. La privacidad de tu familia está absolutamente protegida'
                   : isFrench
                   ? 'Nous ne vendons jamais vos données. La confidentialité de votre famille est absolument protégée'
+                  : isGerman
+                  ? 'Wir verkaufen niemals Ihre Daten. Die Privatsphäre Ihrer Familie ist absolut geschützt'
                   : 'We never sell your data. Your family\'s privacy is absolutely protected'
                 }
               </p>
@@ -129,7 +146,7 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 <Sparkles className="h-10 w-10 text-secondary" />
               </div>
               <h3 className="text-xl font-bold mb-3">
-                {isDutch ? 'Gratis Voor Altijd Doel' : isSpanish ? 'Objetivo Gratis Para Siempre' : isFrench ? 'Objectif Gratuit pour Toujours' : 'Free Forever Goal'}
+                {isDutch ? 'Gratis Voor Altijd Doel' : isSpanish ? 'Objetivo Gratis Para Siempre' : isFrench ? 'Objectif Gratuit pour Toujours' : isGerman ? 'Kostenlos für Immer Ziel' : 'Free Forever Goal'}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
                 {isDutch 
@@ -138,6 +155,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                   ? 'Estamos comprometidos a mantener Zenvy accesible para todas las familias'
                   : isFrench
                   ? 'Nous nous engageons à garder Zenvy accessible à toutes les familles'
+                  : isGerman
+                  ? 'Wir sind verpflichtet, Zenvy für alle Familien zugänglich zu halten'
                   : 'We\'re committed to keeping Zenvy accessible to all families'
                 }
               </p>
@@ -152,6 +171,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 ? '¿Quieres apoyar nuestra misión y ayudar a mantener Zenvy gratuito para todos?'
                 : isFrench
                 ? 'Voulez-vous soutenir notre mission et aider à garder Zenvy gratuit pour tous ?'
+                : isGerman
+                ? 'Möchten Sie unsere Mission unterstützen und dabei helfen, Zenvy für alle kostenlos zu halten?'
                 : 'Want to support our mission and help keep Zenvy free for everyone?'
               }
             </p>
@@ -162,6 +183,8 @@ export default async function PricingPage({ params }: { params: Promise<{ locale
                 ? 'Pronto introduciremos una función de donación opcional directamente en la aplicación. Tu contribución voluntaria nos ayudará a continuar desarrollando Zenvy y mantenerlo gratuito para todas las familias del mundo.'
                 : isFrench
                 ? 'Bientôt, nous introduirons une fonction de don optionnelle directement dans l\'application. Votre contribution volontaire nous aidera à continuer à développer Zenvy et à le garder gratuit pour toutes les familles du monde entier.'
+                : isGerman
+                ? 'Bald werden wir eine optionale Spendenfunktion direkt in der App einführen. Ihr freiwilliger Beitrag hilft uns dabei, Zenvy weiterzuentwickeln und es für alle Familien auf der ganzen Welt kostenlos zu halten.'
                 : 'Soon, we\'ll be introducing an optional donation feature directly in the app. Your voluntary contribution will help us continue developing Zenvy and keep it free for all families around the world.'
               }
             </p>

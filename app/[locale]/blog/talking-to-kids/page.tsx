@@ -18,6 +18,7 @@ export default function TalkingToKidsPage() {
   const isDutch = getCurrentLocale() === 'nl'
   const isSpanish = getCurrentLocale() === 'es'
   const isFrench = getCurrentLocale() === 'fr'
+  const isGerman = getCurrentLocale() === 'de'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -30,7 +31,7 @@ export default function TalkingToKidsPage() {
             className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
-            {isDutch ? 'Terug naar Blog' : isSpanish ? 'Volver al Blog' : isFrench ? 'Retour au Blog' : 'Back to Blog'}
+            {isDutch ? 'Terug naar Blog' : isSpanish ? 'Volver al Blog' : isFrench ? 'Retour au Blog' : isGerman ? 'Zurück zum Blog' : 'Back to Blog'}
           </Link>
 
           {/* Hero Image */}
@@ -42,11 +43,11 @@ export default function TalkingToKidsPage() {
           <div className="flex items-center gap-6 text-sm text-muted-foreground mb-6">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
-              <span>{isDutch ? '10 maart 2025' : isSpanish ? '10 de marzo de 2025' : isFrench ? '10 mars 2025' : 'March 10, 2025'}</span>
+              <span>{isDutch ? '10 maart 2025' : isSpanish ? '10 de marzo de 2025' : isFrench ? '10 mars 2025' : isGerman ? '10. März 2025' : 'March 10, 2025'}</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4" />
-              <span>{isDutch ? '7 min lezen' : isSpanish ? '7 min de lectura' : isFrench ? '7 min de lecture' : '7 min read'}</span>
+              <span>{isDutch ? '7 min lezen' : isSpanish ? '7 min de lectura' : isFrench ? '7 min de lecture' : isGerman ? '7 Min. Lesezeit' : '7 min read'}</span>
             </div>
           </div>
 
@@ -58,6 +59,8 @@ export default function TalkingToKidsPage() {
               ? 'Cómo Hablar con Tus Hijos Sobre el Tiempo de Pantalla Sin Drama'
               : isFrench
               ? 'Comment Parler du Temps d\'Écran à Vos Enfants Sans le Drame'
+              : isGerman
+              ? 'Wie Sie Mit Ihren Kindern Über Bildschirmzeit Sprechen Ohne Drama'
               : 'How to Talk to Your Kids About Screen Time Without the Drama'
             }
           </h1>
@@ -71,12 +74,14 @@ export default function TalkingToKidsPage() {
                 ? 'Discutir el tiempo de pantalla con los niños no tiene que terminar en lágrimas y berrinches. Aquí te mostramos cómo tener conversaciones productivas que construyan comprensión y cooperación.'
                 : isFrench
                 ? 'Discuter du temps d\'écran avec les enfants ne doit pas se terminer en larmes et crises. Voici comment avoir des conversations productives qui construisent la compréhension et la coopération.'
+                : isGerman
+                ? 'Das Besprechen von Bildschirmzeit mit Kindern muss nicht in Tränen und Wutanfällen enden. Hier ist, wie Sie produktive Gespräche führen können, die Verständnis und Zusammenarbeit aufbauen.'
                 : 'Discussing screen time with children doesn\'t have to end in tears and tantrums. Here\'s how to have productive conversations that build understanding and cooperation.'
               }
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Begin met Empathie' : isSpanish ? 'Comienza con Empatía' : isFrench ? 'Commencer par l\'Empathie' : 'Start with Empathy'}
+              {isDutch ? 'Begin met Empathie' : isSpanish ? 'Comienza con Empatía' : isFrench ? 'Commencer par l\'Empathie' : isGerman ? 'Beginnen Sie Mit Empathie' : 'Start with Empathy'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -90,7 +95,7 @@ export default function TalkingToKidsPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Leg het "Waarom" Achter de Regels Uit' : isSpanish ? 'Explica el "Por Qué" Detrás de las Reglas' : isFrench ? 'Expliquez le "Pourquoi" Derrière les Règles' : 'Explain the "Why" Behind the Rules'}
+              {isDutch ? 'Leg het "Waarom" Achter de Regels Uit' : isSpanish ? 'Explica el "Por Qué" Detrás de las Reglas' : isFrench ? 'Expliquez le "Pourquoi" Derrière les Règles' : isGerman ? 'Erklären Sie Das "Warum" Hinter Den Regeln' : 'Explain the "Why" Behind the Rules'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -104,7 +109,7 @@ export default function TalkingToKidsPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Betrek Ze Bij Het Stellen Van Grenzen' : isSpanish ? 'Involúcralos en Establecer Límites' : isFrench ? 'Impliquez-les dans l\'Établissement de Limites' : 'Involve Them in Setting Boundaries'}
+              {isDutch ? 'Betrek Ze Bij Het Stellen Van Grenzen' : isSpanish ? 'Involúcralos en Establecer Límites' : isFrench ? 'Impliquez-les dans l\'Établissement de Limites' : isGerman ? 'Beziehen Sie Sie Beim Setzen Von Grenzen Ein' : 'Involve Them in Setting Boundaries'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -118,7 +123,7 @@ export default function TalkingToKidsPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Focus op Positieve Alternatieven' : isSpanish ? 'Enfócate en Alternativas Positivas' : isFrench ? 'Concentrez-vous sur les Alternatives Positives' : 'Focus on Positive Alternatives'}
+              {isDutch ? 'Focus op Positieve Alternatieven' : isSpanish ? 'Enfócate en Alternativas Positivas' : isFrench ? 'Concentrez-vous sur les Alternatives Positives' : isGerman ? 'Fokus Auf Positive Alternativen' : 'Focus on Positive Alternatives'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -132,7 +137,7 @@ export default function TalkingToKidsPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Gebruik Beloningen, Niet Alleen Beperkingen' : isSpanish ? 'Usa Recompensas, No Solo Restricciones' : isFrench ? 'Utilisez des Récompenses, Pas Seulement des Restrictions' : 'Use Rewards, Not Just Restrictions'}
+              {isDutch ? 'Gebruik Beloningen, Niet Alleen Beperkingen' : isSpanish ? 'Usa Recompensas, No Solo Restricciones' : isFrench ? 'Utilisez des Récompenses, Pas Seulement des Restrictions' : isGerman ? 'Verwenden Sie Belohnungen, Nicht Nur Einschränkungen' : 'Use Rewards, Not Just Restrictions'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -146,7 +151,7 @@ export default function TalkingToKidsPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Wees een Rolmodel' : isSpanish ? 'Sé un Modelo a Seguir' : isFrench ? 'Soyez un Modèle' : 'Be a Role Model'}
+              {isDutch ? 'Wees een Rolmodel' : isSpanish ? 'Sé un Modelo a Seguir' : isFrench ? 'Soyez un Modèle' : isGerman ? 'Seien Sie Ein Vorbild' : 'Be a Role Model'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -160,7 +165,7 @@ export default function TalkingToKidsPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Houd Communicatie Open' : isSpanish ? 'Mantén la Comunicación Abierta' : isFrench ? 'Gardez la Communication Ouverte' : 'Keep Communication Open'}
+              {isDutch ? 'Houd Communicatie Open' : isSpanish ? 'Mantén la Comunicación Abierta' : isFrench ? 'Gardez la Communication Ouverte' : isGerman ? 'Halten Sie Die Kommunikation Offen' : 'Keep Communication Open'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -174,7 +179,7 @@ export default function TalkingToKidsPage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Blijf Kalm en Consistent' : isSpanish ? 'Mantén la Calma y Sé Consistente' : isFrench ? 'Restez Calme et Cohérent' : 'Stay Calm and Consistent'}
+              {isDutch ? 'Blijf Kalm en Consistent' : isSpanish ? 'Mantén la Calma y Sé Consistente' : isFrench ? 'Restez Calme et Cohérent' : isGerman ? 'Bleiben Sie Ruhig Und Konsequent' : 'Stay Calm and Consistent'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -189,7 +194,7 @@ export default function TalkingToKidsPage() {
 
             <div className="bg-primary/10 border-2 border-primary/30 rounded-2xl p-8 mt-12">
               <h3 className="text-2xl font-bold mb-4">
-                {isDutch ? 'Maak Het Gemakkelijker met Zenvy' : isSpanish ? 'Hazlo Más Fácil con Zenvy' : isFrench ? 'Rendez-le Plus Facile avec Zenvy' : 'Make It Easier with Zenvy'}
+                {isDutch ? 'Maak Het Gemakkelijker met Zenvy' : isSpanish ? 'Hazlo Más Fácil con Zenvy' : isFrench ? 'Rendez-le Plus Facile avec Zenvy' : isGerman ? 'Machen Sie Es Einfacher Mit Zenvy' : 'Make It Easier with Zenvy'}
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 {isDutch 
@@ -205,7 +210,7 @@ export default function TalkingToKidsPage() {
                 href={`/${getCurrentLocale()}`}
                 className="inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors"
               >
-                {isDutch ? 'Ontdek Zenvy' : isSpanish ? 'Descubre Zenvy' : isFrench ? 'Découvrez Zenvy' : 'Discover Zenvy'}
+                {isDutch ? 'Ontdek Zenvy' : isSpanish ? 'Descubre Zenvy' : isFrench ? 'Découvrez Zenvy' : isGerman ? 'Entdecken Sie Zenvy' : 'Discover Zenvy'}
               </Link>
             </div>
           </div>

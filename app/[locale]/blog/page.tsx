@@ -19,6 +19,7 @@ export default function BlogPage() {
   const isDutch = getCurrentLocale() === 'nl'
   const isSpanish = getCurrentLocale() === 'es'
   const isFrench = getCurrentLocale() === 'fr'
+  const isGerman = getCurrentLocale() === 'de'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -36,6 +37,8 @@ export default function BlogPage() {
               ? 'Consejos, perspectivas e historias sobre construir hábitos digitales saludables'
               : isFrench
               ? 'Conseils, aperçus et histoires sur le développement d\'habitudes numériques saines'
+              : isGerman
+              ? 'Tipps, Einblicke und Geschichten über den Aufbau gesunder digitaler Gewohnheiten'
               : 'Tips, insights, and stories about building healthy digital habits'
             }
           </p>
@@ -55,11 +58,11 @@ export default function BlogPage() {
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    <span>{isDutch ? '15 maart 2025' : isSpanish ? '15 de marzo de 2025' : isFrench ? '15 mars 2025' : 'March 15, 2025'}</span>
+                    <span>{isDutch ? '15 maart 2025' : isSpanish ? '15 de marzo de 2025' : isFrench ? '15 mars 2025' : isGerman ? '15. März 2025' : 'March 15, 2025'}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
-                    <span>{isDutch ? '5 min lezen' : isSpanish ? '5 min de lectura' : isFrench ? '5 min de lecture' : '5 min read'}</span>
+                    <span>{isDutch ? '5 min lezen' : isSpanish ? '5 min de lectura' : isFrench ? '5 min de lecture' : isGerman ? '5 Min. Lesezeit' : '5 min read'}</span>
                   </div>
                 </div>
                 <CardTitle className="text-2xl mb-3 group-hover:text-primary transition-colors">
@@ -69,6 +72,8 @@ export default function BlogPage() {
                     ? '5 Señales de que Tu Familia Necesita Mejor Equilibrio en el Tiempo de Pantalla'
                     : isFrench
                     ? '5 Signes que votre Famille a Besoin d\'un Meilleur Équilibre du Temps d\'Écran'
+                    : isGerman
+                    ? '5 Anzeichen, Dass Ihre Familie Bessere Bildschirmzeit-Balance Braucht'
                     : '5 Signs Your Family Needs Better Screen Time Balance'
                   }
                 </CardTitle>
@@ -79,6 +84,8 @@ export default function BlogPage() {
                     ? 'Descubre los indicadores clave de que es hora de reevaluar los hábitos digitales de tu familia y crear límites más saludables alrededor del uso de tecnología.'
                     : isFrench
                     ? 'Découvrez les indicateurs clés qu\'il est temps de réévaluer les habitudes numériques de votre famille et de créer des limites plus saines autour de l\'utilisation de la technologie.'
+                    : isGerman
+                    ? 'Entdecken Sie die wichtigsten Indikatoren, dass es Zeit ist, die digitalen Gewohnheiten Ihrer Familie neu zu bewerten und gesündere Grenzen um die Technologienutzung zu schaffen.'
                     : 'Discover the key indicators that it\'s time to reassess your family\'s digital habits and create healthier boundaries around technology use.'
                   }
                 </CardDescription>
@@ -88,7 +95,7 @@ export default function BlogPage() {
                   href={`/${getCurrentLocale()}/blog/screen-time-balance`}
                   className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                 >
-                  {isDutch ? 'Lees Meer' : isSpanish ? 'Leer Más' : isFrench ? 'Lire Plus' : 'Read More'} <ArrowRight className="w-4 h-4" />
+                  {isDutch ? 'Lees Meer' : isSpanish ? 'Leer Más' : isFrench ? 'Lire Plus' : isGerman ? 'Mehr Lesen' : 'Read More'} <ArrowRight className="w-4 h-4" />
                 </Link>
               </CardContent>
             </Card>
@@ -102,11 +109,11 @@ export default function BlogPage() {
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    <span>{isDutch ? '10 maart 2025' : isSpanish ? '10 de marzo de 2025' : isFrench ? '10 mars 2025' : 'March 10, 2025'}</span>
+                    <span>{isDutch ? '10 maart 2025' : isSpanish ? '10 de marzo de 2025' : isFrench ? '10 mars 2025' : isGerman ? '10. März 2025' : 'March 10, 2025'}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
-                    <span>{isDutch ? '7 min lezen' : isSpanish ? '7 min de lectura' : isFrench ? '7 min de lecture' : '7 min read'}</span>
+                    <span>{isDutch ? '7 min lezen' : isSpanish ? '7 min de lectura' : isFrench ? '7 min de lecture' : isGerman ? '7 Min. Lesezeit' : '7 min read'}</span>
                   </div>
                 </div>
                 <CardTitle className="text-2xl mb-3 group-hover:text-primary transition-colors">
@@ -116,6 +123,8 @@ export default function BlogPage() {
                     ? 'Cómo Hablar con Tus Hijos Sobre el Tiempo de Pantalla Sin Drama'
                     : isFrench
                     ? 'Comment Parler à vos Enfants du Temps d\'Écran sans Drame'
+                    : isGerman
+                    ? 'Wie Sie Mit Ihren Kindern Über Bildschirmzeit Sprechen Ohne Drama'
                     : 'How to Talk to Your Kids About Screen Time Without the Drama'
                   }
                 </CardTitle>
@@ -126,6 +135,8 @@ export default function BlogPage() {
                     ? 'Aprende estrategias de comunicación efectivas para discutir límites digitales con tus hijos de una manera que construya confianza y comprensión.'
                     : isFrench
                     ? 'Apprenez des stratégies de communication efficaces pour discuter des limites numériques avec vos enfants d\'une manière qui établit la confiance et la compréhension.'
+                    : isGerman
+                    ? 'Lernen Sie effektive Kommunikationsstrategien, um digitale Grenzen mit Ihren Kindern zu besprechen, auf eine Weise, die Vertrauen und Verständnis aufbaut.'
                     : 'Learn effective communication strategies to discuss digital boundaries with your children in a way that builds trust and understanding.'
                   }
                 </CardDescription>
@@ -135,7 +146,7 @@ export default function BlogPage() {
                   href={`/${getCurrentLocale()}/blog/talking-to-kids`}
                   className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                 >
-                  {isDutch ? 'Lees Meer' : isSpanish ? 'Leer Más' : isFrench ? 'Lire Plus' : 'Read More'} <ArrowRight className="w-4 h-4" />
+                  {isDutch ? 'Lees Meer' : isSpanish ? 'Leer Más' : isFrench ? 'Lire Plus' : isGerman ? 'Mehr Lesen' : 'Read More'} <ArrowRight className="w-4 h-4" />
                 </Link>
               </CardContent>
             </Card>
@@ -149,11 +160,11 @@ export default function BlogPage() {
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                   <div className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
-                    <span>{isDutch ? '5 maart 2025' : isSpanish ? '5 de marzo de 2025' : isFrench ? '5 mars 2025' : 'March 5, 2025'}</span>
+                    <span>{isDutch ? '5 maart 2025' : isSpanish ? '5 de marzo de 2025' : isFrench ? '5 mars 2025' : isGerman ? '5. März 2025' : 'March 5, 2025'}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Clock className="w-4 h-4" />
-                    <span>{isDutch ? '6 min lezen' : isSpanish ? '6 min de lectura' : isFrench ? '6 min de lecture' : '6 min read'}</span>
+                    <span>{isDutch ? '6 min lezen' : isSpanish ? '6 min de lectura' : isFrench ? '6 min de lecture' : isGerman ? '6 Min. Lesezeit' : '6 min read'}</span>
                   </div>
                 </div>
                 <CardTitle className="text-2xl mb-3 group-hover:text-primary transition-colors">
@@ -163,6 +174,8 @@ export default function BlogPage() {
                     ? 'La Ciencia Detrás del Bienestar Digital: Por Qué el Equilibrio Importa'
                     : isFrench
                     ? 'La Science derrière le Bien-être Numérique : Pourquoi l\'Équilibre Compte'
+                    : isGerman
+                    ? 'Die Wissenschaft Hinter Digitalem Wohlbefinden: Warum Balance Wichtig Ist'
                     : 'The Science Behind Digital Wellness: Why Balance Matters'
                   }
                 </CardTitle>
@@ -173,6 +186,8 @@ export default function BlogPage() {
                     ? 'Explora la investigación sobre cómo el tiempo de pantalla afecta el desarrollo de los niños y por qué encontrar el equilibrio correcto es crucial para su bienestar.'
                     : isFrench
                     ? 'Explorez la recherche sur la façon dont le temps d\'écran affecte le développement des enfants et pourquoi trouver le bon équilibre est crucial pour leur bien-être.'
+                    : isGerman
+                    ? 'Erkunden Sie die Forschung darüber, wie Bildschirmzeit die Entwicklung von Kindern beeinflusst und warum das Finden der richtigen Balance entscheidend für ihr Wohlbefinden ist.'
                     : 'Explore the research on how screen time affects children\'s development and why finding the right balance is crucial for their wellbeing.'
                   }
                 </CardDescription>
@@ -182,7 +197,7 @@ export default function BlogPage() {
                   href={`/${getCurrentLocale()}/blog/digital-wellness`}
                   className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                 >
-                  {isDutch ? 'Lees Meer' : isSpanish ? 'Leer Más' : isFrench ? 'Lire Plus' : 'Read More'} <ArrowRight className="w-4 h-4" />
+                  {isDutch ? 'Lees Meer' : isSpanish ? 'Leer Más' : isFrench ? 'Lire Plus' : isGerman ? 'Mehr Lesen' : 'Read More'} <ArrowRight className="w-4 h-4" />
                 </Link>
               </CardContent>
             </Card>

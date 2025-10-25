@@ -9,6 +9,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
   const isDutch = locale === 'nl'
   const isSpanish = locale === 'es'
   const isFrench = locale === 'fr'
+  const isGerman = locale === 'de'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -29,6 +30,10 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
               <>
                 Nous sommes <span className="text-secondary">Là</span>
               </>
+            ) : isGerman ? (
+              <>
+                Wir sind <span className="text-secondary">Hier</span>
+              </>
             ) : (
               <>
                 We're <span className="text-secondary">Here</span>
@@ -42,6 +47,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
               ? 'Conéctate con Nosotros para Cualquier Pregunta o Comentario'
               : isFrench
               ? 'Contactez-Nous pour Toute Question ou Commentaire'
+              : isGerman
+              ? 'Kontaktieren Sie Uns Bei Fragen Oder Feedback'
               : 'Connect with Us for Any Questions or Feedback'
             }
           </h2>
@@ -52,6 +59,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
               ? '¿Tienes una pregunta, una idea, o simplemente quieres saludar? Nos encantaría saber de ti. Ya seas padre, educador, usuario curioso o socio potencial — tu mensaje es bienvenido. Nuestro equipo está aquí para escuchar y te contactaremos lo antes posible.'
               : isFrench
               ? 'Vous avez une question, une idée, ou vous voulez simplement dire bonjour ? Nous aimerions avoir de vos nouvelles. Que vous soyez parent, éducateur, utilisateur curieux ou partenaire potentiel — votre message est le bienvenu. Notre équipe est là pour écouter et vous répondra dès que possible.'
+              : isGerman
+              ? 'Haben Sie eine Frage, eine Idee oder möchten Sie einfach Hallo sagen? Wir würden gerne von Ihnen hören. Ob Sie Elternteil, Erzieher, neugieriger Benutzer oder potenzieller Partner sind — Ihre Nachricht ist willkommen. Unser Team ist hier, um zuzuhören und wird sich so schnell wie möglich bei Ihnen melden.'
               : 'Got a question, idea, or just want to say hello? We\'d love to hear from you. Whether you\'re a parent, educator, curious user, or a potential partner — your message is welcome. Our team is here to listen and will get back to you as soon as possible.'
             }
           </p>
@@ -69,7 +78,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                   <Mail className="w-8 h-8 text-secondary" />
                 </div>
                 <CardTitle className="text-2xl mb-2">
-                  {isDutch ? 'Algemene Vragen' : isSpanish ? 'Consultas Generales' : isFrench ? 'Questions Générales' : 'General Inquiries'}
+                  {isDutch ? 'Algemene Vragen' : isSpanish ? 'Consultas Generales' : isFrench ? 'Questions Générales' : isGerman ? 'Allgemeine Anfragen' : 'General Inquiries'}
                 </CardTitle>
                 <CardDescription className="text-base leading-relaxed">
                   {isDutch 
@@ -78,6 +87,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                     ? 'Siéntete libre de contactarnos para cualquier pregunta general, comentarios o ideas de colaboración:'
                     : isFrench
                     ? 'Sentez-vous libre de nous contacter pour toute question générale, commentaire ou idée de collaboration :'
+                    : isGerman
+                    ? 'Fühlen Sie sich frei, sich bei allgemeinen Fragen, Feedback oder Kooperationsideen zu melden:'
                     : 'Feel free to reach out for any general questions, feedback, or collaboration ideas:'
                   }
                 </CardDescription>
@@ -99,7 +110,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                   <Headphones className="w-8 h-8 text-secondary" />
                 </div>
                 <CardTitle className="text-2xl mb-2">
-                  {isDutch ? 'Technische Ondersteuning' : isSpanish ? 'Soporte Técnico' : isFrench ? 'Support Technique' : 'Technical Support'}
+                  {isDutch ? 'Technische Ondersteuning' : isSpanish ? 'Soporte Técnico' : isFrench ? 'Support Technique' : isGerman ? 'Technischer Support' : 'Technical Support'}
                 </CardTitle>
                 <CardDescription className="text-base leading-relaxed">
                   {isDutch 
@@ -108,6 +119,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                     ? '¿Experimentas problemas con la app o necesitas ayuda con una función técnica? Nuestro equipo de soporte está listo para ayudarte:'
                     : isFrench
                     ? 'Expériencez-vous des problèmes avec l\'app ou avez-vous besoin d\'aide pour une fonctionnalité technique ? Notre équipe de support est là pour vous aider :'
+                    : isGerman
+                    ? 'Erleben Sie Probleme mit der App oder benötigen Sie Hilfe bei einer technischen Funktion? Unser Support-Team steht bereit, Ihnen zu helfen:'
                     : 'Experiencing issues with the app or need help with a technical feature? Our support team is ready to assist you:'
                   }
                 </CardDescription>
@@ -129,7 +142,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                   <Shield className="w-8 h-8 text-secondary" />
                 </div>
                 <CardTitle className="text-2xl mb-2">
-                  {isDutch ? 'Privacy & Gegevensverzoeken' : isSpanish ? 'Privacidad y Solicitudes de Datos' : isFrench ? 'Confidentialité et Demandes de Données' : 'Privacy & Data Requests'}
+                  {isDutch ? 'Privacy & Gegevensverzoeken' : isSpanish ? 'Privacidad y Solicitudes de Datos' : isFrench ? 'Confidentialité et Demandes de Données' : isGerman ? 'Datenschutz & Datenanfragen' : 'Privacy & Data Requests'}
                 </CardTitle>
                 <CardDescription className="text-base leading-relaxed">
                   {isDutch 
@@ -138,6 +151,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                     ? 'Para cualquier preocupación relacionada con la privacidad o solicitudes de acceso a datos, contáctanos en:'
                     : isFrench
                     ? 'Pour toute préoccupation liée à la confidentialité ou aux demandes d\'accès aux données, contactez-nous à :'
+                    : isGerman
+                    ? 'Für datenschutzbezogene Bedenken oder Datenzugriffsanfragen kontaktieren Sie uns unter:'
                     : 'For any privacy-related concerns or data access requests, contact us at:'
                   }
                 </CardDescription>
@@ -174,6 +189,10 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                   <>
                     Questions <span className="text-secondary">Fréquentes</span>
                   </>
+                ) : isGerman ? (
+                  <>
+                    Häufig Gestellte <span className="text-secondary">Fragen</span>
+                  </>
                 ) : (
                   <>
                     Frequently Asked <span className="text-secondary">Questions</span>
@@ -188,6 +207,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                 ? 'Respuestas rápidas a preguntas comunes sobre Zenvy'
                 : isFrench
                 ? 'Réponses rapides aux questions courantes sur Zenvy'
+                : isGerman
+                ? 'Schnelle Antworten auf häufige Fragen zu Zenvy'
                 : 'Quick answers to common questions about Zenvy'
               }
             </p>
@@ -201,7 +222,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
           >
             <AccordionItem value="item-1" className="bg-background border-2 border-border rounded-lg px-6">
               <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                {isDutch ? 'Hoe werkt Zenvy?' : isSpanish ? '¿Cómo funciona Zenvy?' : isFrench ? 'Comment fonctionne Zenvy ?' : 'How does Zenvy work?'}
+                {isDutch ? 'Hoe werkt Zenvy?' : isSpanish ? '¿Cómo funciona Zenvy?' : isFrench ? 'Comment fonctionne Zenvy ?' : isGerman ? 'Wie funktioniert Zenvy?' : 'How does Zenvy work?'}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">
                 {isDutch 
@@ -210,6 +231,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                   ? 'Zenvy ayuda a las familias a gestionar el tiempo de pantalla de una manera divertida y atractiva. Los padres pueden establecer límites saludables, rastrear el uso en todos los dispositivos y recompensar a los niños con ZenCoins por alcanzar sus objetivos. La app convierte la gestión del tiempo de pantalla en una experiencia familiar positiva en lugar de una batalla.'
                   : isFrench
                   ? 'Zenvy aide les familles à gérer le temps d\'écran de manière amusante et engageante. Les parents peuvent fixer des limites saines, suivre l\'utilisation sur tous les appareils et récompenser les enfants avec des ZenCoins pour atteindre leurs objectifs. L\'app transforme la gestion du temps d\'écran en une expérience familiale positive plutôt qu\'en un combat.'
+                  : isGerman
+                  ? 'Zenvy hilft Familien dabei, Bildschirmzeit auf eine lustige und ansprechende Weise zu verwalten. Eltern können gesunde Grenzen setzen, die Nutzung über alle Geräte verfolgen und Kinder mit ZenCoins für das Erreichen ihrer Ziele belohnen. Die App verwandelt die Bildschirmzeit-Verwaltung in eine positive Familienerfahrung anstatt in einen Kampf.'
                   : 'Zenvy helps families manage screen time in a fun and engaging way. Parents can set healthy limits, track usage across devices, and reward kids with ZenCoins for meeting their goals. The app turns screen time management into a positive family experience rather than a battle.'
                 }
               </AccordionContent>
@@ -217,7 +240,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
 
             <AccordionItem value="item-2" className="bg-background border-2 border-border rounded-lg px-6">
               <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                {isDutch ? 'Is Zenvy echt gratis?' : isSpanish ? '¿Zenvy es realmente gratuito?' : isFrench ? 'Zenvy est-il vraiment gratuit ?' : 'Is Zenvy really free?'}
+                {isDutch ? 'Is Zenvy echt gratis?' : isSpanish ? '¿Zenvy es realmente gratuito?' : isFrench ? 'Zenvy est-il vraiment gratuit ?' : isGerman ? 'Ist Zenvy wirklich kostenlos?' : 'Is Zenvy really free?'}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">
                 {isDutch 
@@ -226,6 +249,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                   ? '¡Sí! Zenvy es completamente gratuito. Somos una startup financiada por donaciones de familias que creen en nuestra misión. Nuestro objetivo es mantener la app gratuita el mayor tiempo posible para que cada familia pueda beneficiarse de hábitos de tiempo de pantalla más saludables, independientemente de su situación financiera.'
                   : isFrench
                   ? 'Oui ! Zenvy est entièrement gratuit. Nous sommes une startup financée par des dons de familles qui croient en notre mission. Notre objectif est de garder l\'app gratuite le plus longtemps possible pour que chaque famille puisse bénéficier d\'habitudes de temps d\'écran plus saines, quelle que soit sa situation financière.'
+                  : isGerman
+                  ? 'Ja! Zenvy ist völlig kostenlos zu nutzen. Wir sind ein Startup, das durch Spenden von Familien finanziert wird, die an unsere Mission glauben. Unser Ziel ist es, die App so lange wie möglich kostenlos zu halten, damit jede Familie von gesünderen Bildschirmzeit-Gewohnheiten profitieren kann, unabhängig von ihrer finanziellen Situation.'
                   : 'Yes! Zenvy is completely free to use. We\'re a startup funded by donations from families who believe in our mission. Our goal is to keep the app free for as long as possible so every family can benefit from healthier screen time habits, regardless of their financial situation.'
                 }
               </AccordionContent>
@@ -233,7 +258,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
 
             <AccordionItem value="item-3" className="bg-background border-2 border-border rounded-lg px-6">
               <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                {isDutch ? 'Welke apparaten ondersteunt Zenvy?' : isSpanish ? '¿Qué dispositivos soporta Zenvy?' : isFrench ? 'Quels appareils Zenvy prend-il en charge ?' : 'What devices does Zenvy support?'}
+                {isDutch ? 'Welke apparaten ondersteunt Zenvy?' : isSpanish ? '¿Qué dispositivos soporta Zenvy?' : isFrench ? 'Quels appareils Zenvy prend-il en charge ?' : isGerman ? 'Welche Geräte unterstützt Zenvy?' : 'What devices does Zenvy support?'}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">
                 {isDutch 
@@ -242,6 +267,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                   ? 'Zenvy está disponible tanto en dispositivos iOS como Android. Puedes descargarlo desde la App Store o Google Play Store. La app funciona perfectamente en todos los dispositivos de tu familia, permitiéndote gestionar el tiempo de pantalla desde cualquier lugar.'
                   : isFrench
                   ? 'Zenvy est disponible sur les appareils iOS et Android. Vous pouvez le télécharger depuis l\'App Store ou Google Play Store. L\'app fonctionne parfaitement sur tous les appareils de votre famille, vous permettant de gérer le temps d\'écran de n\'importe où.'
+                  : isGerman
+                  ? 'Zenvy ist sowohl auf iOS- als auch auf Android-Geräten verfügbar. Sie können es aus dem App Store oder Google Play Store herunterladen. Die App funktioniert nahtlos auf allen Geräten Ihrer Familie und ermöglicht es Ihnen, die Bildschirmzeit von überall aus zu verwalten.'
                   : 'Zenvy is available on both iOS and Android devices. You can download it from the App Store or Google Play Store. The app works seamlessly across all your family\'s devices, allowing you to manage screen time from anywhere.'
                 }
               </AccordionContent>
@@ -249,7 +276,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
 
             <AccordionItem value="item-4" className="bg-background border-2 border-border rounded-lg px-6">
               <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                {isDutch ? 'Hoe worden de gegevens van mijn gezin beschermd?' : isSpanish ? '¿Cómo se protegen los datos de mi familia?' : isFrench ? 'Comment les données de ma famille sont-elles protégées ?' : 'How is my family\'s data protected?'}
+                {isDutch ? 'Hoe worden de gegevens van mijn gezin beschermd?' : isSpanish ? '¿Cómo se protegen los datos de mi familia?' : isFrench ? 'Comment les données de ma famille sont-elles protégées ?' : isGerman ? 'Wie werden die Daten meiner Familie geschützt?' : 'How is my family\'s data protected?'}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">
                 {isDutch 
@@ -258,6 +285,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                   ? 'La privacidad es nuestra máxima prioridad. Todos los datos de tu familia están encriptados y almacenados de forma segura. Nunca vendemos tus datos a terceros, y nunca lo haremos. Tu información se usa únicamente para brindarte la mejor experiencia posible. Puedes leer más en nuestra Política de Privacidad.'
                   : isFrench
                   ? 'La confidentialité est notre priorité absolue. Toutes les données de votre famille sont cryptées et stockées en toute sécurité. Nous ne vendons jamais vos données à des tiers, et nous ne le ferons jamais. Vos informations sont utilisées uniquement pour vous fournir la meilleure expérience possible. Vous pouvez en savoir plus dans notre Politique de Confidentialité.'
+                  : isGerman
+                  ? 'Datenschutz ist unsere oberste Priorität. Alle Daten Ihrer Familie werden verschlüsselt und sicher gespeichert. Wir verkaufen niemals Ihre Daten an Dritte und werden das auch niemals tun. Ihre Informationen werden ausschließlich verwendet, um Ihnen die bestmögliche Erfahrung zu bieten. Sie können mehr in unserer Datenschutzrichtlinie lesen.'
                   : 'Privacy is our top priority. All your family\'s data is encrypted and stored securely. We never sell your data to third parties, and we never will. Your information is used solely to provide you with the best possible experience. You can read more in our Privacy Policy.'
                 }
               </AccordionContent>
@@ -265,7 +294,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
 
             <AccordionItem value="item-5" className="bg-background border-2 border-border rounded-lg px-6">
               <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                {isDutch ? 'Hoe begin ik met Zenvy?' : isSpanish ? '¿Cómo empiezo con Zenvy?' : isFrench ? 'Comment commencer avec Zenvy ?' : 'How do I get started with Zenvy?'}
+                {isDutch ? 'Hoe begin ik met Zenvy?' : isSpanish ? '¿Cómo empiezo con Zenvy?' : isFrench ? 'Comment commencer avec Zenvy ?' : isGerman ? 'Wie beginne ich mit Zenvy?' : 'How do I get started with Zenvy?'}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">
                 {isDutch 
@@ -274,6 +303,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                   ? '¡Empezar es fácil! Simplemente descarga la app Zenvy desde la App Store o Google Play Store, crea una cuenta familiar, agrega a tus familiares y configura tus primeros objetivos de tiempo de pantalla. La app incluye una guía de incorporación útil que te guiará a través del proceso.'
                   : isFrench
                   ? 'Commencer est facile ! Il suffit de télécharger l\'app Zenvy depuis l\'App Store ou Google Play Store, de créer un compte familial, d\'ajouter vos proches et de définir vos premiers objectifs de temps d\'écran. L\'app inclut un guide d\'intégration utile qui vous guidera tout au long du processus.'
+                  : isGerman
+                  ? 'Der Einstieg ist einfach! Laden Sie einfach die Zenvy-App aus dem App Store oder Google Play Store herunter, erstellen Sie ein Familienkonto, fügen Sie Ihre Familienmitglieder hinzu und richten Sie Ihre ersten Bildschirmzeit-Ziele ein. Die App enthält eine hilfreiche Onboarding-Anleitung, die Sie durch den Prozess führt.'
                   : 'Getting started is easy! Simply download the Zenvy app from the App Store or Google Play Store, create a family account, add your family members, and set up your first screen time goals. The app includes a helpful onboarding guide to walk you through the process.'
                 }
               </AccordionContent>
@@ -284,7 +315,7 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
               className="bg-background border-2 border-border rounded-lg px-6 last:border-b-2"
             >
               <AccordionTrigger className="text-lg font-semibold hover:text-primary">
-                {isDutch ? 'Kan ik schermtijd regels aanpassen voor elk kind?' : isSpanish ? '¿Puedo personalizar las reglas de tiempo de pantalla para cada niño?' : isFrench ? 'Puis-je personnaliser les règles de temps d\'écran pour chaque enfant ?' : 'Can I customize screen time rules for each child?'}
+                {isDutch ? 'Kan ik schermtijd regels aanpassen voor elk kind?' : isSpanish ? '¿Puedo personalizar las reglas de tiempo de pantalla para cada niño?' : isFrench ? 'Puis-je personnaliser les règles de temps d\'écran pour chaque enfant ?' : isGerman ? 'Kann ich Bildschirmzeit-Regeln für jedes Kind anpassen?' : 'Can I customize screen time rules for each child?'}
               </AccordionTrigger>
               <AccordionContent className="text-muted-foreground leading-relaxed">
                 {isDutch 
@@ -293,6 +324,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                   ? 'Zenvy te permite crear reglas de tiempo de pantalla personalizadas para cada miembro de la familia. Puedes establecer diferentes límites, horarios y recompensas basados en la edad, necesidades y valores familiares. Cada familia es única, y Zenvy se adapta a la tuya.'
                   : isFrench
                   ? 'Zenvy vous permet de créer des règles de temps d\'écran personnalisées pour chaque membre de la famille. Vous pouvez définir différents limites, horaires et récompenses basés sur l\'âge, les besoins et les valeurs familiales. Chaque famille est unique, et Zenvy s\'adapte à la vôtre.'
+                  : isGerman
+                  ? 'Zenvy ermöglicht es Ihnen, personalisierte Bildschirmzeit-Regeln für jedes Familienmitglied zu erstellen. Sie können verschiedene Grenzen, Zeitpläne und Belohnungen basierend auf Alter, Bedürfnissen und Familienwerten festlegen. Jede Familie ist einzigartig, und Zenvy passt sich an Ihre Familie an.'
                   : 'Zenvy allows you to create personalized screen time rules for each family member. You can set different limits, schedules, and rewards based on age, needs, and family values. Every family is unique, and Zenvy adapts to yours.'
                 }
               </AccordionContent>
@@ -310,6 +343,8 @@ export default async function SupportPage({ params }: { params: Promise<{ locale
                   ? 'Zenvy es creado en los Países Bajos, pero hecho con amor para familias de todo el mundo.\n\nNo importa de dónde seas, estamos aquí para ti.'
                   : isFrench
                   ? 'Zenvy est créé aux Pays-Bas, mais fait avec amour pour les familles du monde entier.\n\nPeu importe d\'où vous venez, nous sommes là pour vous.'
+                  : isGerman
+                  ? 'Zenvy wurde in den Niederlanden geschaffen, aber mit Liebe für Familien auf der ganzen Welt gemacht.\n\nEgal woher Sie kommen, wir sind für Sie da.'
                   : 'Zenvy is created in the Netherlands, but made with love for families all over the world.\n\nNo matter where you\'re from, we\'re here for you.'
                 }
               </p>

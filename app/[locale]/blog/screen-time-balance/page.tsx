@@ -18,6 +18,7 @@ export default function ScreenTimeBalancePage() {
   const isDutch = getCurrentLocale() === 'nl'
   const isSpanish = getCurrentLocale() === 'es'
   const isFrench = getCurrentLocale() === 'fr'
+  const isGerman = getCurrentLocale() === 'de'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -30,7 +31,7 @@ export default function ScreenTimeBalancePage() {
             className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
-            {isDutch ? 'Terug naar Blog' : isSpanish ? 'Volver al Blog' : isFrench ? 'Retour au Blog' : 'Back to Blog'}
+            {isDutch ? 'Terug naar Blog' : isSpanish ? 'Volver al Blog' : isFrench ? 'Retour au Blog' : isGerman ? 'Zurück zum Blog' : 'Back to Blog'}
           </Link>
 
           {/* Hero Image */}
@@ -42,11 +43,11 @@ export default function ScreenTimeBalancePage() {
           <div className="flex items-center gap-6 text-sm text-muted-foreground mb-6">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
-              <span>{isDutch ? '15 maart 2025' : isSpanish ? '15 de marzo de 2025' : isFrench ? '15 mars 2025' : 'March 15, 2025'}</span>
+              <span>{isDutch ? '15 maart 2025' : isSpanish ? '15 de marzo de 2025' : isFrench ? '15 mars 2025' : isGerman ? '15. März 2025' : 'March 15, 2025'}</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4" />
-              <span>{isDutch ? '5 min lezen' : isSpanish ? '5 min de lectura' : isFrench ? '5 min de lecture' : '5 min read'}</span>
+              <span>{isDutch ? '5 min lezen' : isSpanish ? '5 min de lectura' : isFrench ? '5 min de lecture' : isGerman ? '5 Min. Lesezeit' : '5 min read'}</span>
             </div>
           </div>
 
@@ -58,6 +59,8 @@ export default function ScreenTimeBalancePage() {
               ? '5 Señales de que Tu Familia Necesita Mejor Equilibrio en el Tiempo de Pantalla'
               : isFrench
               ? '5 Signes Que Votre Famille a Besoin d\'un Meilleur Équilibre du Temps d\'Écran'
+              : isGerman
+              ? '5 Anzeichen, Dass Ihre Familie Bessere Bildschirmzeit-Balance Braucht'
               : '5 Signs Your Family Needs Better Screen Time Balance'
             }
           </h1>
@@ -71,12 +74,14 @@ export default function ScreenTimeBalancePage() {
                 ? 'En la era digital de hoy, encontrar el equilibrio correcto entre el tiempo de pantalla y las actividades del mundo real puede ser desafiante. Aquí hay cinco indicadores clave de que podría ser hora de reevaluar la relación de tu familia con la tecnología.'
                 : isFrench
                 ? 'À l\'ère numérique d\'aujourd\'hui, trouver le bon équilibre entre le temps d\'écran et les activités du monde réel peut être difficile. Voici cinq indicateurs clés qu\'il est peut-être temps de réévaluer la relation de votre famille avec la technologie.'
+                : isGerman
+                ? 'Im heutigen digitalen Zeitalter kann es herausfordernd sein, die richtige Balance zwischen Bildschirmzeit und Aktivitäten in der realen Welt zu finden. Hier sind fünf wichtige Indikatoren, dass es Zeit sein könnte, die Beziehung Ihrer Familie zur Technologie neu zu bewerten.'
                 : 'In today\'s digital age, finding the right balance between screen time and real-world activities can be challenging. Here are five key indicators that it might be time to reassess your family\'s relationship with technology.'
               }
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? '1. Constante Gevechten Over Apparaten' : isSpanish ? '1. Batallas Constantes por los Dispositivos' : isFrench ? '1. Batailles Constantes pour les Appareils' : '1. Constant Battles Over Devices'}
+              {isDutch ? '1. Constante Gevechten Over Apparaten' : isSpanish ? '1. Batallas Constantes por los Dispositivos' : isFrench ? '1. Batailles Constantes pour les Appareils' : isGerman ? '1. Ständige Kämpfe Um Geräte' : '1. Constant Battles Over Devices'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -90,7 +95,7 @@ export default function ScreenTimeBalancePage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? '2. Afnemende Lichamelijke Activiteit' : isSpanish ? '2. Actividad Física en Declive' : isFrench ? '2. Activité Physique en Diminution' : '2. Declining Physical Activity'}
+              {isDutch ? '2. Afnemende Lichamelijke Activiteit' : isSpanish ? '2. Actividad Física en Declive' : isFrench ? '2. Activité Physique en Diminution' : isGerman ? '2. Abnehmende Körperliche Aktivität' : '2. Declining Physical Activity'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -104,7 +109,7 @@ export default function ScreenTimeBalancePage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? '3. Slaapverstoringen' : isSpanish ? '3. Alteraciones del Sueño' : isFrench ? '3. Troubles du Sommeil' : '3. Sleep Disruptions'}
+              {isDutch ? '3. Slaapverstoringen' : isSpanish ? '3. Alteraciones del Sueño' : isFrench ? '3. Troubles du Sommeil' : isGerman ? '3. Schlafstörungen' : '3. Sleep Disruptions'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -118,7 +123,7 @@ export default function ScreenTimeBalancePage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? '4. Verminderde Face-to-Face Interactie' : isSpanish ? '4. Interacción Cara a Cara Reducida' : isFrench ? '4. Interaction Face à Face Réduite' : '4. Reduced Face-to-Face Interaction'}
+              {isDutch ? '4. Verminderde Face-to-Face Interactie' : isSpanish ? '4. Interacción Cara a Cara Reducida' : isFrench ? '4. Interaction Face à Face Réduite' : isGerman ? '4. Reduzierte Face-to-Face Interaktion' : '4. Reduced Face-to-Face Interaction'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -132,7 +137,7 @@ export default function ScreenTimeBalancePage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? '5. Veranderingen in Schoolprestaties' : isSpanish ? '5. Cambios en el Rendimiento Académico' : isFrench ? '5. Changements dans les Performances Scolaires' : '5. Academic Performance Changes'}
+              {isDutch ? '5. Veranderingen in Schoolprestaties' : isSpanish ? '5. Cambios en el Rendimiento Académico' : isFrench ? '5. Changements dans les Performances Scolaires' : isGerman ? '5. Veränderungen in der Schulleistung' : '5. Academic Performance Changes'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -146,7 +151,7 @@ export default function ScreenTimeBalancePage() {
             </p>
 
             <h2 className="text-3xl font-bold mt-12 mb-4">
-              {isDutch ? 'Actie Ondernemen' : isSpanish ? 'Tomar Acción' : isFrench ? 'Passer à l\'Action' : 'Taking Action'}
+              {isDutch ? 'Actie Ondernemen' : isSpanish ? 'Tomar Acción' : isFrench ? 'Passer à l\'Action' : isGerman ? 'Maßnahmen Ergreifen' : 'Taking Action'}
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
               {isDutch 
@@ -172,7 +177,7 @@ export default function ScreenTimeBalancePage() {
 
             <div className="bg-secondary/10 border-2 border-secondary/30 rounded-2xl p-8 mt-12">
               <h3 className="text-2xl font-bold mb-4">
-                {isDutch ? 'Klaar om Balans te Vinden?' : isSpanish ? '¿Listo para Encontrar el Equilibrio?' : isFrench ? 'Prêt à Trouver l\'Équilibre ?' : 'Ready to Find Balance?'}
+                {isDutch ? 'Klaar om Balans te Vinden?' : isSpanish ? '¿Listo para Encontrar el Equilibrio?' : isFrench ? 'Prêt à Trouver l\'Équilibre ?' : isGerman ? 'Bereit, Balance zu Finden?' : 'Ready to Find Balance?'}
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 {isDutch 
@@ -188,7 +193,7 @@ export default function ScreenTimeBalancePage() {
                 href={`/${getCurrentLocale()}`}
                 className="inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors"
               >
-                {isDutch ? 'Meer Leren Over Zenvy' : isSpanish ? 'Aprende Más Sobre Zenvy' : isFrench ? 'En Savoir Plus sur Zenvy' : 'Learn More About Zenvy'}
+                {isDutch ? 'Meer Leren Over Zenvy' : isSpanish ? 'Aprende Más Sobre Zenvy' : isFrench ? 'En Savoir Plus sur Zenvy' : isGerman ? 'Mehr Über Zenvy Erfahren' : 'Learn More About Zenvy'}
               </Link>
             </div>
           </div>
