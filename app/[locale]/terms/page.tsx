@@ -18,12 +18,12 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 px-4 bg-gradient-to-b from-primary/5 to-background">
+      <section className="pt-20 sm:pt-24 md:pt-32 pb-8 sm:pb-12 px-4 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto text-center max-w-4xl">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/20 rounded-full mb-6">
             <FileText className="w-10 h-10 text-primary" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance break-words">
             {isDutch ? (
               <>
                 <span className="text-primary">Gebruiksvoorwaarden</span>
@@ -75,11 +75,11 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* Content Section */}
-      <section className="py-12 px-4">
+      <section className="py-8 sm:py-12 px-4">
         <div className="container mx-auto max-w-4xl">
           <Card className="border-2 border-primary/20">
             <CardHeader>
-              <CardTitle className="text-2xl text-center">
+              <CardTitle className="text-xl sm:text-2xl text-center break-words">
                 {isDutch ? 'Gebruiksvoorwaarden' : isSpanish ? 'Términos de Uso' : isFrench ? 'Conditions d\'Utilisation' : isGerman ? 'Nutzungsbedingungen' : 'Terms of Use'}
               </CardTitle>
             </CardHeader>

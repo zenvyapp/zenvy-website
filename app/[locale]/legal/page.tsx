@@ -14,12 +14,12 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-12 px-4 bg-gradient-to-b from-primary/5 to-background">
+      <section className="pt-20 sm:pt-24 md:pt-32 pb-8 sm:pb-12 px-4 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto text-center max-w-4xl">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-primary/20 rounded-full mb-6">
             <Scale className="w-10 h-10 text-primary" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-balance break-words">
             {isDutch ? (
               <>
                 Juridische <span className="text-primary">Informatie</span>
@@ -58,9 +58,9 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
       </section>
 
       {/* Introduction Section */}
-      <section className="py-12 px-4">
+      <section className="py-8 sm:py-12 px-4">
         <div className="container mx-auto max-w-4xl">
-          <div className="bg-card border-2 border-primary/20 rounded-3xl p-8 md:p-12 mb-12">
+          <div className="bg-card border-2 border-primary/20 rounded-3xl p-6 sm:p-8 md:p-12 mb-8 sm:mb-12">
             <p className="text-lg leading-relaxed mb-6 text-foreground">
               {isDutch 
                 ? 'Bij Zenvy staan transparantie en vertrouwen centraal in alles wat we doen. Op deze pagina vind je alle belangrijke juridische documenten die je gebruik van onze app en diensten regelen.'
@@ -122,14 +122,14 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
           </div>
 
           {/* Legal Documents Cards */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             {/* Privacy Policy */}
             <Card className="border-2 hover:border-secondary transition-all hover:shadow-lg group">
               <CardHeader className="text-center">
                 <div className="mx-auto mb-4 w-20 h-20 rounded-full bg-secondary/20 flex items-center justify-center">
                   <Shield className="w-10 h-10 text-secondary" />
                 </div>
-                <CardTitle className="text-3xl mb-3">
+                <CardTitle className="text-2xl sm:text-3xl mb-3 break-words">
                   {isDutch ? 'Privacybeleid' : isSpanish ? 'Política de Privacidad' : isFrench ? 'Politique de Confidentialité' : isGerman ? 'Datenschutzrichtlinie' : 'Privacy Policy'}
                 </CardTitle>
                 <CardDescription className="text-base leading-relaxed">
@@ -161,7 +161,7 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
                 <div className="mx-auto mb-4 w-20 h-20 rounded-full bg-secondary/20 flex items-center justify-center">
                   <FileText className="w-10 h-10 text-secondary" />
                 </div>
-                <CardTitle className="text-3xl mb-3">
+                <CardTitle className="text-2xl sm:text-3xl mb-3 break-words">
                   {isDutch ? 'Gebruiksvoorwaarden' : isSpanish ? 'Términos de Uso' : isFrench ? 'Conditions d\'Utilisation' : isGerman ? 'Nutzungsbedingungen' : 'Terms of Use'}
                 </CardTitle>
                 <CardDescription className="text-base leading-relaxed">
@@ -189,8 +189,8 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
           </div>
 
           {/* Contact Section */}
-          <div className="mt-16 text-center bg-secondary/10 border-2 border-secondary/30 rounded-2xl p-8">
-            <h3 className="text-2xl font-bold mb-4">
+          <div className="mt-12 sm:mt-16 text-center bg-secondary/10 border-2 border-secondary/30 rounded-2xl p-6 sm:p-8">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 break-words">
               {isDutch ? 'Vragen Over Ons Juridisch Beleid?' : isSpanish ? '¿Preguntas Sobre Nuestras Políticas Legales?' : isFrench ? 'Questions Sur Nos Politiques Légales ?' : isGerman ? 'Fragen Zu Unseren Rechtlichen Richtlinien?' : 'Questions About Our Legal Policies?'}
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed mb-4">
