@@ -21,9 +21,10 @@ import {
   Zap,
   Star,
 } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, Suspense } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import { LoadingSpinner } from "@/components/ui/loading-spinner"
 import Image from "next/image"
 
 export default function HomePageDE() {
@@ -80,7 +81,9 @@ export default function HomePageDE() {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
+      <Suspense fallback={<LoadingSpinner size="lg" className="mx-auto" />}>
+        <Header />
+      </Suspense>
 
       {/* Hero Section */}
       <section ref={heroRef} className="pt-20 sm:pt-24 md:pt-32 pb-12 sm:pb-16 md:pb-20 px-4 overflow-hidden">
