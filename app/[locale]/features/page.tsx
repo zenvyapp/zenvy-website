@@ -2,7 +2,8 @@ import { Users, Target, Coins, Brain, Trophy, Sparkles, Shield, BarChart, Clock,
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 
-export default function FeaturesPage() {
+export default function FeaturesPage({ params }: { params: { locale: string } }) {
+  const isDutch = params.locale === 'nl'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -12,13 +13,26 @@ export default function FeaturesPage() {
         <div className="container mx-auto text-center max-w-4xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-6">
             <Sparkles className="h-4 w-4" />
-            <span className="text-sm font-medium">Discover All Features</span>
+            <span className="text-sm font-medium">
+              {isDutch ? 'Ontdek Alle Functies' : 'Discover All Features'}
+            </span>
           </div>
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
-            Powerful Features for <span className="text-primary">Healthy Habits</span>
+            {isDutch ? (
+              <>
+                Krachtige Functies voor <span className="text-primary">Gezonde Gewoonten</span>
+              </>
+            ) : (
+              <>
+                Powerful Features for <span className="text-primary">Healthy Habits</span>
+              </>
+            )}
           </h1>
           <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
-            Everything you need to transform screen time into meaningful family moments
+            {isDutch 
+              ? 'Alles wat je nodig hebt om schermtijd te transformeren in betekenisvolle gezinsmomenten'
+              : 'Everything you need to transform screen time into meaningful family moments'
+            }
           </p>
         </div>
       </section>
@@ -30,93 +44,111 @@ export default function FeaturesPage() {
             {[
               {
                 icon: Users,
-                title: "Family Dashboard",
-                description:
-                  "View and compare screen time across all family members in one beautiful, easy-to-understand dashboard.",
+                title: isDutch ? "Familie Dashboard" : "Family Dashboard",
+                description: isDutch 
+                  ? "Bekijk en vergelijk schermtijd van alle familieleden in één mooi, begrijpelijk dashboard."
+                  : "View and compare screen time across all family members in one beautiful, easy-to-understand dashboard.",
                 color: "primary",
-                example: "See who's winning the screen time challenge this week!",
+                example: isDutch ? "Zie wie deze week de schermtijd uitdaging wint!" : "See who's winning the screen time challenge this week!",
               },
               {
                 icon: Target,
-                title: "Task Management",
-                description:
-                  "Assign tasks and chores to children, helping them learn responsibility while earning rewards.",
+                title: isDutch ? "Takenbeheer" : "Task Management",
+                description: isDutch
+                  ? "Wijs taken en klusjes toe aan kinderen, help ze verantwoordelijkheid te leren terwijl ze beloningen verdienen."
+                  : "Assign tasks and chores to children, helping them learn responsibility while earning rewards.",
                 color: "secondary",
-                example: "Create tasks like 'Clean your room' or 'Do homework'",
+                example: isDutch ? "Maak taken zoals 'Ruim je kamer op' of 'Maak huiswerk'" : "Create tasks like 'Clean your room' or 'Do homework'",
               },
               {
                 icon: Coins,
-                title: "ZenCoins Rewards",
-                description:
-                  "Children earn ZenCoins for completing tasks and can spend them in the reward shop for things they love.",
+                title: isDutch ? "ZenCoins Beloningen" : "ZenCoins Rewards",
+                description: isDutch
+                  ? "Kinderen verdienen ZenCoins voor het voltooien van taken en kunnen ze uitgeven in de beloningenwinkel voor dingen die ze leuk vinden."
+                  : "Children earn ZenCoins for completing tasks and can spend them in the reward shop for things they love.",
                 color: "secondary",
-                example: "Earn 50 coins for each completed task!",
+                example: isDutch ? "Verdien 50 munten voor elke voltooide taak!" : "Earn 50 coins for each completed task!",
               },
               {
                 icon: Brain,
-                title: "Knowledge Challenges",
-                description:
-                  "Educational quizzes and challenges that make learning fun while earning extra screen time.",
+                title: isDutch ? "Kennis Uitdagingen" : "Knowledge Challenges",
+                description: isDutch
+                  ? "Educatieve quizzen en uitdagingen die leren leuk maken terwijl je extra schermtijd verdient."
+                  : "Educational quizzes and challenges that make learning fun while earning extra screen time.",
                 color: "primary",
-                example: "Answer math questions to unlock 30 extra minutes",
+                example: isDutch ? "Beantwoord wiskunde vragen om 30 extra minuten vrij te spelen" : "Answer math questions to unlock 30 extra minutes",
               },
               {
                 icon: Trophy,
-                title: "Achievement System",
-                description: "Celebrate progress with achievements and milestones that motivate continued growth.",
+                title: isDutch ? "Prestatie Systeem" : "Achievement System",
+                description: isDutch
+                  ? "Vier vooruitgang met prestaties en mijlpalen die voortdurende groei motiveren."
+                  : "Celebrate progress with achievements and milestones that motivate continued growth.",
                 color: "secondary",
-                example: "Unlock badges for 7-day streaks and goals!",
+                example: isDutch ? "Ontgrendel badges voor 7-dagen reeksen en doelen!" : "Unlock badges for 7-day streaks and goals!",
               },
               {
                 icon: Clock,
-                title: "Smart Time Limits",
-                description: "Set flexible screen time limits that adapt to your family's schedule and needs.",
+                title: isDutch ? "Slimme Tijdslimieten" : "Smart Time Limits",
+                description: isDutch
+                  ? "Stel flexibele schermtijd limieten in die zich aanpassen aan het schema en behoeften van je gezin."
+                  : "Set flexible screen time limits that adapt to your family's schedule and needs.",
                 color: "primary",
-                example: "More time on weekends, less on school nights",
+                example: isDutch ? "Meer tijd in het weekend, minder op schooldagen" : "More time on weekends, less on school nights",
               },
               {
                 icon: Gift,
-                title: "Reward Shop",
-                description: "Kids can spend their earned ZenCoins on rewards you define - from treats to privileges.",
+                title: isDutch ? "Beloningenwinkel" : "Reward Shop",
+                description: isDutch
+                  ? "Kinderen kunnen hun verdiende ZenCoins uitgeven aan beloningen die jij definieert - van traktaties tot privileges."
+                  : "Kids can spend their earned ZenCoins on rewards you define - from treats to privileges.",
                 color: "secondary",
-                example: "Trade 200 coins for movie night or ice cream!",
+                example: isDutch ? "Ruil 200 munten voor filmavond of ijs!" : "Trade 200 coins for movie night or ice cream!",
               },
               {
                 icon: Zap,
-                title: "Instant Notifications",
-                description: "Get real-time updates when tasks are completed or screen time limits are reached.",
+                title: isDutch ? "Directe Meldingen" : "Instant Notifications",
+                description: isDutch
+                  ? "Krijg real-time updates wanneer taken zijn voltooid of schermtijd limieten zijn bereikt."
+                  : "Get real-time updates when tasks are completed or screen time limits are reached.",
                 color: "primary",
-                example: "Emma just completed her homework! +50 coins",
+                example: isDutch ? "Emma heeft net haar huiswerk afgemaakt! +50 munten" : "Emma just completed her homework! +50 coins",
               },
               {
                 icon: Shield,
-                title: "Safe & Secure",
-                description: "Your family's data is protected with enterprise-grade security and privacy measures.",
+                title: isDutch ? "Veilig & Beveiligd" : "Safe & Secure",
+                description: isDutch
+                  ? "De gegevens van je gezin zijn beschermd met enterprise-grade beveiliging en privacy maatregelen."
+                  : "Your family's data is protected with enterprise-grade security and privacy measures.",
                 color: "primary",
-                example: "Bank-level encryption keeps your data safe",
+                example: isDutch ? "Bank-niveau encryptie houdt je gegevens veilig" : "Bank-level encryption keeps your data safe",
               },
               {
                 icon: BarChart,
-                title: "Detailed Analytics",
-                description:
-                  "Track progress over time with comprehensive reports and insights into screen time patterns.",
+                title: isDutch ? "Gedetailleerde Analytics" : "Detailed Analytics",
+                description: isDutch
+                  ? "Volg vooruitgang in de tijd met uitgebreide rapporten en inzichten in schermtijd patronen."
+                  : "Track progress over time with comprehensive reports and insights into screen time patterns.",
                 color: "secondary",
-                example: "See weekly trends and improvement graphs",
+                example: isDutch ? "Zie wekelijkse trends en verbetering grafieken" : "See weekly trends and improvement graphs",
               },
               {
                 icon: Heart,
-                title: "Positive Reinforcement",
-                description:
-                  "Focus on rewards and encouragement rather than punishment to build lasting healthy habits.",
+                title: isDutch ? "Positieve Versterking" : "Positive Reinforcement",
+                description: isDutch
+                  ? "Focus op beloningen en aanmoediging in plaats van straf om blijvende gezonde gewoonten op te bouwen."
+                  : "Focus on rewards and encouragement rather than punishment to build lasting healthy habits.",
                 color: "primary",
-                example: "Celebrate wins, not just limit screen time",
+                example: isDutch ? "Vier overwinningen, niet alleen schermtijd beperken" : "Celebrate wins, not just limit screen time",
               },
               {
                 icon: Sparkles,
-                title: "Customizable Goals",
-                description: "Set personalized goals for each family member based on age, needs, and preferences.",
+                title: isDutch ? "Aanpasbare Doelen" : "Customizable Goals",
+                description: isDutch
+                  ? "Stel gepersonaliseerde doelen in voor elk familielid gebaseerd op leeftijd, behoeften en voorkeuren."
+                  : "Set personalized goals for each family member based on age, needs, and preferences.",
                 color: "secondary",
-                example: "Different limits for different ages and days",
+                example: isDutch ? "Verschillende limieten voor verschillende leeftijden en dagen" : "Different limits for different ages and days",
               },
             ].map((feature, index) => (
               <div
@@ -159,19 +191,44 @@ export default function FeaturesPage() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="text-4xl font-bold text-balance">
-                Built for <span className="text-primary">Real Families</span>
+                {isDutch ? (
+                  <>
+                    Gebouwd voor <span className="text-primary">Echte Gezinnen</span>
+                  </>
+                ) : (
+                  <>
+                    Built for <span className="text-primary">Real Families</span>
+                  </>
+                )}
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Zenvy isn't just another parental control app. It's a complete family engagement platform designed to
-                make screen time a positive, educational experience.
+                {isDutch 
+                  ? "Zenvy is niet zomaar een andere ouderlijke controle app. Het is een complete gezinsengagement platform ontworpen om schermtijd een positieve, educatieve ervaring te maken."
+                  : "Zenvy isn't just another parental control app. It's a complete family engagement platform designed to make screen time a positive, educational experience."
+                }
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: "🎯", text: "Easy setup in under 5 minutes" },
-                  { icon: "📱", text: "Works on iOS and Android devices" },
-                  { icon: "👨‍👩‍👧‍👦", text: "Unlimited family members" },
-                  { icon: "🔄", text: "Automatic sync across all devices" },
-                  { icon: "💬", text: "24/7 customer support" },
+                  { 
+                    icon: "🎯", 
+                    text: isDutch ? "Eenvoudige installatie in minder dan 5 minuten" : "Easy setup in under 5 minutes" 
+                  },
+                  { 
+                    icon: "📱", 
+                    text: isDutch ? "Werkt op iOS en Android apparaten" : "Works on iOS and Android devices" 
+                  },
+                  { 
+                    icon: "👨‍👩‍👧‍👦", 
+                    text: isDutch ? "Onbeperkt aantal familieleden" : "Unlimited family members" 
+                  },
+                  { 
+                    icon: "🔄", 
+                    text: isDutch ? "Automatische synchronisatie op alle apparaten" : "Automatic sync across all devices" 
+                  },
+                  { 
+                    icon: "💬", 
+                    text: isDutch ? "24/7 klantenservice" : "24/7 customer support" 
+                  },
                 ].map((item, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <div className="text-2xl">{item.icon}</div>
@@ -187,18 +244,24 @@ export default function FeaturesPage() {
                     👧
                   </div>
                   <div>
-                    <div className="font-bold">Emma, age 10</div>
-                    <div className="text-sm text-muted-foreground">Completed 5 tasks today</div>
+                    <div className="font-bold">Emma, {isDutch ? '10 jaar' : 'age 10'}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {isDutch ? '5 taken vandaag voltooid' : 'Completed 5 tasks today'}
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">ZenCoins earned</span>
-                    <span className="font-bold text-secondary">+250 coins</span>
+                    <span className="text-muted-foreground">
+                      {isDutch ? 'ZenCoins verdiend' : 'ZenCoins earned'}
+                    </span>
+                    <span className="font-bold text-secondary">+250 {isDutch ? 'munten' : 'coins'}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Screen time today</span>
-                    <span className="font-bold text-primary">2h 15m</span>
+                    <span className="text-muted-foreground">
+                      {isDutch ? 'Schermtijd vandaag' : 'Screen time today'}
+                    </span>
+                    <span className="font-bold text-primary">2u 15m</span>
                   </div>
                 </div>
               </div>
@@ -208,18 +271,24 @@ export default function FeaturesPage() {
                     👦
                   </div>
                   <div>
-                    <div className="font-bold">Max, age 8</div>
-                    <div className="text-sm text-muted-foreground">Won 2 challenges</div>
+                    <div className="font-bold">Max, {isDutch ? '8 jaar' : 'age 8'}</div>
+                    <div className="text-sm text-muted-foreground">
+                      {isDutch ? '2 uitdagingen gewonnen' : 'Won 2 challenges'}
+                    </div>
                   </div>
                 </div>
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">ZenCoins earned</span>
-                    <span className="font-bold text-secondary">+180 coins</span>
+                    <span className="text-muted-foreground">
+                      {isDutch ? 'ZenCoins verdiend' : 'ZenCoins earned'}
+                    </span>
+                    <span className="font-bold text-secondary">+180 {isDutch ? 'munten' : 'coins'}</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Screen time today</span>
-                    <span className="font-bold text-primary">1h 45m</span>
+                    <span className="text-muted-foreground">
+                      {isDutch ? 'Schermtijd vandaag' : 'Screen time today'}
+                    </span>
+                    <span className="font-bold text-primary">1u 45m</span>
                   </div>
                 </div>
               </div>
