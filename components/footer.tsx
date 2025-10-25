@@ -1,6 +1,16 @@
+"use client"
+
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export function Footer() {
+  const pathname = usePathname()
+  
+  const getCurrentLocale = () => {
+    const path = pathname
+    const localeMatch = path.match(/^\/([a-z]{2})/)
+    return localeMatch ? localeMatch[1] : 'en'
+  }
   return (
     <footer className="py-12 px-4 border-t border-border">
       <div className="container mx-auto">
@@ -11,7 +21,7 @@ export function Footer() {
               <img src="/zenvy-logo.png" alt="Zenvy" className="h-8 w-8 rounded-lg" />
               <span className="text-xl font-bold">Zenvy</span>
             </div>
-            <p className="text-sm text-muted-foreground mb-4">Making screen time meaningful for families worldwide.</p>
+            <p className="text-sm text-muted-foreground mb-4">{getCurrentLocale() === 'nl' ? 'Schermtijd betekenisvol maken voor gezinnen wereldwijd.' : 'Making screen time meaningful for families worldwide.'}</p>
             <div className="flex items-center gap-3">
               <a
                 href="https://www.youtube.com/@Get_Zenvy"
@@ -63,55 +73,55 @@ export function Footer() {
           {/* Right section with 3 columns - Product, Resources, Company */}
           <div className="flex-1 flex flex-col md:flex-row justify-end gap-8 md:gap-24">
             <div>
-              <h4 className="font-semibold mb-4">Product</h4>
+              <h4 className="font-semibold mb-4">{getCurrentLocale() === 'nl' ? 'Product' : 'Product'}</h4>
               <div className="space-y-2">
                 <Link
-                  href="/features"
+                  href={`/${getCurrentLocale()}/features`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Features
+                  {getCurrentLocale() === 'nl' ? 'Functies' : 'Features'}
                 </Link>
                 <Link
-                  href="/pricing"
+                  href={`/${getCurrentLocale()}/pricing`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Pricing
+                  {getCurrentLocale() === 'nl' ? 'Prijzen' : 'Pricing'}
                 </Link>
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Resources</h4>
+              <h4 className="font-semibold mb-4">{getCurrentLocale() === 'nl' ? 'Bronnen' : 'Resources'}</h4>
               <div className="space-y-2">
                 <Link
-                  href="/blog"
+                  href={`/${getCurrentLocale()}/blog`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   Blog
                 </Link>
                 <Link
-                  href="/support"
+                  href={`/${getCurrentLocale()}/support`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Support
+                  {getCurrentLocale() === 'nl' ? 'Ondersteuning' : 'Support'}
                 </Link>
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-4">Company</h4>
+              <h4 className="font-semibold mb-4">{getCurrentLocale() === 'nl' ? 'Bedrijf' : 'Company'}</h4>
               <div className="space-y-2">
                 <Link
-                  href="/about"
+                  href={`/${getCurrentLocale()}/about`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  About Us
+                  {getCurrentLocale() === 'nl' ? 'Over ons' : 'About Us'}
                 </Link>
                 <Link
-                  href="/legal"
+                  href={`/${getCurrentLocale()}/legal`}
                   className="block text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  Legal
+                  {getCurrentLocale() === 'nl' ? 'Juridisch' : 'Legal'}
                 </Link>
               </div>
             </div>

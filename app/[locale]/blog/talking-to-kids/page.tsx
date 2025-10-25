@@ -1,9 +1,19 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Calendar, Clock, ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export default function TalkingToKidsPage() {
+  const pathname = usePathname()
+  
+  const getCurrentLocale = () => {
+    const path = pathname
+    const localeMatch = path.match(/^\/([a-z]{2})/)
+    return localeMatch ? localeMatch[1] : 'en'
+  }
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -12,7 +22,7 @@ export default function TalkingToKidsPage() {
         <div className="container mx-auto max-w-3xl">
           {/* Back Button */}
           <Link
-            href="/blog"
+            href={`/${getCurrentLocale()}/blog`}
             className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -114,7 +124,7 @@ export default function TalkingToKidsPage() {
                 for growth and understanding.
               </p>
               <Link
-                href="/"
+                href={`/${getCurrentLocale()}`}
                 className="inline-flex items-center gap-2 text-primary font-semibold hover:text-secondary transition-colors"
               >
                 Discover Zenvy

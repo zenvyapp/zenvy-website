@@ -1,10 +1,20 @@
+"use client"
+
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Clock, Calendar, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 export default function BlogPage() {
+  const pathname = usePathname()
+  
+  const getCurrentLocale = () => {
+    const path = pathname
+    const localeMatch = path.match(/^\/([a-z]{2})/)
+    return localeMatch ? localeMatch[1] : 'en'
+  }
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -13,7 +23,7 @@ export default function BlogPage() {
       <section className="pt-32 pb-20 px-4">
         <div className="container mx-auto text-center max-w-4xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-balance">
-            Zenvy <span className="text-primary">Blogggg</span>
+            Zenvy <span className="text-primary">Blog</span>
           </h1>
           <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
             Tips, insights, and stories about building healthy digital habits
@@ -51,7 +61,7 @@ export default function BlogPage() {
               </CardHeader>
               <CardContent>
                 <Link
-                  href="/blog/screen-time-balance"
+                  href={`/${getCurrentLocale()}/blog/screen-time-balance`}
                   className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                 >
                   Read More <ArrowRight className="w-4 h-4" />
@@ -85,7 +95,7 @@ export default function BlogPage() {
               </CardHeader>
               <CardContent>
                 <Link
-                  href="/blog/talking-to-kids"
+                  href={`/${getCurrentLocale()}/blog/talking-to-kids`}
                   className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                 >
                   Read More <ArrowRight className="w-4 h-4" />
@@ -119,7 +129,7 @@ export default function BlogPage() {
               </CardHeader>
               <CardContent>
                 <Link
-                  href="/blog/digital-wellness"
+                  href={`/${getCurrentLocale()}/blog/digital-wellness`}
                   className="flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
                 >
                   Read More <ArrowRight className="w-4 h-4" />
@@ -134,3 +144,4 @@ export default function BlogPage() {
     </div>
   )
 }
+

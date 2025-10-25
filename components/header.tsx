@@ -1,30 +1,38 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Apple, Smartphone, Menu, X } from "lucide-react"
+import { Apple, Smartphone, Menu, X, Globe } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { useRouter, usePathname } from "next/navigation"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [showDownloadOptions, setShowDownloadOptions] = useState(false)
+  const [showLanguageOptions, setShowLanguageOptions] = useState(false)
   const downloadMenuRef = useRef<HTMLDivElement>(null)
+  const languageMenuRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
+  const pathname = usePathname()
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (downloadMenuRef.current && !downloadMenuRef.current.contains(event.target as Node)) {
         setShowDownloadOptions(false)
       }
+      if (languageMenuRef.current && !languageMenuRef.current.contains(event.target as Node)) {
+        setShowLanguageOptions(false)
+      }
     }
 
-    if (showDownloadOptions) {
+    if (showDownloadOptions || showLanguageOptions) {
       document.addEventListener("mousedown", handleClickOutside)
       return () => {
         document.removeEventListener("mousedown", handleClickOutside)
       }
     }
-  }, [showDownloadOptions])
+  }, [showDownloadOptions, showLanguageOptions])
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -42,51 +50,101 @@ export function Header() {
     }
   }, [mobileMenuOpen])
 
+  const switchLanguage = (locale: string) => {
+    const currentPath = pathname
+    const newPath = currentPath.replace(/^\/[a-z]{2}/, `/${locale}`)
+    router.push(newPath)
+    setShowLanguageOptions(false)
+  }
+
+  const getCurrentLocale = () => {
+    const path = pathname
+    const localeMatch = path.match(/^\/([a-z]{2})/)
+    return localeMatch ? localeMatch[1] : 'en'
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href={`/${getCurrentLocale()}`} className="flex items-center gap-2">
           <img src="/zenvy-logo.png" alt="Zenvy" className="h-10 w-10 rounded-lg" />
           <span className="text-2xl font-bold text-foreground">Zenvy</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">
           <Link
-            href="/features"
+            href={`/${getCurrentLocale()}/features`}
             className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors hover:scale-105 transition-transform"
           >
-            Features
+            {getCurrentLocale() === 'nl' ? 'Functies' : 'Features'}
           </Link>
           <Link
-            href="/pricing"
+            href={`/${getCurrentLocale()}/pricing`}
             className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors hover:scale-105 transition-transform"
           >
-            Pricing
+            {getCurrentLocale() === 'nl' ? 'Prijzen' : 'Pricing'}
           </Link>
           <Link
-            href="/blog"
+            href={`/${getCurrentLocale()}/blog`}
             className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors hover:scale-105 transition-transform"
           >
             Blog
           </Link>
           <Link
-            href="/support"
+            href={`/${getCurrentLocale()}/about`}
             className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors hover:scale-105 transition-transform"
           >
-            Support
+            {getCurrentLocale() === 'nl' ? 'Over' : 'About'}
           </Link>
           <Link
-            href="/legal"
+            href={`/${getCurrentLocale()}/support`}
             className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors hover:scale-105 transition-transform"
           >
-            Legal
+            {getCurrentLocale() === 'nl' ? 'Ondersteuning' : 'Support'}
+          </Link>
+          <Link
+            href={`/${getCurrentLocale()}/legal`}
+            className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors hover:scale-105 transition-transform"
+          >
+            {getCurrentLocale() === 'nl' ? 'Juridisch' : 'Legal'}
           </Link>
         </div>
-        <div className="hidden md:block relative" ref={downloadMenuRef}>
-          <Button
+        <div className="hidden md:flex items-center gap-4">
+          <div className="relative" ref={languageMenuRef}>
+            <Button
+              onClick={() => setShowLanguageOptions(!showLanguageOptions)}
+              variant="ghost"
+              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors hover:scale-105 transition-transform gap-2"
+            >
+              <Globe className="h-4 w-4" />
+              {getCurrentLocale().toUpperCase()}
+            </Button>
+            {showLanguageOptions && (
+              <div className="absolute top-full right-0 mt-2 w-32 bg-card border border-border rounded-xl shadow-lg overflow-hidden">
+                <button
+                  onClick={() => switchLanguage('en')}
+                  className={`w-full text-left px-4 py-3 hover:bg-muted transition-colors ${
+                    getCurrentLocale() === 'en' ? 'bg-muted' : ''
+                  }`}
+                >
+                  English
+                </button>
+                <button
+                  onClick={() => switchLanguage('nl')}
+                  className={`w-full text-left px-4 py-3 hover:bg-muted transition-colors ${
+                    getCurrentLocale() === 'nl' ? 'bg-muted' : ''
+                  }`}
+                >
+                  Nederlands
+                </button>
+              </div>
+            )}
+          </div>
+          <div className="relative" ref={downloadMenuRef}>
+            <Button
             onClick={() => setShowDownloadOptions(!showDownloadOptions)}
             className="bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all duration-300 hover:scale-105 text-base px-6 py-5"
           >
-            Get Started
+            {getCurrentLocale() === 'nl' ? 'Aan de slag' : 'Get Started'}
           </Button>
           {showDownloadOptions && (
             <div className="absolute top-full right-0 mt-2 w-64 bg-card border border-border rounded-xl shadow-lg overflow-hidden">
@@ -98,7 +156,7 @@ export function Header() {
                 className="flex items-center gap-3 px-4 py-3 hover:bg-muted transition-colors"
               >
                 <Apple className="h-5 w-5" />
-                <span className="font-medium">Download for iOS</span>
+                <span className="font-medium">{getCurrentLocale() === 'nl' ? 'Download voor iOS' : 'Download for iOS'}</span>
               </a>
               <a
                 href="https://play.google.com/store/apps/details?id=com.zenvy.zenvyapp&hl=nl"
@@ -108,10 +166,11 @@ export function Header() {
                 className="flex items-center gap-3 px-4 py-3 hover:bg-muted transition-colors"
               >
                 <Smartphone className="h-5 w-5" />
-                <span className="font-medium whitespace-nowrap">Download for Android</span>
+                <span className="font-medium whitespace-nowrap">{getCurrentLocale() === 'nl' ? 'Download voor Android' : 'Download for Android'}</span>
               </a>
             </div>
           )}
+          </div>
         </div>
         <button
           className="md:hidden p-2 hover:bg-muted rounded-lg transition-colors"
@@ -124,40 +183,78 @@ export function Header() {
         <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md">
           <div className="container mx-auto px-4 py-4 space-y-3">
             <Link
-              href="/features"
+              href={`/${getCurrentLocale()}/features`}
               className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Features
+              {getCurrentLocale() === 'nl' ? 'Functies' : 'Features'}
             </Link>
             <Link
-              href="/pricing"
+              href={`/${getCurrentLocale()}/pricing`}
               className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Pricing
+              {getCurrentLocale() === 'nl' ? 'Prijzen' : 'Pricing'}
             </Link>
             <Link
-              href="/blog"
+              href={`/${getCurrentLocale()}/blog`}
               className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Blog
             </Link>
             <Link
-              href="/support"
+              href={`/${getCurrentLocale()}/about`}
               className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Support
+              {getCurrentLocale() === 'nl' ? 'Over' : 'About'}
             </Link>
             <Link
-              href="/legal"
+              href={`/${getCurrentLocale()}/support`}
               className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Legal
+              {getCurrentLocale() === 'nl' ? 'Ondersteuning' : 'Support'}
             </Link>
+            <Link
+              href={`/${getCurrentLocale()}/legal`}
+              className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {getCurrentLocale() === 'nl' ? 'Juridisch' : 'Legal'}
+            </Link>
+            <div className="pt-3 border-t border-border">
+              <div className="text-sm font-medium text-muted-foreground mb-2">{getCurrentLocale() === 'nl' ? 'Taal' : 'Language'}</div>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    switchLanguage('en')
+                    setMobileMenuOpen(false)
+                  }}
+                  className={`px-3 py-2 rounded-lg text-sm transition-colors ${
+                    getCurrentLocale() === 'en' 
+                      ? 'bg-primary text-primary-foreground' 
+                      : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                  }`}
+                >
+                  English
+                </button>
+                <button
+                  onClick={() => {
+                    switchLanguage('nl')
+                    setMobileMenuOpen(false)
+                  }}
+                  className={`px-3 py-2 rounded-lg text-sm transition-colors ${
+                    getCurrentLocale() === 'nl' 
+                      ? 'bg-primary text-primary-foreground' 
+                      : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                  }`}
+                >
+                  Nederlands
+                </button>
+              </div>
+            </div>
             <div className="pt-3 space-y-2">
               <Button
                 asChild
@@ -165,7 +262,7 @@ export function Header() {
               >
                 <a href="https://apps.apple.com/us/app/zenvy/id6744935437" target="_blank" rel="noopener noreferrer">
                   <Apple className="h-5 w-5" />
-                  Download for iOS
+                  {getCurrentLocale() === 'nl' ? 'Download voor iOS' : 'Download for iOS'}
                 </a>
               </Button>
               <Button
@@ -178,7 +275,7 @@ export function Header() {
                   rel="noopener noreferrer"
                 >
                   <Smartphone className="h-5 w-5" />
-                  Download for Android
+                  {getCurrentLocale() === 'nl' ? 'Download voor Android' : 'Download for Android'}
                 </a>
               </Button>
             </div>
