@@ -22,6 +22,7 @@ export function SidebarNavigator({ sections }: SidebarNavigatorProps) {
       className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={() => setIsHovered(true)}
     >
       {/* Streepjes indicator */}
       <div className="flex flex-col items-center gap-2 py-4 px-2">
@@ -38,13 +39,21 @@ export function SidebarNavigator({ sections }: SidebarNavigatorProps) {
       {/* Hover content */}
       {isHovered && (
         <>
+          {/* Touch overlay to close menu */}
+          <div 
+            className="fixed inset-0 z-40" 
+            onTouchStart={() => setIsHovered(false)}
+            onMouseDown={() => setIsHovered(false)}
+          />
+          
           {/* Onzichtbare brug tussen stippen en menu */}
-          <div className="absolute right-2 top-0 w-6 h-full bg-transparent" />
+          <div className="absolute right-2 top-0 w-6 h-full bg-transparent z-50" />
           
           <div 
-            className="absolute right-8 top-0 bg-background border-2 border-primary/20 rounded-lg shadow-xl p-4 min-w-72 max-w-80"
+            className="absolute right-8 top-0 bg-background border-2 border-primary/20 rounded-lg shadow-xl p-4 min-w-72 max-w-80 max-h-96 overflow-y-auto touch-pan-y z-50"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onTouchStart={(e) => e.stopPropagation()}
           >
             <div className="flex items-center gap-2 mb-3">
               <Navigation className="w-4 h-4 text-primary" />
