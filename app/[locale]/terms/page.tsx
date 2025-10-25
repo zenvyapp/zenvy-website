@@ -11,6 +11,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
   const isDutch = locale === 'nl'
   const isSpanish = locale === 'es'
   const isFrench = locale === 'fr'
+  const isGerman = locale === 'de'
   
   return (
     <div className="min-h-screen bg-background">
@@ -35,6 +36,10 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
               <>
                 <span className="text-primary">Conditions</span> d'Utilisation
               </>
+            ) : isGerman ? (
+              <>
+                <span className="text-primary">Nutzungsbedingungen</span>
+              </>
             ) : (
               <>
                 <span className="text-primary">Terms</span> of Use
@@ -48,6 +53,8 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
               ? 'Pautas claras para una experiencia segura y responsable con Zenvy.'
               : isFrench
               ? 'Des directives claires pour une expérience sûre et responsable avec Zenvy.'
+              : isGerman
+              ? 'Klare Richtlinien für eine sichere und verantwortungsvolle Erfahrung mit Zenvy.'
               : 'Clear guidelines for a safe and responsible experience with Zenvy.'
             }
           </p>
@@ -62,7 +69,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            {isDutch ? 'Terug naar Juridische Informatie' : isSpanish ? 'Volver a Información Legal' : isFrench ? 'Retour aux Informations Légales' : 'Back to Legal Information'}
+            {isDutch ? 'Terug naar Juridische Informatie' : isSpanish ? 'Volver a Información Legal' : isFrench ? 'Retour aux Informations Légales' : isGerman ? 'Zurück zu Rechtlichen Informationen' : 'Back to Legal Information'}
           </Link>
         </div>
       </section>
@@ -73,7 +80,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
           <Card className="border-2 border-primary/20">
             <CardHeader>
               <CardTitle className="text-2xl text-center">
-                {isDutch ? 'Gebruiksvoorwaarden' : isSpanish ? 'Términos de Uso' : isFrench ? 'Conditions d\'Utilisation' : 'Terms of Use'}
+                {isDutch ? 'Gebruiksvoorwaarden' : isSpanish ? 'Términos de Uso' : isFrench ? 'Conditions d\'Utilisation' : isGerman ? 'Nutzungsbedingungen' : 'Terms of Use'}
               </CardTitle>
             </CardHeader>
             <CardContent className="prose prose-lg max-w-none space-y-8">

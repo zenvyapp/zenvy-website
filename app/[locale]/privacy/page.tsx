@@ -11,6 +11,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
   const isDutch = locale === 'nl'
   const isSpanish = locale === 'es'
   const isFrench = locale === 'fr'
+  const isGerman = locale === 'de'
   
   return (
     <div className="min-h-screen bg-background">
@@ -35,6 +36,10 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
               <>
                 <span className="text-primary">Politique</span> de Confidentialité
               </>
+            ) : isGerman ? (
+              <>
+                <span className="text-primary">Datenschutz</span>richtlinie
+              </>
             ) : (
               <>
                 <span className="text-primary">Privacy</span> Policy
@@ -48,6 +53,8 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
               ? 'Tu privacidad es nuestra máxima prioridad. Descubre cómo protegemos tus datos.'
               : isFrench
               ? 'Votre confidentialité est notre priorité absolue. Découvrez comment nous protégeons vos données.'
+              : isGerman
+              ? 'Ihr Datenschutz ist unsere oberste Priorität. Entdecken Sie, wie wir Ihre Daten schützen.'
               : 'Your privacy is our top priority. Discover how we protect your data.'
             }
           </p>
@@ -62,7 +69,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            {isDutch ? 'Terug naar Juridische Informatie' : isSpanish ? 'Volver a Información Legal' : isFrench ? 'Retour aux Informations Légales' : 'Back to Legal Information'}
+            {isDutch ? 'Terug naar Juridische Informatie' : isSpanish ? 'Volver a Información Legal' : isFrench ? 'Retour aux Informations Légales' : isGerman ? 'Zurück zu Rechtlichen Informationen' : 'Back to Legal Information'}
           </Link>
         </div>
       </section>
@@ -73,7 +80,7 @@ export default async function PrivacyPage({ params }: { params: Promise<{ locale
           <Card className="border-2 border-primary/20">
             <CardHeader>
               <CardTitle className="text-2xl text-center">
-                {isDutch ? 'Privacy Beleid' : isSpanish ? 'Política de Privacidad' : isFrench ? 'Politique de Confidentialité' : 'Privacy Policy'}
+                {isDutch ? 'Privacy Beleid' : isSpanish ? 'Política de Privacidad' : isFrench ? 'Politique de Confidentialité' : isGerman ? 'Datenschutzrichtlinie' : 'Privacy Policy'}
               </CardTitle>
             </CardHeader>
             <CardContent className="prose prose-lg max-w-none space-y-8">
