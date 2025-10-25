@@ -17,6 +17,7 @@ export default function DigitalWellnessPage() {
   
   const isDutch = getCurrentLocale() === 'nl'
   const isSpanish = getCurrentLocale() === 'es'
+  const isFrench = getCurrentLocale() === 'fr'
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -29,7 +30,7 @@ export default function DigitalWellnessPage() {
             className="inline-flex items-center gap-2 text-primary hover:text-secondary transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
-            {isDutch ? 'Terug naar Blog' : isSpanish ? 'Volver al Blog' : 'Back to Blog'}
+            {isDutch ? 'Terug naar Blog' : isSpanish ? 'Volver al Blog' : isFrench ? 'Retour au Blog' : 'Back to Blog'}
           </Link>
 
           {/* Hero Image */}
@@ -41,11 +42,11 @@ export default function DigitalWellnessPage() {
           <div className="flex items-center gap-6 text-sm text-muted-foreground mb-6">
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
-              <span>{isDutch ? '5 maart 2025' : isSpanish ? '5 de marzo de 2025' : 'March 5, 2025'}</span>
+              <span>{isDutch ? '5 maart 2025' : isSpanish ? '5 de marzo de 2025' : isFrench ? '5 mars 2025' : 'March 5, 2025'}</span>
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4" />
-              <span>{isDutch ? '6 min lezen' : isSpanish ? '6 min de lectura' : '6 min read'}</span>
+              <span>{isDutch ? '6 min lezen' : isSpanish ? '6 min de lectura' : isFrench ? '6 min de lecture' : '6 min read'}</span>
             </div>
           </div>
 
@@ -55,6 +56,8 @@ export default function DigitalWellnessPage() {
               ? 'De Wetenschap Achter Digitale Wellness: Waarom Balans Belangrijk Is'
               : isSpanish
               ? 'La Ciencia Detrás del Bienestar Digital: Por Qué el Equilibrio Importa'
+              : isFrench
+              ? 'La Science derrière le Bien-être Numérique : Pourquoi l\'Équilibre Compte'
               : 'The Science Behind Digital Wellness: Why Balance Matters'
             }
           </h1>
@@ -66,6 +69,8 @@ export default function DigitalWellnessPage() {
                 ? 'Het begrijpen van het onderzoek achter schermtijd en kindontwikkeling kan ouders helpen weloverwogen beslissingen te nemen over de digitale gewoonten van hun gezin.'
                 : isSpanish
                 ? 'Entender la investigación detrás del tiempo de pantalla y el desarrollo infantil puede ayudar a los padres a tomar decisiones informadas sobre los hábitos digitales de su familia.'
+                : isFrench
+                ? 'Comprendre la recherche derrière le temps d\'écran et le développement de l\'enfant peut aider les parents à prendre des décisions éclairées concernant les habitudes numériques de leur famille.'
                 : 'Understanding the research behind screen time and child development can help parents make informed decisions about their family\'s digital habits.'
               }
             </p>

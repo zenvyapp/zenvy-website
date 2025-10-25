@@ -334,7 +334,7 @@ export default async function FeaturesPage({ params }: { params: Promise<{ local
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">
-                      {isDutch ? 'Schermtijd vandaag' : isSpanish ? 'Tiempo de pantalla hoy' : 'Screen time today'}
+                      {isDutch ? 'Schermtijd vandaag' : isSpanish ? 'Tiempo de pantalla hoy' : isFrench ? 'Temps d\'écran aujourd\'hui' : 'Screen time today'}
                     </span>
                     <span className="font-bold text-primary">2u 15m</span>
                   </div>
@@ -355,13 +355,13 @@ export default async function FeaturesPage({ params }: { params: Promise<{ local
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">
-                      {isDutch ? 'ZenCoins verdiend' : isSpanish ? 'ZenCoins ganados' : 'ZenCoins earned'}
+                      {isDutch ? 'ZenCoins verdiend' : isSpanish ? 'ZenCoins ganados' : isFrench ? 'ZenCoins gagnés' : 'ZenCoins earned'}
                     </span>
-                    <span className="font-bold text-secondary">+180 {isDutch ? 'munten' : isSpanish ? 'monedas' : 'coins'}</span>
+                    <span className="font-bold text-secondary">+180 {isDutch ? 'munten' : isSpanish ? 'monedas' : isFrench ? 'pièces' : 'coins'}</span>
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">
-                      {isDutch ? 'Schermtijd vandaag' : isSpanish ? 'Tiempo de pantalla hoy' : 'Screen time today'}
+                      {isDutch ? 'Schermtijd vandaag' : isSpanish ? 'Tiempo de pantalla hoy' : isFrench ? 'Temps d\'écran aujourd\'hui' : 'Screen time today'}
                     </span>
                     <span className="font-bold text-primary">1u 45m</span>
                   </div>

@@ -20,15 +20,16 @@ export const metadata: Metadata = {
   },
 }
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }>) {
+  const { locale } = await params
   return (
-    <html lang={params.locale}>
+    <html lang={locale || 'en'}>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         {children}
         <Analytics />

@@ -5,9 +5,10 @@ import HomePageES from "./page-es"
 import HomePageFR from "./page-fr"
 import HomePageDE from "./page-de"
 
-export default function HomePage({ params }: { params: { locale: string } }) {
+export default async function HomePage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
   // Render appropriate version based on locale
-  switch (params.locale) {
+  switch (locale || 'en') {
     case 'nl':
       return <HomePageNL />
     case 'es':
