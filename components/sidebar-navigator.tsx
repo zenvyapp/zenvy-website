@@ -25,11 +25,11 @@ export function SidebarNavigator({ sections }: SidebarNavigatorProps) {
     >
       {/* Streepjes indicator */}
       <div className="flex flex-col items-center gap-2 py-4 px-2">
-        {sections.map((section, index) => (
+        {sections.slice(0, 5).map((section, index) => (
           <button
             key={section.value}
             onClick={() => handleSectionClick(section.value)}
-            className="w-2 h-2 bg-yellow-400 hover:bg-yellow-500 transition-all duration-200 rounded-full hover:scale-125 shadow-sm hover:shadow-md"
+            className="w-2 h-2 bg-primary hover:bg-primary/80 transition-all duration-200 rounded-full hover:scale-125 shadow-sm hover:shadow-md"
             title={section.label}
           />
         ))}
