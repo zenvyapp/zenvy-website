@@ -149,27 +149,27 @@ export default function HomePageFR() {
                 isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
               }`}
             >
-              <div className="relative max-w-sm mx-auto">
+              <div className="relative max-w-xs sm:max-w-sm mx-auto">
                 <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full animate-pulse" />
 
-                <div className="absolute top-10 -left-4 z-40 bg-card border border-border rounded-2xl p-4 shadow-lg animate-float-delayed">
-                  <div className="flex items-center gap-3">
-                    <div className="h-12 w-12 rounded-full bg-secondary/20 flex items-center justify-center">
-                      <Coins className="h-6 w-6 text-secondary" />
+                <div className="absolute top-6 sm:top-10 -left-2 sm:-left-4 z-40 bg-card border border-border rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-lg animate-float-delayed">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="h-8 w-8 sm:h-12 sm:w-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                      <Coins className="h-4 w-4 sm:h-6 sm:w-6 text-secondary" />
                     </div>
                     <div>
-                      <div className="text-sm font-semibold">+50 ZenCoins</div>
+                      <div className="text-xs sm:text-sm font-semibold">+50 ZenCoins</div>
                       <div className="text-xs text-muted-foreground">Tâche terminée !</div>
                     </div>
                   </div>
                 </div>
-                <div className="absolute bottom-20 -right-4 z-40 bg-card border border-border rounded-2xl p-4 shadow-lg animate-float">
-                  <div className="flex items-center gap-3">
-                    <div className="h-12 w-12 rounded-full bg-secondary/20 flex items-center justify-center">
-                      <Trophy className="h-6 w-6 text-secondary" />
+                <div className="absolute bottom-16 sm:bottom-20 -right-2 sm:-right-4 z-40 bg-card border border-border rounded-xl sm:rounded-2xl p-2 sm:p-4 shadow-lg animate-float">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="h-8 w-8 sm:h-12 sm:w-12 rounded-full bg-secondary/20 flex items-center justify-center">
+                      <Trophy className="h-4 w-4 sm:h-6 sm:w-6 text-secondary" />
                     </div>
                     <div>
-                      <div className="text-sm font-semibold">Défi Gagné !</div>
+                      <div className="text-xs sm:text-sm font-semibold">Défi Gagné !</div>
                       <div className="text-xs text-muted-foreground">+30 minutes gagnées</div>
                     </div>
                   </div>
@@ -177,17 +177,17 @@ export default function HomePageFR() {
 
                 <button
                   onClick={prevScreen}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 z-50 bg-card border border-border rounded-full p-2 shadow-lg hover:bg-muted transition-colors"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 z-50 bg-card border border-border rounded-full p-1.5 sm:p-2 shadow-lg hover:bg-muted transition-colors"
                   aria-label="Écran précédent"
                 >
-                  <ChevronLeft className="h-5 w-5" />
+                  <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
                 <button
                   onClick={nextScreen}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 z-50 bg-card border border-border rounded-full p-2 shadow-lg hover:bg-muted transition-colors"
+                  className="absolute right-0 top-1/2 -translate-y-1/2 z-50 bg-card border border-border rounded-full p-1.5 sm:p-2 shadow-lg hover:bg-muted transition-colors"
                   aria-label="Écran suivant"
                 >
-                  <ChevronRight className="h-5 w-5" />
+                  <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
                 </button>
 
                 <div
@@ -444,13 +444,13 @@ export default function HomePageFR() {
                   </div>
                 </div>
 
-                <div className="flex justify-center gap-2 mt-6">
+                <div className="flex justify-center gap-1.5 sm:gap-2 mt-4 sm:mt-6">
                   {screens.map((screen, index) => (
                     <button
                       key={screen.id}
                       onClick={() => setCurrentScreen(index)}
-                      className={`h-2 rounded-full transition-all duration-300 ${
-                        currentScreen === index ? "w-8 bg-primary" : "w-2 bg-muted-foreground/30"
+                      className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 ${
+                        currentScreen === index ? "w-6 sm:w-8 bg-primary" : "w-1.5 sm:w-2 bg-muted-foreground/30"
                       }`}
                       aria-label={`Aller à ${screen.name}`}
                     />
