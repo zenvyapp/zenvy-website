@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Shield, FileText, Scale, ExternalLink } from "lucide-react"
+import { Shield, FileText, Scale, ArrowRight } from "lucide-react"
 
 export default async function LegalPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
@@ -130,12 +130,10 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
               </CardHeader>
               <CardContent className="text-center">
                 <a
-                  href="https://repeated-gastonia-73a.notion.site/Privacy-Policy-Zenvy-1fbd9e8652f780d8bad9df53f13a04e8"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`/${locale}/privacy`}
                   className="inline-flex items-center gap-2 text-lg font-semibold text-secondary hover:text-primary transition-colors group-hover:gap-3"
                 >
-                  {isDutch ? 'Lees Privacybeleid' : isSpanish ? 'Leer Política de Privacidad' : isFrench ? 'Lire la Politique de Confidentialité' : 'Read Privacy Policy'} <ExternalLink className="w-5 h-5" />
+                  {isDutch ? 'Lees Privacybeleid' : isSpanish ? 'Leer Política de Privacidad' : isFrench ? 'Lire la Politique de Confidentialité' : 'Read Privacy Policy'} <ArrowRight className="w-5 h-5" />
                 </a>
               </CardContent>
             </Card>
@@ -162,12 +160,10 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
               </CardHeader>
               <CardContent className="text-center">
                 <a
-                  href="https://repeated-gastonia-73a.notion.site/Terms-of-Use-Zenvy-1fbd9e8652f780b68352ed26fa9da5dd"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`/${locale}/terms`}
                   className="inline-flex items-center gap-2 text-lg font-semibold text-secondary hover:text-primary transition-colors group-hover:gap-3"
                 >
-                  {isDutch ? 'Lees Gebruiksvoorwaarden' : isSpanish ? 'Leer Términos de Uso' : isFrench ? 'Lire les Conditions d\'Utilisation' : 'Read Terms of Use'} <ExternalLink className="w-5 h-5" />
+                  {isDutch ? 'Lees Gebruiksvoorwaarden' : isSpanish ? 'Leer Términos de Uso' : isFrench ? 'Lire les Conditions d\'Utilisation' : 'Read Terms of Use'} <ArrowRight className="w-5 h-5" />
                 </a>
               </CardContent>
             </Card>
@@ -192,7 +188,7 @@ export default async function LegalPage({ params }: { params: Promise<{ locale: 
               href="mailto:support@zenvy.io?subject=Legal%20Question"
               className="inline-flex items-center gap-2 text-lg font-semibold text-secondary hover:text-primary transition-colors"
             >
-              {isDutch ? 'Neem Contact Op' : isSpanish ? 'Contáctanos' : isFrench ? 'Contactez-Nous' : 'Contact Us'} <ExternalLink className="w-5 h-5" />
+              {isDutch ? 'Neem Contact Op' : isSpanish ? 'Contáctanos' : isFrench ? 'Contactez-Nous' : 'Contact Us'} <ArrowRight className="w-5 h-5" />
             </a>
           </div>
         </div>
