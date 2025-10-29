@@ -34,7 +34,7 @@ async function findListIdByName(listName: string): Promise<string | null> {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { email, listId } = body
+    const { email } = body
 
     // Validate email
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -53,15 +53,14 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Get the list ID - prioritize provided listId, then env var, then find by name
-    let sendGridListId = listId || process.env.SENDGRID_LIST_ID || ''
+    // Get the list ID - only based on list name "Newsletter"
+    const sendGridListId = await findListIdByName('Newsletter')
     
-    // If no list ID is provided, try to find "Newsletter" list by name
     if (!sendGridListId) {
-      const newsletterListId = await findListIdByName('Newsletter')
-      if (newsletterListId) {
-        sendGridListId = newsletterListId
-      }
+      return NextResponse.json(
+        { error: 'Newsletter list not found' },
+        { status: 404 }
+      )
     }
 
     // Add contact to SendGrid Marketing Contacts
@@ -78,7 +77,7 @@ export async function POST(request: NextRequest) {
             email: email,
           }
         ],
-        list_ids: sendGridListId ? [sendGridListId] : undefined,
+        list_ids: [sendGridListId],
       }),
     })
 

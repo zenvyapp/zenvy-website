@@ -154,55 +154,57 @@ export function MailingListDialog({ open, onOpenChange, locale = "en" }: Mailing
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Input
-                type="email"
-                name="email"
-                id="email-subscribe"
-                autoComplete="email"
-                placeholder={text.placeholder}
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={isSubmitting}
-                className="w-full"
-                required
-                aria-invalid={error ? "true" : "false"}
-              />
-              {error && (
-                <div className="flex items-center gap-2 text-sm text-destructive">
-                  <AlertCircle className="h-4 w-4" />
-                  <span>{error}</span>
-                </div>
-              )}
-            </div>
+          {!isSuccess && (
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="space-y-2">
+                <Input
+                  type="email"
+                  name="email"
+                  id="email-subscribe"
+                  autoComplete="email"
+                  placeholder={text.placeholder}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  disabled={isSubmitting}
+                  className="w-full"
+                  required
+                  aria-invalid={error ? "true" : "false"}
+                />
+                {error && (
+                  <div className="flex items-center gap-2 text-sm text-destructive">
+                    <AlertCircle className="h-4 w-4" />
+                    <span>{error}</span>
+                  </div>
+                )}
+              </div>
 
-            <Button
-              type="submit"
-              disabled={isSubmitting || !email}
-              className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
-            >
-              {isSubmitting ? (
-                <>
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                  {locale === "nl" 
-                    ? "Aanmelden..."
-                    : locale === "es"
-                    ? "Suscribiendo..."
-                    : locale === "fr"
-                    ? "Abonnement..."
-                    : locale === "de"
-                    ? "Abonnieren..."
-                    : "Subscribing..."}
-                </>
-              ) : (
-                <>
-                  <Mail className="h-4 w-4" />
-                  {text.button}
-                </>
-              )}
-            </Button>
-          </form>
+              <Button
+                type="submit"
+                disabled={isSubmitting || !email}
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    {locale === "nl" 
+                      ? "Aanmelden..."
+                      : locale === "es"
+                      ? "Suscribiendo..."
+                      : locale === "fr"
+                      ? "Abonnement..."
+                      : locale === "de"
+                      ? "Abonnieren..."
+                      : "Subscribing..."}
+                  </>
+                ) : (
+                  <>
+                    <Mail className="h-4 w-4" />
+                    {text.button}
+                  </>
+                )}
+              </Button>
+            </form>
+          )}
         </div>
       </DialogContent>
     </Dialog>
