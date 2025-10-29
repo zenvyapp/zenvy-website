@@ -75,7 +75,7 @@ function DefaultErrorFallback({ error, resetError }: { error?: Error; resetError
             </Button>
             <Button 
               variant="outline" 
-              onClick={() => window.location.href = "/"}
+              onClick={() => window.location.href = "/en"}
               className="flex-1"
             >
               Go Home

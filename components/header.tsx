@@ -93,7 +93,7 @@ export function Header() {
             href={`/${getCurrentLocale()}/blog`}
             className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors hover:scale-105 transition-transform"
           >
-            {getCurrentLocale() === 'es' ? 'Blog' : getCurrentLocale() === 'fr' ? 'Blog' : getCurrentLocale() === 'de' ? 'Blog' : 'Blog'}
+            Blog
           </Link>
           <Link
             href={`/${getCurrentLocale()}/about`}
@@ -267,7 +267,7 @@ export function Header() {
               className="block text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
               onClick={() => setMobileMenuOpen(false)}
             >
-              {getCurrentLocale() === 'es' ? 'Blog' : getCurrentLocale() === 'fr' ? 'Blog' : getCurrentLocale() === 'de' ? 'Blog' : 'Blog'}
+              Blog
             </Link>
             <Link
               href={`/${getCurrentLocale()}/about`}

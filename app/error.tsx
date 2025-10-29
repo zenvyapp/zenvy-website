@@ -43,7 +43,7 @@ export default function Error({
             </Button>
             <Button 
               variant="outline" 
-              onClick={() => window.location.href = "/"}
+              onClick={() => window.location.href = "/en"}
               className="flex-1"
             >
               <Home className="h-4 w-4 mr-2" />
