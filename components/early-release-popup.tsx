@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { X, Rocket, Mail } from "lucide-react"
+import { MailingListDialog } from "@/components/mailing-list-dialog"
 
 interface EarlyReleasePopupProps {
   locale?: string
@@ -11,6 +12,7 @@ interface EarlyReleasePopupProps {
 export function EarlyReleasePopup({ locale = "en" }: EarlyReleasePopupProps) {
   const [isVisible, setIsVisible] = useState(false)
   const [isDismissed, setIsDismissed] = useState(false)
+  const [showMailingListDialog, setShowMailingListDialog] = useState(false)
 
   // Check if popup was previously dismissed and if 1 day has passed
   useEffect(() => {
@@ -40,8 +42,7 @@ export function EarlyReleasePopup({ locale = "en" }: EarlyReleasePopupProps) {
   }
 
   const handleJoinMailingList = () => {
-    // You can replace this with your actual mailing list signup URL
-    window.open("https://zenvy.app/mailing-list", "_blank")
+    setShowMailingListDialog(true)
   }
 
   if (isDismissed || !isVisible) return null
@@ -121,6 +122,11 @@ export function EarlyReleasePopup({ locale = "en" }: EarlyReleasePopupProps) {
           </div>
         </div>
       </div>
+      <MailingListDialog 
+        open={showMailingListDialog} 
+        onOpenChange={setShowMailingListDialog}
+        locale={locale}
+      />
     </div>
   )
 }

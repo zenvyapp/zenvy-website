@@ -6,11 +6,13 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useRouter, usePathname } from "next/navigation"
+import { MailingListDialog } from "@/components/mailing-list-dialog"
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [showDownloadOptions, setShowDownloadOptions] = useState(false)
   const [showLanguageOptions, setShowLanguageOptions] = useState(false)
+  const [showMailingListDialog, setShowMailingListDialog] = useState(false)
   const downloadMenuRef = useRef<HTMLDivElement>(null)
   const languageMenuRef = useRef<HTMLDivElement>(null)
   const router = useRouter()
@@ -64,8 +66,7 @@ export function Header() {
   }
 
   const handleJoinMailingList = () => {
-    // You can replace this with your actual mailing list signup URL
-    window.open("https://zenvy.app/mailing-list", "_blank")
+    setShowMailingListDialog(true)
   }
 
   return (
@@ -416,6 +417,11 @@ export function Header() {
           </div>
         </div>
       )}
+      <MailingListDialog 
+        open={showMailingListDialog} 
+        onOpenChange={setShowMailingListDialog}
+        locale={getCurrentLocale()}
+      />
     </header>
   )
 }
