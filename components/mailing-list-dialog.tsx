@@ -124,23 +124,23 @@ export function MailingListDialog({ open, onOpenChange, locale = "en" }: Mailing
 
   return (
     <Dialog open={open} onOpenChange={handleOpenChange}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <Mail className="h-5 w-5 text-primary" />
-            {text.title}
+          <DialogTitle className="flex items-center gap-2 text-base sm:text-lg">
+            <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-primary shrink-0" />
+            <span className="break-words">{text.title}</span>
           </DialogTitle>
-          <DialogDescription>{text.description}</DialogDescription>
+          <DialogDescription className="text-xs sm:text-sm">{text.description}</DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {isSuccess && (
             <div className="flex flex-col items-center justify-center pt-2 pb-1 space-y-3 rounded-lg bg-primary/10 border border-primary/20">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-primary" />
-                <p className="text-base font-semibold text-foreground">{text.success}</p>
+                <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                <p className="text-sm sm:text-base font-semibold text-foreground break-words text-center">{text.success}</p>
               </div>
-              <p className="text-sm text-muted-foreground text-center pb-1">
+              <p className="text-xs sm:text-sm text-muted-foreground text-center pb-1 px-2">
                 {locale === "nl" 
                   ? "Je ontvangt binnenkort updates van ons!"
                   : locale === "es"
@@ -155,7 +155,7 @@ export function MailingListDialog({ open, onOpenChange, locale = "en" }: Mailing
           )}
 
           {!isSuccess && (
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
               <div className="space-y-2">
                 <Input
                   type="email"
@@ -166,14 +166,14 @@ export function MailingListDialog({ open, onOpenChange, locale = "en" }: Mailing
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={isSubmitting}
-                  className="w-full"
+                  className="w-full text-sm sm:text-base"
                   required
                   aria-invalid={error ? "true" : "false"}
                 />
                 {error && (
-                  <div className="flex items-center gap-2 text-sm text-destructive">
-                    <AlertCircle className="h-4 w-4" />
-                    <span>{error}</span>
+                  <div className="flex items-start gap-2 text-xs sm:text-sm text-destructive">
+                    <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                    <span className="break-words">{error}</span>
                   </div>
                 )}
               </div>
@@ -181,25 +181,27 @@ export function MailingListDialog({ open, onOpenChange, locale = "en" }: Mailing
               <Button
                 type="submit"
                 disabled={isSubmitting || !email}
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2 text-sm sm:text-base"
               >
                 {isSubmitting ? (
                   <>
-                    <Loader2 className="h-4 w-4 animate-spin" />
-                    {locale === "nl" 
-                      ? "Aanmelden..."
-                      : locale === "es"
-                      ? "Suscribiendo..."
-                      : locale === "fr"
-                      ? "Abonnement..."
-                      : locale === "de"
-                      ? "Abonnieren..."
-                      : "Subscribing..."}
+                    <Loader2 className="h-4 w-4 animate-spin shrink-0" />
+                    <span className="truncate">
+                      {locale === "nl" 
+                        ? "Aanmelden..."
+                        : locale === "es"
+                        ? "Suscribiendo..."
+                        : locale === "fr"
+                        ? "Abonnement..."
+                        : locale === "de"
+                        ? "Abonnieren..."
+                        : "Subscribing..."}
+                    </span>
                   </>
                 ) : (
                   <>
-                    <Mail className="h-4 w-4" />
-                    {text.button}
+                    <Mail className="h-4 w-4 shrink-0" />
+                    <span className="truncate">{text.button}</span>
                   </>
                 )}
               </Button>

@@ -179,22 +179,22 @@ export function EarlyReleasePopup({ locale = "en" }: EarlyReleasePopupProps) {
   const newsletterText = newsletterContent[locale as keyof typeof newsletterContent] || newsletterContent.en
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="relative bg-card border border-border rounded-2xl p-6 max-w-lg w-full mx-4 shadow-2xl animate-in fade-in-0 zoom-in-95 duration-300">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/50 backdrop-blur-sm">
+      <div className="relative bg-card border border-border rounded-2xl p-4 sm:p-6 max-w-lg w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-in fade-in-0 zoom-in-95 duration-300">
         <button
           onClick={handleDismiss}
-          className="absolute top-4 right-4 p-2 hover:bg-muted rounded-full transition-colors"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 hover:bg-muted rounded-full transition-colors z-10"
           aria-label="Close popup"
         >
           <X className="h-4 w-4" />
         </button>
 
-        <div className="space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center">
+        <div className="space-y-3 sm:space-y-4">
+          <div className="flex items-start gap-3 pr-8 sm:pr-12">
+            <div className="h-10 w-10 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center">
               <Rocket className="h-5 w-5 text-primary" />
             </div>
-            <h3 className="text-lg font-semibold text-foreground pr-12">
+            <h3 className="text-base sm:text-lg font-semibold text-foreground leading-tight">
               {text.title}
             </h3>
           </div>
@@ -211,10 +211,10 @@ export function EarlyReleasePopup({ locale = "en" }: EarlyReleasePopupProps) {
             {!showNewsletterForm && (
               <Button
                 onClick={handleJoinMailingList}
-                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2 text-sm whitespace-nowrap"
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2 text-sm sm:text-sm"
               >
-                <Mail className="h-4 w-4" />
-                {text.button}
+                <Mail className="h-4 w-4 shrink-0" />
+                <span className="truncate">{text.button}</span>
               </Button>
             )}
 
@@ -233,7 +233,7 @@ export function EarlyReleasePopup({ locale = "en" }: EarlyReleasePopupProps) {
                 )}
 
                 {!isSuccess && (
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                     <div className="space-y-2">
                       <Input
                         type="email"
@@ -244,14 +244,14 @@ export function EarlyReleasePopup({ locale = "en" }: EarlyReleasePopupProps) {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         disabled={isSubmitting}
-                        className="w-full"
+                        className="w-full text-sm sm:text-base"
                         required
                         aria-invalid={error ? "true" : "false"}
                       />
                       {error && (
-                        <div className="flex items-center gap-2 text-sm text-destructive">
-                          <AlertCircle className="h-4 w-4" />
-                          <span>{error}</span>
+                        <div className="flex items-start gap-2 text-xs sm:text-sm text-destructive">
+                          <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                          <span className="break-words">{error}</span>
                         </div>
                       )}
                     </div>
@@ -259,25 +259,27 @@ export function EarlyReleasePopup({ locale = "en" }: EarlyReleasePopupProps) {
                     <Button
                       type="submit"
                       disabled={isSubmitting || !email}
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2 text-sm sm:text-base"
                     >
                       {isSubmitting ? (
                         <>
-                          <Loader2 className="h-4 w-4 animate-spin" />
-                          {locale === "nl"
-                            ? "Aanmelden..."
-                            : locale === "es"
-                            ? "Suscribiendo..."
-                            : locale === "fr"
-                            ? "Abonnement..."
-                            : locale === "de"
-                            ? "Abonnieren..."
-                            : "Subscribing..."}
+                          <Loader2 className="h-4 w-4 animate-spin shrink-0" />
+                          <span className="truncate">
+                            {locale === "nl"
+                              ? "Aanmelden..."
+                              : locale === "es"
+                              ? "Suscribiendo..."
+                              : locale === "fr"
+                              ? "Abonnement..."
+                              : locale === "de"
+                              ? "Abonnieren..."
+                              : "Subscribing..."}
+                          </span>
                         </>
                       ) : (
                         <>
-                          <Mail className="h-4 w-4" />
-                          {newsletterText.button}
+                          <Mail className="h-4 w-4 shrink-0" />
+                          <span className="truncate">{newsletterText.button}</span>
                         </>
                       )}
                     </Button>
