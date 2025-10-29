@@ -1,10 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
-import { Analytics } from "@vercel/analytics/next"
 import { ErrorBoundary } from "@/components/error-boundary"
-import "../globals.css"
+import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "Zenvy - Transform Screen Time Into Growth Time",
@@ -30,22 +27,16 @@ export default async function LocaleLayout({
 }>) {
   const { locale } = await params
   return (
-    <html lang={locale || 'en'}>
-      <head>
-        {/* Start cookieyes banner */}
-        <script 
-          id="cookieyes" 
-          type="text/javascript" 
-          src="https://cdn-cookieyes.com/client_data/2b513de12ac8b2982910c1b8/script.js"
-        />
-        {/* End cookieyes banner */}
-      </head>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-        <ErrorBoundary>
-          {children}
-        </ErrorBoundary>
-        <Analytics />
-      </body>
-    </html>
+    <>
+      {/* Cookieyes banner script */}
+      <Script
+        id="cookieyes"
+        strategy="afterInteractive"
+        src="https://cdn-cookieyes.com/client_data/2b513de12ac8b2982910c1b8/script.js"
+      />
+      <ErrorBoundary>
+        {children}
+      </ErrorBoundary>
+    </>
   )
 }
