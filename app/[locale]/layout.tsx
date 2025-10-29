@@ -31,6 +31,15 @@ export default async function LocaleLayout({
   const { locale } = await params
   return (
     <html lang={locale || 'en'}>
+      <head>
+        {/* Start cookieyes banner */}
+        <script 
+          id="cookieyes" 
+          type="text/javascript" 
+          src="https://cdn-cookieyes.com/client_data/2b513de12ac8b2982910c1b8/script.js"
+        />
+        {/* End cookieyes banner */}
+      </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
         <ErrorBoundary>
           {children}
