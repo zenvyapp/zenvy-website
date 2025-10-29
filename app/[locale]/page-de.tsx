@@ -25,6 +25,7 @@ import { useEffect, useRef, useState, Suspense } from "react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { LoadingSpinner } from "@/components/ui/loading-spinner"
+import { EarlyReleasePopup } from "@/components/early-release-popup"
 import Image from "next/image"
 
 export default function HomePageDE() {
@@ -702,6 +703,7 @@ export default function HomePageDE() {
       </section>
 
       <Footer />
+      <EarlyReleasePopup locale="de" />
     </div>
   )
 }

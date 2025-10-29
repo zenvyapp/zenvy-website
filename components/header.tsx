@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Apple, Smartphone, Menu, X, Globe } from "lucide-react"
+import { Apple, Smartphone, Menu, X, Globe, Mail } from "lucide-react"
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -63,6 +63,11 @@ export function Header() {
     return localeMatch ? localeMatch[1] : 'en'
   }
 
+  const handleJoinMailingList = () => {
+    // You can replace this with your actual mailing list signup URL
+    window.open("https://zenvy.app/mailing-list", "_blank")
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="container mx-auto px-4 h-20 flex items-center justify-between" role="navigation" aria-label="Main navigation">
@@ -109,6 +114,18 @@ export function Header() {
           </Link>
         </div>
         <div className="hidden md:flex items-center gap-4">
+          <Button
+            onClick={handleJoinMailingList}
+            variant="ghost"
+            className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors hover:scale-105 transition-transform gap-2"
+            aria-label="Join mailing list"
+          >
+            <Mail className="h-4 w-4" />
+            {getCurrentLocale() === 'nl' ? 'Nieuwsbrief' : 
+             getCurrentLocale() === 'es' ? 'Boletín' : 
+             getCurrentLocale() === 'fr' ? 'Newsletter' : 
+             getCurrentLocale() === 'de' ? 'Newsletter' : 'Newsletter'}
+          </Button>
           <div className="relative" ref={languageMenuRef}>
             <Button
               onClick={() => setShowLanguageOptions(!showLanguageOptions)}
@@ -363,6 +380,16 @@ export function Header() {
               </div>
             </div>
             <div className="pt-3 space-y-2">
+              <Button
+                onClick={handleJoinMailingList}
+                className="w-full bg-primary text-primary-foreground hover:bg-primary/90 gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              >
+                <Mail className="h-5 w-5" />
+                {getCurrentLocale() === 'nl' ? 'Nieuwsbrief' : 
+                 getCurrentLocale() === 'es' ? 'Boletín' : 
+                 getCurrentLocale() === 'fr' ? 'Newsletter' : 
+                 getCurrentLocale() === 'de' ? 'Newsletter' : 'Newsletter'}
+              </Button>
               <Button
                 asChild
                 className="w-full bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground gap-2 transition-all duration-300 hover:scale-105 hover:shadow-lg"
