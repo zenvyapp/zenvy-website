@@ -2,6 +2,51 @@ import { Heart, Users, Target, Shield, Globe, Sparkles, Code } from "lucide-reac
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
+import type { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const isDutch = locale === 'nl'
+  const isSpanish = locale === 'es'
+  const isFrench = locale === 'fr'
+  const isGerman = locale === 'de'
+  
+  const title = isDutch
+    ? 'Over Ons - Zenvy | Onze Missie en Verhaal'
+    : isSpanish
+    ? 'Acerca de Nosotros - Zenvy | Nuestra Misión e Historia'
+    : isFrench
+    ? 'À Propos - Zenvy | Notre Mission et Notre Histoire'
+    : isGerman
+    ? 'Über Uns - Zenvy | Unsere Mission und Geschichte'
+    : 'About Us - Zenvy | Our Mission and Story'
+  
+  const description = isDutch
+    ? 'Leer meer over Zenvy, een startup uit Nederland die helpt gezinnen gezondere relaties met technologie op te bouwen. Ontdek onze missie, waarden en passie voor gezinsverbinding.'
+    : isSpanish
+    ? 'Aprende más sobre Zenvy, una startup de los Países Bajos que ayuda a las familias a construir relaciones más saludables con la tecnología. Descubre nuestra misión, valores y pasión por la conexión familiar.'
+    : isFrench
+    ? 'En savoir plus sur Zenvy, une startup néerlandaise qui aide les familles à construire des relations plus saines avec la technologie. Découvrez notre mission, nos valeurs et notre passion pour la connexion familiale.'
+    : isGerman
+    ? 'Erfahren Sie mehr über Zenvy, ein Startup aus den Niederlanden, das Familien dabei hilft, gesündere Beziehungen zur Technologie aufzubauen. Entdecken Sie unsere Mission, Werte und Leidenschaft für Familienverbindung.'
+    : 'Learn more about Zenvy, a startup from the Netherlands helping families build healthier relationships with technology. Discover our mission, values, and passion for family connection.'
+  
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: locale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  }
+}
 
 export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

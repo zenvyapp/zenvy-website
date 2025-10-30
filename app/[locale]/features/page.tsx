@@ -1,6 +1,51 @@
 import { Users, Target, Coins, Brain, Trophy, Sparkles, Shield, BarChart, Clock, Gift, Zap, Heart } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const isDutch = locale === 'nl'
+  const isSpanish = locale === 'es'
+  const isFrench = locale === 'fr'
+  const isGerman = locale === 'de'
+  
+  const title = isDutch 
+    ? 'Functies - Zenvy | Krachtige Tools voor Gezonde Digitale Gewoonten'
+    : isSpanish
+    ? 'Características - Zenvy | Herramientas Poderosas para Hábitos Digitales Saludables'
+    : isFrench
+    ? 'Fonctionnalités - Zenvy | Outils Puissants pour des Habitudes Numériques Saines'
+    : isGerman
+    ? 'Funktionen - Zenvy | Leistungsstarke Tools für Gesunde Digitale Gewohnheiten'
+    : 'Features - Zenvy | Powerful Tools for Healthy Digital Habits'
+  
+  const description = isDutch
+    ? 'Ontdek alle krachtige functies van Zenvy: Family Dashboard, Task Management, ZenCoins Rewards, Knowledge Challenges, en meer. Alles wat je nodig hebt om schermtijd te transformeren in betekenisvolle gezinsmomenten.'
+    : isSpanish
+    ? 'Descubre todas las características poderosas de Zenvy: Panel Familiar, Gestión de Tareas, Recompensas ZenCoins, Desafíos de Conocimiento y más. Todo lo que necesitas para transformar el tiempo de pantalla en momentos familiares significativos.'
+    : isFrench
+    ? 'Découvrez toutes les fonctionnalités puissantes de Zenvy : Tableau de Bord Familial, Gestion des Tâches, Récompenses ZenCoins, Défis de Connaissance et plus encore. Tout ce dont vous avez besoin pour transformer le temps d\'écran en moments familiaux significatifs.'
+    : isGerman
+    ? 'Entdecken Sie alle leistungsstarken Funktionen von Zenvy: Familien-Dashboard, Aufgaben-Management, ZenCoins Belohnungen, Wissens-Herausforderungen und mehr. Alles was Sie brauchen, um Bildschirmzeit in bedeutsame Familienmomente zu verwandeln.'
+    : 'Discover all powerful features of Zenvy: Family Dashboard, Task Management, ZenCoins Rewards, Knowledge Challenges, and more. Everything you need to transform screen time into meaningful family moments.'
+  
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: locale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  }
+}
 
 export default async function FeaturesPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

@@ -1,6 +1,51 @@
 import { Heart, Shield, Sparkles, Gift } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import type { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const isDutch = locale === 'nl'
+  const isSpanish = locale === 'es'
+  const isFrench = locale === 'fr'
+  const isGerman = locale === 'de'
+  
+  const title = isDutch
+    ? 'Prijzen - Zenvy | Gratis voor Gezinnen, Gefinancierd door Donaties'
+    : isSpanish
+    ? 'Precios - Zenvy | Gratis para Familias, Financiado por Donaciones'
+    : isFrench
+    ? 'Tarifs - Zenvy | Gratuit pour les Familles, Financé par les Dons'
+    : isGerman
+    ? 'Preise - Zenvy | Kostenlos für Familien, Finanziert durch Spenden'
+    : 'Pricing - Zenvy | Free for Families, Funded by Donations'
+  
+  const description = isDutch
+    ? 'Zenvy is volledig gratis te gebruiken voor alle gezinnen. We zijn een startup gefinancierd door donaties. Ons doel is om Zenvy zo lang mogelijk gratis te houden zodat elk gezin kan profiteren van gezondere schermtijd gewoonten.'
+    : isSpanish
+    ? 'Zenvy es completamente gratis para todas las familias. Somos una startup financiada por donaciones. Nuestro objetivo es mantener Zenvy gratuito el mayor tiempo posible para que cada familia pueda beneficiarse de hábitos de tiempo de pantalla más saludables.'
+    : isFrench
+    ? 'Zenvy est entièrement gratuit pour toutes les familles. Nous sommes une startup financée par des dons. Notre objectif est de garder Zenvy gratuit aussi longtemps que possible pour que chaque famille puisse bénéficier d\'habitudes de temps d\'écran plus saines.'
+    : isGerman
+    ? 'Zenvy ist völlig kostenlos für alle Familien. Wir sind ein Startup, das durch Spenden finanziert wird. Unser Ziel ist es, Zenvy so lange wie möglich kostenlos zu halten, damit jede Familie von gesünderen Bildschirmzeit-Gewohnheiten profitieren kann.'
+    : 'Zenvy is completely free for all families. We\'re a startup funded by donations. Our goal is to keep Zenvy free for as long as possible so every family can benefit from healthier screen time habits.'
+  
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: locale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  }
+}
 
 export default async function PricingPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

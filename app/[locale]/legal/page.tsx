@@ -2,6 +2,51 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Shield, FileText, Scale, ArrowRight } from "lucide-react"
+import type { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const isDutch = locale === 'nl'
+  const isSpanish = locale === 'es'
+  const isFrench = locale === 'fr'
+  const isGerman = locale === 'de'
+  
+  const title = isDutch
+    ? 'Juridische Informatie - Zenvy | Privacybeleid en Gebruiksvoorwaarden'
+    : isSpanish
+    ? 'Información Legal - Zenvy | Política de Privacidad y Términos de Uso'
+    : isFrench
+    ? 'Informations Légales - Zenvy | Politique de Confidentialité et Conditions d\'Utilisation'
+    : isGerman
+    ? 'Rechtliche Informationen - Zenvy | Datenschutzrichtlinie und Nutzungsbedingungen'
+    : 'Legal Information - Zenvy | Privacy Policy and Terms of Use'
+  
+  const description = isDutch
+    ? 'Bekijk de juridische documenten van Zenvy: Privacybeleid en Gebruiksvoorwaarden. Transparantie en vertrouwen staan centraal in alles wat we doen.'
+    : isSpanish
+    ? 'Consulta los documentos legales de Zenvy: Política de Privacidad y Términos de Uso. La transparencia y la confianza están en el corazón de todo lo que hacemos.'
+    : isFrench
+    ? 'Consultez les documents juridiques de Zenvy : Politique de Confidentialité et Conditions d\'Utilisation. La transparence et la confiance sont au cœur de tout ce que nous faisons.'
+    : isGerman
+    ? 'Sehen Sie sich die rechtlichen Dokumente von Zenvy an: Datenschutzrichtlinie und Nutzungsbedingungen. Transparenz und Vertrauen stehen im Mittelpunkt von allem, was wir tun.'
+    : 'View Zenvy\'s legal documents: Privacy Policy and Terms of Use. Transparency and trust are at the heart of everything we do.'
+  
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: locale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  }
+}
 
 export default async function LegalPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

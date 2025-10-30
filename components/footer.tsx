@@ -19,7 +19,15 @@ export function Footer() {
           {/* Left section with logo and social icons - stays left aligned */}
           <div className="md:w-64 flex-shrink-0">
             <div className="flex items-center gap-2 mb-4">
-              <Image src="/zenvy-logo.png" alt="Zenvy logo" width={32} height={32} className="h-8 w-8 rounded-lg" />
+              <Image 
+                src="/zenvy-logo.png" 
+                alt="Zenvy logo" 
+                width={32} 
+                height={32} 
+                className="h-8 w-8 rounded-lg"
+                sizes="32px"
+                loading="lazy"
+              />
               <span className="text-xl font-bold">Zenvy</span>
             </div>
             <p className="text-sm text-muted-foreground mb-4">{getCurrentLocale() === 'nl' ? 'Schermtijd betekenisvol maken voor gezinnen wereldwijd.' : getCurrentLocale() === 'es' ? 'Haciendo que el tiempo de pantalla sea significativo para las familias de todo el mundo.' : getCurrentLocale() === 'fr' ? 'Rendre le temps d\'écran significatif pour les familles du monde entier.' : getCurrentLocale() === 'de' ? 'Bildschirmzeit für Familien weltweit bedeutsam machen.' : 'Making screen time meaningful for families worldwide.'}</p>

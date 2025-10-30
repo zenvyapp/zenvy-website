@@ -1,7 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-// Helper function to find list ID by name
+// Cache for SendGrid list ID (in-memory cache, resets on server restart)
+let cachedListId: string | null = null
+let listIdCacheTimestamp: number = 0
+const CACHE_TTL = 1000 * 60 * 60 // 1 hour in milliseconds
+
+// Helper function to find list ID by name with caching
 async function findListIdByName(listName: string): Promise<string | null> {
+  // Return cached value if still valid
+  if (cachedListId && Date.now() - listIdCacheTimestamp < CACHE_TTL) {
+    return cachedListId
+  }
+
   try {
     const response = await fetch('https://api.sendgrid.com/v3/marketing/lists', {
       method: 'GET',
@@ -13,7 +23,8 @@ async function findListIdByName(listName: string): Promise<string | null> {
 
     if (!response.ok) {
       console.error('Failed to fetch lists from SendGrid')
-      return null
+      // Return cached value even if expired if fetch fails
+      return cachedListId
     }
 
     const data = await response.json()
@@ -24,10 +35,19 @@ async function findListIdByName(listName: string): Promise<string | null> {
       l.name && l.name.toLowerCase() === listName.toLowerCase()
     )
     
-    return list ? list.id : null
+    const listId = list ? list.id : null
+    
+    // Cache the result
+    if (listId) {
+      cachedListId = listId
+      listIdCacheTimestamp = Date.now()
+    }
+    
+    return listId
   } catch (error) {
     console.error('Error fetching lists:', error)
-    return null
+    // Return cached value even if expired if fetch fails
+    return cachedListId
   }
 }
 

@@ -5,6 +5,51 @@ import { SectionNavigator } from "@/components/section-navigator"
 import { SidebarNavigator } from "@/components/sidebar-navigator"
 import { Shield, Calendar, Mail, ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const isDutch = locale === 'nl'
+  const isSpanish = locale === 'es'
+  const isFrench = locale === 'fr'
+  const isGerman = locale === 'de'
+  
+  const title = isDutch
+    ? 'Privacybeleid - Zenvy | Hoe We Je Gegevens Beschermen'
+    : isSpanish
+    ? 'Política de Privacidad - Zenvy | Cómo Protegemos Tus Datos'
+    : isFrench
+    ? 'Politique de Confidentialité - Zenvy | Comment Nous Protégeons Vos Données'
+    : isGerman
+    ? 'Datenschutzrichtlinie - Zenvy | Wie Wir Ihre Daten Schützen'
+    : 'Privacy Policy - Zenvy | How We Protect Your Data'
+  
+  const description = isDutch
+    ? 'Leer hoe Zenvy de gegevens van je gezin verzamelt, gebruikt en beschermt. Jouw privacy is onze hoogste prioriteit. We verkopen nooit je gegevens aan derden.'
+    : isSpanish
+    ? 'Aprende cómo Zenvy recopila, usa y protege los datos de tu familia. Tu privacidad es nuestra máxima prioridad. Nunca vendemos tus datos a terceros.'
+    : isFrench
+    ? 'Découvrez comment Zenvy collecte, utilise et protège les données de votre famille. Votre confidentialité est notre priorité absolue. Nous ne vendons jamais vos données à des tiers.'
+    : isGerman
+    ? 'Erfahren Sie, wie Zenvy die Daten Ihrer Familie sammelt, verwendet und schützt. Ihr Datenschutz ist unsere oberste Priorität. Wir verkaufen niemals Ihre Daten an Dritte.'
+    : 'Learn how Zenvy collects, uses, and protects your family\'s data. Your privacy is our top priority. We never sell your data to third parties.'
+  
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: locale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  }
+}
 
 export default async function PrivacyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

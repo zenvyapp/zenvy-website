@@ -3,6 +3,51 @@ import { Footer } from "@/components/footer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Mail, Headphones, Shield, Globe, HelpCircle } from "lucide-react"
+import type { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const isDutch = locale === 'nl'
+  const isSpanish = locale === 'es'
+  const isFrench = locale === 'fr'
+  const isGerman = locale === 'de'
+  
+  const title = isDutch
+    ? 'Ondersteuning - Zenvy | Contact en Veelgestelde Vragen'
+    : isSpanish
+    ? 'Soporte - Zenvy | Contacto y Preguntas Frecuentes'
+    : isFrench
+    ? 'Support - Zenvy | Contact et Questions Fréquentes'
+    : isGerman
+    ? 'Support - Zenvy | Kontakt und Häufig Gestellte Fragen'
+    : 'Support - Zenvy | Contact and Frequently Asked Questions'
+  
+  const description = isDutch
+    ? 'Heb je vragen over Zenvy? Neem contact met ons op via hello@zenvy.io of support@zenvy.io. Bekijk ook onze veelgestelde vragen voor snelle antwoorden op veelgestelde vragen.'
+    : isSpanish
+    ? '¿Tienes preguntas sobre Zenvy? Contáctanos en hello@zenvy.io o support@zenvy.io. También revisa nuestras preguntas frecuentes para respuestas rápidas a preguntas comunes.'
+    : isFrench
+    ? 'Vous avez des questions sur Zenvy ? Contactez-nous à hello@zenvy.io ou support@zenvy.io. Consultez également nos questions fréquentes pour des réponses rapides aux questions courantes.'
+    : isGerman
+    ? 'Haben Sie Fragen zu Zenvy? Kontaktieren Sie uns unter hello@zenvy.io oder support@zenvy.io. Sehen Sie sich auch unsere häufig gestellten Fragen für schnelle Antworten auf häufige Fragen an.'
+    : 'Have questions about Zenvy? Contact us at hello@zenvy.io or support@zenvy.io. Also check out our frequently asked questions for quick answers to common questions.'
+  
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: locale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  }
+}
 
 export default async function SupportPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

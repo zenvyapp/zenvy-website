@@ -5,6 +5,51 @@ import { SectionNavigator } from "@/components/section-navigator"
 import { SidebarNavigator } from "@/components/sidebar-navigator"
 import { FileText, Calendar, Mail, ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params
+  const isDutch = locale === 'nl'
+  const isSpanish = locale === 'es'
+  const isFrench = locale === 'fr'
+  const isGerman = locale === 'de'
+  
+  const title = isDutch
+    ? 'Gebruiksvoorwaarden - Zenvy | Termen en Condities'
+    : isSpanish
+    ? 'Términos de Uso - Zenvy | Términos y Condiciones'
+    : isFrench
+    ? 'Conditions d\'Utilisation - Zenvy | Termes et Conditions'
+    : isGerman
+    ? 'Nutzungsbedingungen - Zenvy | Allgemeine Geschäftsbedingungen'
+    : 'Terms of Use - Zenvy | Terms and Conditions'
+  
+  const description = isDutch
+    ? 'Lees de gebruiksvoorwaarden van Zenvy. Duidelijke richtlijnen voor het gebruik van onze app en diensten. Geschreven in begrijpelijke taal zonder onnodig juridisch jargon.'
+    : isSpanish
+    ? 'Lee los términos de uso de Zenvy. Pautas claras para el uso de nuestra app y servicios. Escritos en lenguaje comprensible sin jerga legal innecesaria.'
+    : isFrench
+    ? 'Lisez les conditions d\'utilisation de Zenvy. Des directives claires pour l\'utilisation de notre app et de nos services. Rédigées dans un langage compréhensible sans jargon juridique inutile.'
+    : isGerman
+    ? 'Lesen Sie die Nutzungsbedingungen von Zenvy. Klare Richtlinien für die Nutzung unserer App und Dienste. In verständlicher Sprache geschrieben, ohne unnötiges rechtliches Fachjargon.'
+    : 'Read Zenvy\'s terms of use. Clear guidelines for using our app and services. Written in understandable language without unnecessary legal jargon.'
+  
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      locale: locale,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
+  }
+}
 
 export default async function TermsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params

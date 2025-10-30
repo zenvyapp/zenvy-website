@@ -73,7 +73,15 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="container mx-auto px-4 h-20 flex items-center justify-between" role="navigation" aria-label="Main navigation">
         <Link href={`/${getCurrentLocale()}`} className="flex items-center gap-2" aria-label="Zenvy - Go to homepage">
-          <Image src="/zenvy-logo.png" alt="Zenvy logo" width={40} height={40} className="h-10 w-10 rounded-lg" priority />
+          <Image 
+            src="/zenvy-logo.png" 
+            alt="Zenvy logo" 
+            width={40} 
+            height={40} 
+            className="h-10 w-10 rounded-lg" 
+            priority
+            sizes="40px"
+          />
           <span className="text-2xl font-bold text-foreground">Zenvy</span>
         </Link>
         <div className="hidden md:flex items-center gap-8">

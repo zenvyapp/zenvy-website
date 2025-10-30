@@ -28,10 +28,10 @@ export default async function LocaleLayout({
   const { locale } = await params
   return (
     <>
-      {/* Cookieyes banner script */}
+      {/* Cookieyes banner script - lazy loaded for better performance */}
       <Script
         id="cookieyes"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         src="https://cdn-cookieyes.com/client_data/2b513de12ac8b2982910c1b8/script.js"
       />
       <ErrorBoundary>
